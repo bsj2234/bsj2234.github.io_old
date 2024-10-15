@@ -31,6 +31,10 @@ sass:
 navigation:
 - text: Home
   url: /
+- text: Portfolio
+  url: /portfolio/
+- text: Blog
+  url: /blog/
 - text: About
   url: /about/
 - text: Style Guide
@@ -72,3 +76,4 @@ permalink: pretty
 markdown: kramdown
 kramdown:
     auto_ids: false
+
