@@ -75,4 +75,16 @@
         });
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
+        var items = document.querySelectorAll('.portfolio-item');
+        items.forEach(function(item) {
+            item.addEventListener('mouseenter', function() {
+                this.querySelector('.portfolio-description').style.opacity = '1';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.querySelector('.portfolio-description').style.opacity = '0';
+            });
+        });
+    });
+
 }(jQuery));

@@ -29,18 +29,14 @@ sass:
 
 # Site navigation - each item must have a title and a url.
 navigation:
-- text: Home
+- text: 홈
   url: /
-- text: Portfolio
+- text: 포트폴리오
   url: /portfolio/
-- text: Blog
+- text: 블로그
   url: /blog/
-- text: About
+- text: 소개
   url: /about/
-- text: Style Guide
-  url: /style-guide/
-- text: Archives
-  url: /tags/
 
 # Author information - author info at the bottom of the post
 author_name: "John Doe"
@@ -77,3 +73,8 @@ markdown: kramdown
 kramdown:
     auto_ids: false
 
+# Portfolio
+collections:
+  portfolio:
+    output: true
+    permalink: /portfolio/:path/

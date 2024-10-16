@@ -1,0 +1,33 @@
+---
+layout: default
+title: 포트폴리오
+---
+<main class="content fade-in-down delay-0_75s">
+    <div class="inner">
+        <h1>{{ page.title }}</h1>
+        
+        <p>여기에 포트폴리오 페이지에 대한 간단한 소개나 설명을 추가할 수 있습니다.</p>
+        
+        <div class="portfolio-grid">
+          {% assign sorted_projects = site.portfolio | sort: "date" | reverse | sort: "priority", "last" %}
+          {% for item in sorted_projects %}
+            <a href="{{ item.url | prepend: site.baseurl }}" class="portfolio-item">
+              <div class="portfolio-image">
+                {% if item.image %}
+                  <img src="{{ item.image | prepend: site.baseurl }}" alt="{{ item.title }}">
+                {% endif %}
+              </div>
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h2>{{ item.title }}</h2>
+                  <p>{{ item.description }}</p>
+                  <p>게임 유형: {{ item.game_type }}</p>
+                  <p>프로젝트 유형: {{ item.project_type }}</p>
+                  <p>주요 포커스: {{ item.focus }}</p>
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+    </div>
+</main>

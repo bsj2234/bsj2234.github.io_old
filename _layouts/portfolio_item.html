@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<main class="content fade-in-down delay-0_75s">
+    <div class="inner">
+        <article class="post single-portfolio-item">
+            {% if page.image %}
+            <div class="portfolio-image-container">
+                <img src="{{ page.image | prepend: site.baseurl }}" alt="{{ page.title }}" class="portfolio-image">
+            </div>
+            {% endif %}
+            <div class="entry-box">
+                <header class="entry-header">
+                    <h1 class="entry-title">{{ page.title }}</h1>
+                    <div class="entry-meta">
+                        <p>게임 유형: {{ page.game_type }}</p>
+                        <p>프로젝트 유형: {{ page.project_type }}</p>
+                        <p>주요 포커스: {{ page.focus }}</p>
+                    </div>
+                </header>
+                <div class="entry-content">
+                    {{ content }}
+                </div>
+            </div>
+        </article>
+    </div>
+</main>
