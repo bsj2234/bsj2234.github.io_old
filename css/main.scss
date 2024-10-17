@@ -6,6 +6,11 @@
  * By Just Good Themes - https://justgoodthemes.com/
  */
 
+// Variables
+$accent-color: #2d72d9;
+$alt-font: 'NanumDaSiSiJagHae', sans-serif;
+$heading-font: 'PT Serif', serif;
+
 // Import
 @import "variables","icons","reset","general";
 
@@ -1044,7 +1049,6 @@ ul.search-results {
 .portfolio-item {
     .entry-meta,
     .entry-content {
-        font-family: $alt-font;
         line-height: 1.5;
     }
 
@@ -1078,6 +1082,7 @@ ul.search-results {
     .entry-content {
         // Add styles for your markdown content here
         width: 100%;
+        font-size: 16px;
         overflow: visible; // Ensure content is not cut off
     }
 }
