@@ -71,7 +71,8 @@ plugins: [jekyll-paginate]
 permalink: pretty
 markdown: kramdown
 kramdown:
-    auto_ids: false
+  syntax_highlighter_opts:
+    disable: true
 
 # Portfolio
 collections:

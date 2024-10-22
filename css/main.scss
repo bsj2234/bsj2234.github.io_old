@@ -1086,3 +1086,91 @@ ul.search-results {
         overflow: visible; // Ensure content is not cut off
     }
 }
+
+.toc-container {
+    font-size: 0.9em;
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 999;
+    width: 250px;
+    transition: top 0.3s ease-in-out;
+
+    @media (max-width: 768px) {
+        position: static;
+        width: 100%;
+        max-height: none;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #333;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+#toc-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    
+    @media (max-width: 768px) {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .entry-content {
+        margin-right: 280px;
+    }
+}
+
+.code-block-container {
+    max-height: 300px;  // Adjust this value as needed
+    overflow-y: auto;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    background-color: #f6f8fa;  // Light gray background
+}
+
+.code-block-container pre[class*="language-"],
+.code-block-container pre {
+    margin: 0;
+    padding: 16px;
+}
+
+.code-block-container code[class*="language-"],
+.code-block-container code {
+    display: block;
+    overflow-x: auto;
+    white-space: pre;
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
