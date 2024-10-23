@@ -31,9 +31,16 @@ layout: default
 
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-    const toc = document.getElementById('toc');
+    const toc = document.querySelector('.toc-container');
     const tocToggle = document.getElementById('toc-toggle') || document.createElement('button');
     const mobileToc = document.getElementById('mobile-toc');
+
+    if (toc) {
+        console.log('toc found:', toc);
+    // 기존 toc 관련 코드
+    } else {
+        console.log('toc not found');
+    }
     
     if (toc && mobileToc) {
         const isMobile = () => window.innerWidth <= 1610;
