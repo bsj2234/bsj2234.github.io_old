@@ -17,6 +17,9 @@ layout: default
                         <p>프로젝트 유형: {{ page.project_type }}</p>
                         <p>주요 포커스: {{ page.focus }}</p>
                     </div>
+                    <div id="mobile-toc" class="mobile-toc-container">
+                        <!-- 모바일용 목차가 여기에 동적으로 추가됩니다 -->
+                    </div>
                 </header>
                 <div class="entry-content">
                     {{ content }}
@@ -29,34 +32,58 @@ layout: default
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     const toc = document.getElementById('toc');
-    if (toc) {
-        const isMobile = () => window.innerWidth <= 768;
+    const tocToggle = document.getElementById('toc-toggle') || document.createElement('button');
+    const mobileToc = document.getElementById('mobile-toc');
+    
+    if (toc && mobileToc) {
+        const isMobile = () => window.innerWidth <= 1610;
 
-        function toggleTocVisibility() {
+        function createMobileToc() {
+            // 기존 목차의 내용을 복사하여 모바일 목차에 추가
+            mobileToc.innerHTML = toc.innerHTML;
+        }
+
+        function updateTocPosition() {
+            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            const headerHeight = 60;
+            const topMargin = 20;
+            const maxTop = document.body.offsetHeight - toc.offsetHeight - topMargin;
+
+            let topPosition = Math.max(headerHeight + topMargin, scrollPosition + topMargin);
+            topPosition = Math.min(topPosition, maxTop);
+
+            toc.style.top = `${topPosition}px`;
+        }
+
+        function showToc() {
+            toc.classList.remove('hidden');
             if (isMobile()) {
-                let tocToggle = document.getElementById('toc-toggle');
-                if (!tocToggle) {
-                    tocToggle = document.createElement('button');
-                    tocToggle.innerText = '목차';
-                    tocToggle.id = 'toc-toggle';
-                    document.body.appendChild(tocToggle);
-                    tocToggle.addEventListener('click', () => {
-                        toc.style.display = toc.style.display === 'none' ? 'block' : 'none';
-                    });
-                }
-                toc.style.display = 'none';
-            } else {
-                const existingToggle = document.getElementById('toc-toggle');
-                if (existingToggle) {
-                    existingToggle.remove();
-                }
-                toc.style.display = 'block';
+                tocToggle.style.display = 'none';
             }
         }
 
-        toggleTocVisibility();
+        function hideToc() {
+            toc.classList.add('hidden');
+            if (isMobile()) {
+                tocToggle.style.display = 'block';
+            }
+        }
 
-        window.addEventListener('resize', toggleTocVisibility);
+        // 토글 버튼 설정
+        if (!document.getElementById('toc-toggle')) {
+            tocToggle.id = 'toc-toggle';
+            tocToggle.textContent = '목차 보기';
+            document.body.appendChild(tocToggle);
+        }
+
+        tocToggle.addEventListener('click', showToc);
+
+        // 목차 외부 클릭 시 목차 닫기
+        document.addEventListener('click', (e) => {
+            if (!toc.contains(e.target) && e.target !== tocToggle && isMobile()) {
+                hideToc();
+            }
+        });
 
         // 목차 링크 클릭 이벤트 처리
         toc.addEventListener('click', function(e) {
@@ -65,18 +92,56 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 const targetId = e.target.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
-                    const offset = 100;
+                    const offset = 80;
                     const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
                     });
                     if (isMobile()) {
-                        toc.style.display = 'none';
+                        hideToc();
                     }
                 }
             }
         });
+
+        mobileToc.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const offset = 80;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    if (isMobile()) {
+                        hideToc();
+                    }
+                }
+            }
+        });
+
+        createMobileToc();
+        updateTocPosition();
+        window.addEventListener('scroll', updateTocPosition);
+        window.addEventListener('resize', () => {
+            updateTocPosition();
+            if (isMobile()) {
+                hideToc();
+            } else {
+                showToc();
+            }
+        });
+
+        // 초기 상태 설정
+        if (isMobile()) {
+            hideToc();
+        } else {
+            showToc();
+        }
     }
 });
 </script>
