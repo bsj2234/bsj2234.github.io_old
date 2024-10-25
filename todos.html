@@ -1,0 +1,21 @@
+---
+layout: default
+title: Todo 목록
+---
+
+<h1>Todo 목록</h1>
+
+<ul class="todo-list">
+  {% assign sorted_todos = site.todos | sort: "date" | reverse %}
+  {% for todo in sorted_todos %}
+    <li class="todo-item {% if todo.completed %}completed{% endif %}">
+      <h2><a href="{{ site.baseurl }}{{ todo.url }}">{{ todo.title }}</a></h2>
+      <p>{{ todo.description | truncate: 100 }}</p>
+      <p class="todo-status">
+        상태: {% if todo.completed %}완료{% else %}미완료{% endif %}
+      </p>
+    </li>
+  {% endfor %}
+</ul>
+
+<a href="{{ site.baseurl }}/admin/#/collections/todos">새 Todo 추가</a>

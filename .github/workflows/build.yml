@@ -1,0 +1,21 @@
+   name: Build and Deploy
+   on:
+     push:
+       branches: [main]
+   jobs:
+     build-and-deploy:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         
+         - name: Inject base_url
+           run: |
+             sed -i 's/repo: bsj2234\/bsj2234.github.io/&\n  base_url: ${{ secrets.NETLIFY_CMS_BASE_URL }}/' admin/config.yml
+         
+         # Add other build steps here
+         
+         - name: Deploy
+           uses: peaceiris/actions-gh-pages@v3
+           with:
+             github_token: ${{ secrets.GITHUB_TOKEN }}
+             publish_dir: ./build  # adjust this to your build output directory

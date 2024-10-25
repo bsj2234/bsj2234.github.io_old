@@ -1190,3 +1190,39 @@ ul.search-results {
         }
     }
 }
+
+// Todo styles
+
+.todo-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .todo-item {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 5px;
+  
+    &.completed {
+      background-color: #f0f0f0;
+    }
+  
+    h2 {
+      margin-top: 0;
+    }
+  
+    .todo-status {
+      font-weight: bold;
+    }
+  }
+  
+  .todo {
+    .todo-status {
+      font-weight: bold;
+    }
+  
+    .todo-completed {
+      color: green;
+    }
+  }

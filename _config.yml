@@ -76,3 +76,6 @@ collections:
   portfolio:
     output: true
     permalink: /portfolio/:path/
+  todos:
+    output: true
+    permalink: /todos/:path/
