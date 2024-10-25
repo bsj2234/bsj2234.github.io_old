@@ -1,0 +1,16 @@
+backend:
+  name: github
+  repo: bsj2234/bsj2234.github.io
+  branch: main
+
+media_folder: "images/uploads"
+
+collections:
+  - name: "todos"
+    label: "Todos"
+    folder: "_todos"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Completed", name: "completed", widget: "boolean", default: false}
