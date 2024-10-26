@@ -1,9 +1,10 @@
-name: Replace base_url
+name: Build and Deploy
 on:
-  push
+  push:
+    branches: [master]
 
 jobs:
-  replace-base_url:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -12,9 +13,16 @@ jobs:
         env:
           NETLIFY_CMS_BASE_URL: ${{ secrets.NETLIFY_CMS_BASE_URL }}
         run: |
-          sed -i 's|NETLIFY_CMS_BASE_URL|'"$NETLIFY_CMS_BASE_URL"'|' admin/config.yml
-          ls -l admin/config.yml
+          sed -i 's|NETLIFY_CMS_BASE_URL|'"$NETLIFY_CMS_BASE_URL"'|g' admin/config.yml
       
       - name: Debug config
         run: cat admin/config.yml
         #test
+      
+      # Add your build steps here if needed
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .  # or your build directory if you have one
