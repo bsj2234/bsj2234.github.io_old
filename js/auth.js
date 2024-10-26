@@ -1,4 +1,5 @@
 let auth0 = null;
+let userProfile = null;
 
 const configureClient = async () => {
   auth0 = await createAuth0Client({
@@ -15,7 +16,9 @@ const configureClient = async () => {
 const login = async () => {
   console.log('Login function called');
   try {
-    await auth0.loginWithRedirect();
+    await auth0.loginWithRedirect({
+      redirect_uri: auth0Config.redirectUri
+    });
   } catch (error) {
     console.error('Login error:', error);
   }
@@ -32,21 +35,29 @@ const isAuthenticated = async () => {
   return await auth0.isAuthenticated();
 };
 
+const getUserProfile = async () => {
+  if (!userProfile) {
+    try {
+      userProfile = await auth0.getUser();
+    } catch (error) {
+      console.error("Error getting user profile:", error);
+    }
+  }
+  return userProfile;
+};
+
 const handleRedirectCallback = async () => {
   console.log('Handling redirect callback');
   try {
     const result = await auth0.handleRedirectCallback();
     console.log('Redirect callback result:', result);
+    userProfile = await auth0.getUser();
+    console.log('User profile:', userProfile);
     window.history.replaceState({}, document.title, "/");
     return result;
   } catch (error) {
     console.error("Error handling redirect callback:", error);
-    if (error.error_description) {
-      console.error("Error description:", error.error_description);
-    }
-    if (error.stack) {
-      console.error("Error stack:", error.stack);
-    }
+    console.error("Error details:", JSON.stringify(error, null, 2));
     throw error;
   }
 };
@@ -54,24 +65,36 @@ const handleRedirectCallback = async () => {
 window.onload = async () => {
   await configureClient();
   
-  // If the user is returning to the app after authentication
   if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
     try {
-      // Process the login state
-      await auth0.handleRedirectCallback();
-      // Remove the query parameters
-      window.history.replaceState({}, document.title, "/");
+      await handleRedirectCallback();
     } catch (error) {
-      console.error("Error handling redirect callback:", error);
+      console.error('Error handling redirect callback:', error);
     }
   }
 
   const isAuthed = await isAuthenticated();
   console.log("Is authenticated:", isAuthed);
+  if (isAuthed) {
+    userProfile = await getUserProfile();
+    console.log("User profile:", userProfile);
+    updateUIWithUserInfo(userProfile);
+  }
 };
+
+function updateUIWithUserInfo(user) {
+  const userInfoElement = document.getElementById('user-info');
+  if (userInfoElement) {
+    userInfoElement.innerHTML = `
+      <img src="${user.picture}" alt="${user.name}" style="width:50px; border-radius:50%;">
+      <p>Welcome, ${user.name}!</p>
+    `;
+  }
+}
 
 // Make sure these are accessible globally
 window.login = login;
 window.logout = logout;
 window.isAuthenticated = isAuthenticated;
 window.handleRedirectCallback = handleRedirectCallback;
+window.getUserProfile = getUserProfile;

@@ -5,6 +5,7 @@ title: Todo 목록
 
 <main class="content fade-in-down delay-0_75s">
   <div class="inner">
+    <div id="user-info"></div>
     <div id="todos-content" style="display: none;">
       <h1>Todo 목록</h1>
 
@@ -38,16 +39,26 @@ title: Todo 목록
 
 <script>
   async function checkAuth() {
-    console.log('Checking authentication');
-    try {
-      const isAuthenticated = await window.isAuthenticated();
-      console.log('Is authenticated:', isAuthenticated);
-      document.getElementById('todos-content').style.display = isAuthenticated ? 'block' : 'none';
-      document.getElementById('login-prompt').style.display = isAuthenticated ? 'none' : 'block';
-    } catch (error) {
-      console.error('Error checking authentication:', error);
+    const isAuthenticated = await window.isAuthenticated();
+    document.getElementById('todos-content').style.display = isAuthenticated ? 'block' : 'none';
+    document.getElementById('login-prompt').style.display = isAuthenticated ? 'none' : 'block';
+    if (isAuthenticated) {
+      const userProfile = await window.getUserProfile();
+      updateUIWithUserInfo(userProfile);
     }
   }
+
+  function updateUIWithUserInfo(user) {
+    const userInfoElement = document.getElementById('user-info');
+    if (userInfoElement) {
+      userInfoElement.innerHTML = `
+        <img src="${user.picture}" alt="${user.name}" style="width:50px; border-radius:50%;">
+        <p>Welcome, ${user.name}!</p>
+      `;
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', checkAuth);
 
   async function createTodoFile(title, description) {
     const token = await window.getAccessToken();

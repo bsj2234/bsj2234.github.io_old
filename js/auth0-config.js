@@ -4,6 +4,7 @@ const auth0Config = {
     redirectUri: "https://bsj2234.github.io/callback",
     audience: "https://dev-6gh5bauxwwqpbz21.jp.auth0.com/api/v2/",
     scope: "openid profile email",
+    responseType: 'code',
     useRefreshTokens: true,
     cacheLocation: "localstorage"
 };
