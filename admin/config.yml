@@ -2,8 +2,8 @@ backend:
   name: github
   repo: bsj2234/bsj2234.github.io
   branch: master
-  base_url: NETLIFY_CMS_BASE_URL_PLACEHOLDER
-  
+  base_url: NETLIFY_CMS_BASE_URL
+
 media_folder: "images/uploads"
 
 collections:
