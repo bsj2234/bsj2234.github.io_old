@@ -7,6 +7,9 @@
   <meta name="description"
     content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
+  <script src="{{ site.baseurl }}/js/auth0-config.js"></script>
+  <script src="{{ site.baseurl }}/js/auth.js"></script>
   <link rel="shortcut icon" href="{{ "/favicon.ico" | prepend: site.baseurl }}">
   <link rel="stylesheet" type="text/css"
     href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic%7COpen+Sans:400,700,400italic,700italic" />

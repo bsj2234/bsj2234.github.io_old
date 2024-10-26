@@ -79,3 +79,6 @@ collections:
   todos:
     output: true
     permalink: /todos/:path/
+
+include:
+  - callback.html

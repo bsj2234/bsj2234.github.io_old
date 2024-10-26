@@ -88,3 +88,14 @@
     });
 
 }(jQuery));
+
+const updateAuthButtons = async () => {
+    const isAuthed = await isAuthenticated();
+    document.getElementById('loginBtn').style.display = isAuthed ? 'none' : 'inline-block';
+    document.getElementById('logoutBtn').style.display = isAuthed ? 'inline-block' : 'none';
+};
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await configureClient();
+    updateAuthButtons();
+});

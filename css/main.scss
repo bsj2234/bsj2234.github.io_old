@@ -1226,3 +1226,18 @@ ul.search-results {
       color: green;
     }
   }
+
+.auth-btn {
+  background-color: #2d72d9;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.auth-btn:hover {
+  background-color: #1e5bb0;
+}
