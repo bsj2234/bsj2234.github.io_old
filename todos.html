@@ -3,19 +3,40 @@ layout: default
 title: Todo 목록
 ---
 
-<h1>Todo 목록</h1>
+<main class="content fade-in-down delay-0_75s">
+  <div class="inner">
+    <div id="todos-content" style="display: none;">
+      <h1>Todo 목록</h1>
 
-<ul class="todo-list">
-  {% assign sorted_todos = site.todos | sort: "date" | reverse %}
-  {% for todo in sorted_todos %}
-    <li class="todo-item {% if todo.completed %}completed{% endif %}">
-      <h2><a href="{{ site.baseurl }}{{ todo.url }}">{{ todo.title }}</a></h2>
-      <p>{{ todo.description | truncate: 100 }}</p>
-      <p class="todo-status">
-        상태: {% if todo.completed %}완료{% else %}미완료{% endif %}
-      </p>
-    </li>
-  {% endfor %}
-</ul>
+      <ul class="todo-list">
+        {% assign sorted_todos = site.todos | sort: "date" | reverse %}
+        {% for todo in sorted_todos %}
+          <li class="todo-item {% if todo.completed %}completed{% endif %}">
+            <h2><a href="{{ site.baseurl }}{{ todo.url }}">{{ todo.title }}</a></h2>
+            <p>{{ todo.description | truncate: 100 }}</p>
+            <p class="todo-status">
+              상태: {% if todo.completed %}완료{% else %}미완료{% endif %}
+            </p>
+          </li>
+        {% endfor %}
+      </ul>
 
-<a href="{{ site.baseurl }}/admin/#/collections/todos">새 Todo 추가</a>
+      <a href="{{ site.baseurl }}/admin/#/collections/todos" class="add-todo-btn">새 Todo 추가</a>
+    </div>
+
+    <div id="login-prompt" style="display: none;">
+      <h2>Todo 목록을 보려면 로그인하세요</h2>
+      <button onclick="login()" class="auth-btn">로그인</button>
+    </div>
+  </div>
+</main>
+
+<script>
+  async function checkAuth() {
+    const isAuthenticated = await window.isAuthenticated();
+    document.getElementById('todos-content').style.display = isAuthenticated ? 'block' : 'none';
+    document.getElementById('login-prompt').style.display = isAuthenticated ? 'none' : 'block';
+  }
+
+  document.addEventListener('DOMContentLoaded', checkAuth);
+</script>
