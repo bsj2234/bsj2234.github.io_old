@@ -1,39 +1,18 @@
-   name: Build and Deploy
+   name: Replace base_url placeholder
    on:
-     push:
-       branches: [master]
+     push
+
    jobs:
-     build-and-deploy:
+     replace-base_url-placeholder:
        runs-on: ubuntu-latest
-       env:
-         NETLIFY_CMS_BASE_URL: ${{ secrets.NETLIFY_CMS_BASE_URL }}
        steps:
-         - uses: actions/checkout@v2
+         - uses: actions/checkout@v4
          
          - name: Replace base_url placeholder
-           run: |
-             sed -i "s|NETLIFY_CMS_BASE_URL_PLACEHOLDER|${{ secrets.NETLIFY_CMS_BASE_URL }}|g" admin/config.yml
+             env:
+               NETLIFY_CMS_BASE_URL: ${{ secrets.NETLIFY_CMS_BASE_URL }}
+             run: |
+               sed -i 's|NETLIFY_CMS_BASE_URL|'"$NETLIFY_CMS_BASE_URL"'|' admin/config.yml
          
          - name: Debug config
            run: cat admin/config.yml
-         
-         # Add your build steps here
-         
-         - name: Deploy
-           uses: peaceiris/actions-gh-pages@v3
-           with:
-             github_token: ${{ secrets.GITHUB_TOKEN }}
-             publish_dir: ./build  # adjust this to your build output directory
-
-         - name: Debug before replacement
-           run: cat admin/config.yml
-
-          - name: Replace base_url placeholder
-           run: |
-             sed -i "s|NETLIFY_CMS_BASE_URL_PLACEHOLDER|${{ secrets.NETLIFY_CMS_BASE_URL }}|g" admin/config.yml
-
-          - name: Debug after replacement
-            run: cat admin/config.yml
-
-          - name: Echo environment variable
-            run: echo $NETLIFY_CMS_BASE_URL
