@@ -51,8 +51,8 @@ const handleRedirectCallback = async () => {
   try {
     const result = await auth0.handleRedirectCallback();
     console.log('Redirect callback result:', result);
-    userProfile = await auth0.getUser();
-    console.log('User profile:', userProfile);
+    const user = await auth0.getUser();
+    console.log('User:', user);
     window.history.replaceState({}, document.title, "/");
     return result;
   } catch (error) {
@@ -63,6 +63,8 @@ const handleRedirectCallback = async () => {
     if (error.stack) {
       console.error("Error stack:", error.stack);
     }
+    // Log the entire error object
+    console.error("Full error object:", JSON.stringify(error, null, 2));
     throw error;
   }
 };
