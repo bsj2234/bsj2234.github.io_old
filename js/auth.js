@@ -57,7 +57,12 @@ const handleRedirectCallback = async () => {
     return result;
   } catch (error) {
     console.error("Error handling redirect callback:", error);
-    console.error("Error details:", JSON.stringify(error, null, 2));
+    if (error.error_description) {
+      console.error("Error description:", error.error_description);
+    }
+    if (error.stack) {
+      console.error("Error stack:", error.stack);
+    }
     throw error;
   }
 };

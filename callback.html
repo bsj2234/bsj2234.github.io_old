@@ -1,17 +1,26 @@
 ---
 layout: default
 ---
+<div id="callback-message"></div>
 <script>
   window.onload = async () => {
+    const messageElement = document.getElementById('callback-message');
+    messageElement.textContent = 'Processing authentication...';
     try {
       console.log('Callback page loaded');
+      console.log('URL:', window.location.href);
       await handleRedirectCallback();
       console.log('Redirect handled, navigating to home');
       window.location.href = "/";
     } catch (error) {
       console.error('Error in callback:', error);
-      document.body.innerHTML += `<p>Error during authentication: ${error.message}</p>`;
+      messageElement.textContent = `Error during authentication: ${error.message}`;
+      if (error.error_description) {
+        console.error("Error description:", error.error_description);
+      }
+      if (error.stack) {
+        console.error("Error stack:", error.stack);
+      }
     }
   };
 </script>
-
