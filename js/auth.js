@@ -6,7 +6,9 @@ const configureClient = async () => {
     client_id: auth0Config.clientId,
     redirect_uri: auth0Config.redirectUri,
     audience: auth0Config.audience,
-    scope: auth0Config.scope
+    scope: auth0Config.scope,
+    useRefreshTokens: auth0Config.useRefreshTokens,
+    cacheLocation: auth0Config.cacheLocation
   });
 };
 
