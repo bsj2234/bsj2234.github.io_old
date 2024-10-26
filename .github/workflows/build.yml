@@ -5,12 +5,14 @@
    jobs:
      build-and-deploy:
        runs-on: ubuntu-latest
+       env:
+         NETLIFY_CMS_BASE_URL: ${{ secrets.NETLIFY_CMS_BASE_URL }}
        steps:
          - uses: actions/checkout@v2
          
-         - name: Inject base_url
+         - name: Replace base_url placeholder
            run: |
-             sed -i 's/repo: bsj2234\/bsj2234.github.io/&\n  base_url: ${{ secrets.NETLIFY_CMS_BASE_URL }}/' admin/config.yml
+             sed -i 's|NETLIFY_CMS_BASE_URL_PLACEHOLDER|'"$NETLIFY_CMS_BASE_URL"'|' admin/config.yml
          
          - name: Debug config
            run: cat admin/config.yml
