@@ -1,7 +1,7 @@
    name: Build and Deploy
    on:
      push:
-       branches: [main]
+       branches: [master]
    jobs:
      build-and-deploy:
        runs-on: ubuntu-latest
@@ -12,7 +12,10 @@
            run: |
              sed -i 's/repo: bsj2234\/bsj2234.github.io/&\n  base_url: ${{ secrets.NETLIFY_CMS_BASE_URL }}/' admin/config.yml
          
-         # Add other build steps here
+         - name: Debug config
+           run: cat admin/config.yml
+         
+         # Add your build steps here
          
          - name: Deploy
            uses: peaceiris/actions-gh-pages@v3
