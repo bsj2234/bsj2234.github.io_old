@@ -12,7 +12,7 @@
          
          - name: Replace base_url placeholder
            run: |
-             sed -i 's|NETLIFY_CMS_BASE_URL_PLACEHOLDER|'"$NETLIFY_CMS_BASE_URL"'|' admin/config.yml
+             sed -i "s|NETLIFY_CMS_BASE_URL_PLACEHOLDER|${{ secrets.NETLIFY_CMS_BASE_URL }}|g" admin/config.yml
          
          - name: Debug config
            run: cat admin/config.yml
@@ -24,3 +24,16 @@
            with:
              github_token: ${{ secrets.GITHUB_TOKEN }}
              publish_dir: ./build  # adjust this to your build output directory
+
+         - name: Debug before replacement
+           run: cat admin/config.yml
+
+          - name: Replace base_url placeholder
+           run: |
+             sed -i "s|NETLIFY_CMS_BASE_URL_PLACEHOLDER|${{ secrets.NETLIFY_CMS_BASE_URL }}|g" admin/config.yml
+
+          - name: Debug after replacement
+            run: cat admin/config.yml
+
+          - name: Echo environment variable
+            run: echo $NETLIFY_CMS_BASE_URL
