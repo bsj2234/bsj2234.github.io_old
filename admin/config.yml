@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: bsj2234/bsj2234.github.io
-  branch: main
+  branch: master
 
 media_folder: "images/uploads"
 
