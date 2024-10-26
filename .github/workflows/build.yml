@@ -1,9 +1,9 @@
-name: Replace base_url placeholder
+name: Replace base_url
 on:
   push
 
 jobs:
-  replace-base_url-placeholder:
+  replace-base_url:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
