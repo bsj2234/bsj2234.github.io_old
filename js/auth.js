@@ -18,6 +18,7 @@ const login = async () => {
 };
 
 const logout = () => {
+  console.log('Logout function called');
   auth0.logout({
     returnTo: window.location.origin
   });
@@ -38,35 +39,27 @@ const handleRedirectCallback = async () => {
   }
 };
 
-const getAccessToken = async () => {
-  const token = await auth0.getTokenSilently();
-  return token;
-};
-
-const getUser = async () => {
-  const user = await auth0.getUser();
-  return user;
-};
-
 window.onload = async () => {
   await configureClient();
-  await handleRedirectCallback();
-  const isAuthed = await isAuthenticated();
   
-  if (isAuthed) {
-    console.log("User is authenticated");
-    // Update UI for authenticated user
-  } else {
-    console.log("User is not authenticated");
-    // Update UI for non-authenticated user
+  // If the user is returning to the app after authentication
+  if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+    try {
+      // Process the login state
+      await auth0.handleRedirectCallback();
+      // Remove the query parameters
+      window.history.replaceState({}, document.title, "/");
+    } catch (error) {
+      console.error("Error handling redirect callback:", error);
+    }
   }
+
+  const isAuthed = await isAuthenticated();
+  console.log("Is authenticated:", isAuthed);
 };
 
 // Make sure these are accessible globally
 window.login = login;
 window.logout = logout;
 window.isAuthenticated = isAuthenticated;
-window.getAccessToken = getAccessToken;
-window.getUser = getUser;
-
 window.handleRedirectCallback = handleRedirectCallback;

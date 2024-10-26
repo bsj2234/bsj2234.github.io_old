@@ -3,8 +3,14 @@ layout: default
 ---
 <script>
   window.onload = async () => {
-    await handleRedirectCallback();
-    window.location.href = "/";
+    const query = window.location.search;
+    if (query.includes("code=") && query.includes("state=")) {
+      await handleRedirectCallback();
+      window.location.href = "/";
+    } else {
+      console.log("No auth parameters found. Redirecting to home page.");
+      window.location.href = "/";
+    }
   };
 </script>
 
