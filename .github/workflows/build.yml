@@ -1,18 +1,18 @@
-   name: Replace base_url placeholder
-   on:
-     push
+name: Replace base_url placeholder
+on:
+  push
 
-   jobs:
-     replace-base_url-placeholder:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v4
-         
-         - name: Replace base_url placeholder
-             env:
-               NETLIFY_CMS_BASE_URL: ${{ secrets.NETLIFY_CMS_BASE_URL }}
-             run: |
-               sed -i 's|NETLIFY_CMS_BASE_URL|'"$NETLIFY_CMS_BASE_URL"'|' admin/config.yml
-         
-         - name: Debug config
-           run: cat admin/config.yml
+jobs:
+  replace-base_url-placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Replace base_url placeholder
+        env:
+          NETLIFY_CMS_BASE_URL: ${{ secrets.NETLIFY_CMS_BASE_URL }}
+        run: |
+          sed -i 's|NETLIFY_CMS_BASE_URL|'"$NETLIFY_CMS_BASE_URL"'|' admin/config.yml
+      
+      - name: Debug config
+        run: cat admin/config.yml
