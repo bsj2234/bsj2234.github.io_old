@@ -4,7 +4,9 @@ const configureClient = async () => {
   auth0 = await createAuth0Client({
     domain: auth0Config.domain,
     client_id: auth0Config.clientId,
-    redirect_uri: auth0Config.redirectUri
+    redirect_uri: auth0Config.redirectUri,
+    audience: auth0Config.audience,
+    scope: auth0Config.scope
   });
 };
 
@@ -31,11 +33,19 @@ const isAuthenticated = async () => {
 const handleRedirectCallback = async () => {
   console.log('Handling redirect callback');
   try {
-    await auth0.handleRedirectCallback();
-    console.log('Redirect callback handled successfully');
+    const result = await auth0.handleRedirectCallback();
+    console.log('Redirect callback result:', result);
     window.history.replaceState({}, document.title, "/");
+    return result;
   } catch (error) {
     console.error("Error handling redirect callback:", error);
+    if (error.error_description) {
+      console.error("Error description:", error.error_description);
+    }
+    if (error.stack) {
+      console.error("Error stack:", error.stack);
+    }
+    throw error;
   }
 };
 
