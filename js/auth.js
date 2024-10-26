@@ -31,6 +31,16 @@ const handleRedirectCallback = async () => {
   }
 };
 
+const getAccessToken = async () => {
+  const token = await auth0.getTokenSilently();
+  return token;
+};
+
+const getUser = async () => {
+  const user = await auth0.getUser();
+  return user;
+};
+
 window.onload = async () => {
   await configureClient();
   await handleRedirectCallback();
@@ -49,5 +59,7 @@ window.onload = async () => {
 window.login = login;
 window.logout = logout;
 window.isAuthenticated = isAuthenticated;
+window.getAccessToken = getAccessToken;
+window.getUser = getUser;
 
 window.handleRedirectCallback = handleRedirectCallback;

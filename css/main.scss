@@ -1241,3 +1241,34 @@ ul.search-results {
 .auth-btn:hover {
   background-color: #1e5bb0;
 }
+
+#new-todo-form {
+  margin-top: 20px;
+}
+
+#new-todo-form input,
+#new-todo-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#new-todo-form textarea {
+  height: 100px;
+}
+
+.add-todo-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.add-todo-btn:hover {
+  background-color: #2980b9;
+}
