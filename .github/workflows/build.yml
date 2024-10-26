@@ -13,6 +13,7 @@ jobs:
           NETLIFY_CMS_BASE_URL: ${{ secrets.NETLIFY_CMS_BASE_URL }}
         run: |
           sed -i 's|NETLIFY_CMS_BASE_URL|'"$NETLIFY_CMS_BASE_URL"'|' admin/config.yml
+          ls -l admin/config.yml
       
       - name: Debug config
         run: cat admin/config.yml
