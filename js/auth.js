@@ -45,8 +45,9 @@ window.onload = async () => {
   }
 };
 
-// Make sure login and logout are accessible globally
+// Make sure these are accessible globally
 window.login = login;
 window.logout = logout;
+window.isAuthenticated = isAuthenticated;
 
 window.handleRedirectCallback = handleRedirectCallback;

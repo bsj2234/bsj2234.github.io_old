@@ -1,18 +1,35 @@
 ---
 layout: default
 ---
-<article class="todo">
-  <h1>{{ page.title }}</h1>
-  
-  <p class="todo-description">{{ page.description }}</p>
-  
-  <p class="todo-status">
-    상태: {% if page.completed %}완료{% else %}미완료{% endif %}
-  </p>
-  
-  {% if page.completed %}
-    <p class="todo-completed">완료 일자: {{ page.completed_date | date: "%Y-%m-%d" }}</p>
-  {% endif %}
-  
-  <a href="{{ site.baseurl }}/todos">Todo 목록으로 돌아가기</a>
-</article>
+<div id="todo-content" style="display: none;">
+  <article class="todo">
+    <h1>{{ page.title }}</h1>
+    
+    <p class="todo-description">{{ page.description }}</p>
+    
+    <p class="todo-status">
+      상태: {% if page.completed %}완료{% else %}미완료{% endif %}
+    </p>
+    
+    {% if page.completed %}
+      <p class="todo-completed">완료 일자: {{ page.completed_date | date: "%Y-%m-%d" }}</p>
+    {% endif %}
+    
+    <a href="{{ site.baseurl }}/todos">Todo 목록으로 돌아가기</a>
+  </article>
+</div>
+
+<div id="login-prompt" style="display: none;">
+  <h2>Please log in to view this todo</h2>
+  <button onclick="login()" class="auth-btn">Log In</button>
+</div>
+
+<script>
+  async function checkAuth() {
+    const isAuthenticated = await window.isAuthenticated();
+    document.getElementById('todo-content').style.display = isAuthenticated ? 'block' : 'none';
+    document.getElementById('login-prompt').style.display = isAuthenticated ? 'none' : 'block';
+  }
+
+  document.addEventListener('DOMContentLoaded', checkAuth);
+</script>

@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<div id="todos-content" style="display: none;">
+  <h1>{{ page.title }}</h1>
+  {{ content }}
+</div>
+
+<div id="login-prompt" style="display: none;">
+  <h2>Please log in to view your todos</h2>
+  <button onclick="login()" class="auth-btn">Log In</button>
+</div>
+
+<script>
+  async function checkAuth() {
+    const isAuthenticated = await window.isAuthenticated();
+    document.getElementById('todos-content').style.display = isAuthenticated ? 'block' : 'none';
+    document.getElementById('login-prompt').style.display = isAuthenticated ? 'none' : 'block';
+  }
+
+  document.addEventListener('DOMContentLoaded', checkAuth);
+</script>
+

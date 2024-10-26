@@ -37,6 +37,8 @@ navigation:
   url: /blog/
 - text: 소개
   url: /about/
+- text: Todos
+  url: /todos/
 
 # Author information - author info at the bottom of the post
 author_name: "John Doe"

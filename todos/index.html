@@ -1,0 +1,12 @@
+---
+layout: todos_index
+title: My Todos
+---
+<ul>
+  {% for todo in site.todos %}
+    <li>
+      <a href="{{ todo.url }}">{{ todo.title }}</a>
+      {% if todo.completed %} (Completed) {% endif %}
+    </li>
+  {% endfor %}
+</ul>
