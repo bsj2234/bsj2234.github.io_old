@@ -3,13 +3,14 @@ layout: default
 ---
 <script>
   window.onload = async () => {
-    const query = window.location.search;
-    if (query.includes("code=") && query.includes("state=")) {
+    try {
+      console.log('Callback page loaded');
       await handleRedirectCallback();
+      console.log('Redirect handled, navigating to home');
       window.location.href = "/";
-    } else {
-      console.log("No auth parameters found. Redirecting to home page.");
-      window.location.href = "/";
+    } catch (error) {
+      console.error('Error in callback:', error);
+      document.body.innerHTML += `<p>Error during authentication: ${error.message}</p>`;
     }
   };
 </script>
