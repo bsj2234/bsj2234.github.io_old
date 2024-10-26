@@ -7,22 +7,37 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Debug - List files
+        run: ls -R
       
+      - name: Debug - Show config before
+        run: cat admin/config.yml || echo "Config file not found"
+
       - name: Replace base_url placeholder
         env:
           NETLIFY_CMS_BASE_URL: ${{ secrets.NETLIFY_CMS_BASE_URL }}
         run: |
           sed -i 's|NETLIFY_CMS_BASE_URL|'"$NETLIFY_CMS_BASE_URL"'|g' admin/config.yml
+          echo "Replacement done. NETLIFY_CMS_BASE_URL value (first 10 chars): ${NETLIFY_CMS_BASE_URL:0:10}..."
       
-      - name: Debug config
+      - name: Debug - Show config after
         run: cat admin/config.yml
-        #test
-      
+
       # Add your build steps here if needed
+      # For example, if you're using Jekyll:
+       - name: Build site
+         run: bundle exec jekyll build
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .  # or your build directory if you have one
+
+      - name: Debug - Show deployed files
+        run: |
+          git checkout gh-pages
+          ls -R
