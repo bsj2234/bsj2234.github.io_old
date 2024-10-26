@@ -9,7 +9,12 @@ const configureClient = async () => {
 };
 
 const login = async () => {
-  await auth0.loginWithRedirect();
+  console.log('Login function called');
+  try {
+    await auth0.loginWithRedirect();
+  } catch (error) {
+    console.error('Login error:', error);
+  }
 };
 
 const logout = () => {
@@ -23,8 +28,10 @@ const isAuthenticated = async () => {
 };
 
 const handleRedirectCallback = async () => {
+  console.log('Handling redirect callback');
   try {
     await auth0.handleRedirectCallback();
+    console.log('Redirect callback handled successfully');
     window.history.replaceState({}, document.title, "/");
   } catch (error) {
     console.error("Error handling redirect callback:", error);

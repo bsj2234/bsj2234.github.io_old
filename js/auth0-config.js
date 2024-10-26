@@ -3,3 +3,4 @@ const auth0Config = {
     clientId: "TV5xQnsWTHZLixeIec39R3RGZwuCnzTm",
     redirectUri: "https://bsj2234.github.io/callback"
 };
+

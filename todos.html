@@ -38,9 +38,15 @@ title: Todo 목록
 
 <script>
   async function checkAuth() {
-    const isAuthenticated = await window.isAuthenticated();
-    document.getElementById('todos-content').style.display = isAuthenticated ? 'block' : 'none';
-    document.getElementById('login-prompt').style.display = isAuthenticated ? 'none' : 'block';
+    console.log('Checking authentication');
+    try {
+      const isAuthenticated = await window.isAuthenticated();
+      console.log('Is authenticated:', isAuthenticated);
+      document.getElementById('todos-content').style.display = isAuthenticated ? 'block' : 'none';
+      document.getElementById('login-prompt').style.display = isAuthenticated ? 'none' : 'block';
+    } catch (error) {
+      console.error('Error checking authentication:', error);
+    }
   }
 
   async function createTodoFile(title, description) {
@@ -81,6 +87,7 @@ ${description}`;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM content loaded');
     checkAuth();
     
     const form = document.getElementById('new-todo-form');
