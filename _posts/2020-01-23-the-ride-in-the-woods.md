@@ -3,6 +3,7 @@ layout: post
 title:  "The Ride In The Woods"
 date:   2020-01-23
 featured_image: road.jpg
+categories: [Travel]
 tags: [Travel, Blogging]
 ---
 

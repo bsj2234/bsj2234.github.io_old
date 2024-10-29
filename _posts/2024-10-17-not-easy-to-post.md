@@ -3,6 +3,7 @@ layout: post
 title:  "Not easy to post"
 date:   2024-10-17
 featured_image: road.jpg
+categories: [Travel]
 tags: [Travel, Blogging]
 ---
 

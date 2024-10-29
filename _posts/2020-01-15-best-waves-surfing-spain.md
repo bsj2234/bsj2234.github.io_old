@@ -3,6 +3,7 @@ layout: post
 title:  "Best Waves - Surfing In Spain"
 date:   2020-01-15
 featured_image: surfing.jpg
+categories: [Travel]
 tags: [Tips, Surfing, Travel]
 ---
 

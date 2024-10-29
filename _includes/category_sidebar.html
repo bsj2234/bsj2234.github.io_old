@@ -1,0 +1,22 @@
+<aside class="category-sidebar">
+    <h2 class="sidebar-title">Categories</h2>
+    <ul class="category-list">
+        <li class="category-item {% unless page.category %}active{% endunless %}">
+            <a href="{{ site.baseurl }}/blog/">
+                All Posts
+                <span class="count">({{ site.posts | size }})</span>
+            </a>
+        </li>
+        {% assign categories_list = site.categories | sort %}
+        {% for category in categories_list %}
+            {% assign category_name = category | first %}
+            {% assign posts_count = category | last | size %}
+            <li class="category-item {% if page.category == category_name or page.title == category_name %}active{% endif %}">
+                <a href="{{ site.baseurl }}/blog/category/{{ category_name | downcase }}">
+                    {{ category_name }}
+                    <span class="count">({{ posts_count }})</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</aside> 
