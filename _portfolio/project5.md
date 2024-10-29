@@ -10,6 +10,7 @@ date: 2024-10-17
 order: 5
 ---
 
+<!-- 목차 -->
 <div id="toc" class="toc-container">
     <h2>목차</h2>
     <ul>
@@ -26,18 +27,32 @@ order: 5
     </ul>
 </div>
 
-<!-- 짧은 영상을 위한 플레이스홀더 -->
-<div class="video-placeholder" style="background-color: #f0f0f0; height: 400px; display: flex; justify-content: center; align-items: center;">
-    <p>여기에 프로젝트 시연 영상이 들어갑니다</p>
+<!-- 유튜브 영상 삽입 -->
+<div class="video-container">
+    <iframe 
+        src="https://www.youtube.com/embed/tjLz6Xdfl2Y" 
+        title="보스 전투 시스템 데모" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+    </iframe>
 </div>
 
 <h2 id="project-overview">프로젝트 개요</h2>
 
-이 프로젝트에서는 액션 게임의 보스 전투 시스템을 구현하는 데 중점을 두었습니다. 주요 목표는 보스의 공격 패턴을 모듈화하고 시스템의 전반적인 성능을 최적화하는 것이었습니다.
+이 프로젝트에서는 액션 게임의 기획팀과의 협업이 중심이었습니다. 기업의 요구사항을 만족하는 기획 사항을 기획팀에서 작성해 제공하고 그를 토대로 게임을 개발하는 것이 목표였습니다.
 
 <h2 id="key-achievements">주요 성과</h2>
+이 과정에서 깃 파일관리, 지라를 통한 일정관리, 또 기획팀의 편의를 위한 개발로 협업 경험을 쌓을 수 있었습니다.
 
-<h3 id="boss-attack-modularization">1. 보스 공격 모듈화</h3>
+<h3 id="collaboration">1. 협업 경험</h3>
+![지라 일정관리 예시](https://lh3.googleusercontent.com/d/1Xx5Ewg4kX-t-dOj3vr0N1TT6lnu1U9kA)
+지라를 통한 일정 관리로 프로젝트의 진행상황과 진행도를 한눈에 파악하기에 좋았습니다. 또한 앞으로 개발해야할 항목들을 한눈에 볼 수 있어 낭비되는 시간이 적어졌습니다.
+
+![깃 머지 충돌 해결 예시](https://lh3.googleusercontent.com/d/1rp8yKubtFkL-0kSUS-4E1FXYqP_o6cl1)
+깃에서 머지 충돌이 발생한 경우 손머지를 통해 충돌을 해결하는 경험을 할 수 있었습니다.
+이를 통해 프리팹을 포함한 여러 에셋들도 손머지를 통해 해결할 수 있다는 점과 메타데이터가 손상되거나 중복되는경우 이전의 메타데이터를 복구함으로서 문제를 해결할 수 있다는 점을 알 수 있었습니다.
+
+<h3 id="boss-attack-modularization">2. 보스 공격 모듈화</h3>
 
 보스의 공격 패턴을 개별 모듈로 분리하여 다음과 같은 이점을 얻었습니다:
 
@@ -46,7 +61,7 @@ order: 5
 - 다양한 보스 캐릭터 간 공격 패턴 재사용 가능
 
 <!-- 이미지 플레이스홀더 -->
-![보스 공격 모듈 다이어그램](![alt text](image-1.png))
+![보스 공격 모듈 다이어그램](https://lh3.googleusercontent.com/d/1yNb3N3VOf7sbEepW1fNkJw8V2A6NEYLC)
 
 <h3 id="performance-optimization">2. 성능 최적화</h3>
 
@@ -61,161 +76,131 @@ order: 5
 - 적이 다수 존재하는 씬에서 40FPS -> 80FPS의 성능 향상
 
 
-<h3 id="collaboration">3. 협업 경험</h3>
 <div class="code-block-container">
-<pre><code class= "language-javascript">
-  function example() {
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-  function example() {
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-  function example() {
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-  function example() {
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-  function example() {
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-     console.log("This is a JavaScript code block");
-   }
+<pre><code class= "language-csharp">
+using EnumTypes;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "Boss_Both_UltimateAttackModule", menuName = "Enemy/AttackModule/Boss_Both_UltimateAttack")]
+public class SO_Boss_Both_UltimateAttackModule : SO_AttackModule
+{
+    public GameObject Prefab_areaAttack;
+    public GameObject Prefab_Spike;
+    public float MaxArea = 50f;
+    public float SpikeGap = 4f;
+    public float SpikeRandomOffset = 2f;
+    public float Probability = .3f;
+
+    public override void StartAttack(EnemyBase owner, int type)
+    {
+
+        switch (type)
+        {
+            case 0:
+                Transform targetTrf = owner.transform;
+                Vector3 targetPos = targetTrf.position;
+                targetPos.y = 0f;
+                owner.StartVFX("Boss_Teleport_End1");
+                owner.StartVFX("Boss_Teleport_End2");
+                GameObject projectileObject = GameObject.Instantiate(Prefab_areaAttack,
+                    targetPos, Quaternion.identity);
+                BossDoubleAreaAttack areaAttack = projectileObject.GetComponent<BossDoubleAreaAttack>();
+                areaAttack.Init(Damage, owner.Attack.RangeTypeThreshold, IsClose(owner));
+                owner.Attack.CurrentProjectile = areaAttack;
+
+                SpikeManager.Instance.DestroyAllSpike();
+                SpikeManager.Instance.DestroyAllTrash();
+
+                SpawnMultipleSpikeInAreaAndStore(owner, Prefab_Spike, MaxArea,
+                SpikeGap, Probability, SpikeRandomOffset,
+                owner.Attack.CurrentSpikeSpawners);
+
+                break;
+            case 1:
+                owner.Attack.CurrentProjectile.Trigger();
+                foreach (SpikeSpawner spike in owner.Attack.CurrentSpikeSpawners)
+                {
+                    spike.Trigger();
+                }
+                owner.Attack.CurrentSpikeSpawners.Clear();
+
+                SpawnMultipleSpikeInAreaAndStore(owner, Prefab_Spike, MaxArea,
+                SpikeGap, Probability, SpikeRandomOffset,
+                owner.Attack.CurrentSpikeSpawners);
+                break;
+            case 2:
+                owner.Attack.CurrentProjectile.Trigger();
+                foreach (SpikeSpawner spike in owner.Attack.CurrentSpikeSpawners)
+                {
+                    spike.Trigger();
+                }
+                owner.Attack.CurrentProjectile = null;
+                owner.Attack.CurrentSpikeSpawners.Clear();
+                break;
+        }
+
+    }
+
+    public override void StartAttackMove(EnemyBase owner, int type)
+    {
+        owner.StartVFX("Boss_Teleport");
+        switch (type)
+        {
+            case 0:
+                owner.Move.Launch(Vector3.up * 100);
+                break;
+            case 1:
+                owner.transform.position = owner.SpawnedPosition + Vector3.up * 15;
+                owner.Move.Launch(-Vector3.up * 100);
+                break;
+        }
+    }
+
+    private void SpawnMultipleSpikeInAreaAndStore(EnemyBase owner, GameObject spike, float areaRadius, float gap,
+        float probability, float spikeRandomOffset, List<SpikeSpawner> spikeContainer)
+    {
+        Vector3 centerOffset = new Vector3(areaRadius * .5f, 0f, areaRadius * .5f);
+        for (int i = 0; i < areaRadius / gap; i++)
+            for (int k = 0; k < areaRadius / gap; k++)
+            {
+                if (Random.value < probability)
+                {
+                    Vector3 offset = new Vector3(i * gap, 0f, k * gap) - centerOffset;
+                    Vector3 pos = owner.transform.position + offset;
+                    if (Vector3.Distance(pos, owner.transform.position) < areaRadius * .5f)
+                    {
+                        SpikeSpawner curSpike = SpawnSpike(owner, spike, pos, spikeRandomOffset);
+                        spikeContainer.Add(curSpike);
+                        SpikeManager.Instance.Spikes.Add(curSpike);
+                    }
+                }
+            }
+    }
+
+    private AttackRangeType IsClose(EnemyBase owner)
+    {
+        return owner.Attack.GetAttackRangeType();
+    }
+
+    private SpikeSpawner SpawnSpike(EnemyBase owner, GameObject spike, Vector3 position, float spikeRandomOffset)
+    {
+        Vector3 targetPos = position;
+        targetPos.y = 0f;
+        targetPos += new Vector3(Random.value * spikeRandomOffset, 0f, Random.value * spikeRandomOffset);
+        GameObject projectileObject = ObjectPoolManager.Instance.DequeueObject(spike);
+        projectileObject.transform.position = targetPos;
+        projectileObject.transform.rotation = Quaternion.identity;
+
+
+        SpikeSpawner spikeInst = projectileObject.GetComponent<SpikeSpawner>();
+        spikeInst.Init(false);
+
+        return spikeInst;
+    }
+}
 </code></pre>
 </div>
-
-
-1. 기획측에서 제공한 보스 플로우 차트를 통해 개발 방향을 의논하고 누락, 미흡한 부분은 바로바로 소통을 통해 해결
-2. 깃을 통한 버전 관리 중 손머지를 통해 머지 충돌을 해소
 
 <h2 id="tech-stack">기술 스택</h2>
 
@@ -224,5 +209,4 @@ order: 5
 
 <h2 id="conclusion">결론</h2>
 
-이 프로젝트를 통해 게임의 중요 시스템인 보스 전투 메커니즘을 유연하게 구현이 되었습니다. 모듈화된 설계로 향후 콘텐츠 확장이 용이해졌으며, 최적화를 통해 플레이어들에게 더 부드럽고 반응성 좋은 게임플레이 경험을 제공할 수 있게 되었습니다.
-협업 경험을 통해 실무에 조금 더 가까워진 것 같습니다.
+이 프로젝트를 통해 기업, 기획팀과의 협업을 통해 실무에 조금 더 가까워진 것 같습니다. 게임의 중요 시스템 중 하나인 보스 전투 메커니즘을 모듈화 해 유연하게 사용 가능했습니다. 최적화를 통해 경험을 통해 플레이어들에게 더 부드럽고 반응성 좋은 게임플레이 경험을 제공하는 방법에 대해 고민해 보았습니다.
