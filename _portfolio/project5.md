@@ -5,7 +5,7 @@ description: "보스 공격 모듈화 및 성능 최적화를 통한 게임플�
 game_type: "액션"
 project_type: "개인 프로젝트"
 focus: "보스 전투 시스템 모듈화, 최적화, 협업경험"
-image: "image.png"
+image: "https://lh3.googleusercontent.com/d/13--bB7a81Kv06HgrtOf4U5ao6TZDEG7G"
 date: 2024-10-17
 order: 5
 ---
@@ -17,6 +17,11 @@ order: 5
         <li><a href="#project-overview">프로젝트 개요</a></li>
         <li><a href="#key-achievements">주요 성과</a>
             <ul>
+                <li><a href="#collaboration">협업 경험</a></li>
+                <ul>
+                    <li><a href="#jira">지라 일정관리</a></li>
+                    <li><a href="#git">깃 머지 충돌 해결</a></li>
+                </ul>
                 <li><a href="#boss-attack-modularization">보스 공격 모듈화</a></li>
                 <li><a href="#performance-optimization">성능 최적화</a></li>
             </ul>
@@ -45,9 +50,11 @@ order: 5
 이 과정에서 깃 파일관리, 지라를 통한 일정관리, 또 기획팀의 편의를 위한 개발로 협업 경험을 쌓을 수 있었습니다.
 
 <h3 id="collaboration">1. 협업 경험</h3>
+<h4 id="jira">지라 일정관리</h4>
 ![지라 일정관리 예시](https://lh3.googleusercontent.com/d/1Xx5Ewg4kX-t-dOj3vr0N1TT6lnu1U9kA)
 지라를 통한 일정 관리로 프로젝트의 진행상황과 진행도를 한눈에 파악하기에 좋았습니다. 또한 앞으로 개발해야할 항목들을 한눈에 볼 수 있어 낭비되는 시간이 적어졌습니다.
 
+<h4 id="git">깃 머지 충돌 해결</h4>
 ![깃 머지 충돌 해결 예시](https://lh3.googleusercontent.com/d/1rp8yKubtFkL-0kSUS-4E1FXYqP_o6cl1)
 깃에서 머지 충돌이 발생한 경우 손머지를 통해 충돌을 해결하는 경험을 할 수 있었습니다.
 이를 통해 프리팹을 포함한 여러 에셋들도 손머지를 통해 해결할 수 있다는 점과 메타데이터가 손상되거나 중복되는경우 이전의 메타데이터를 복구함으로서 문제를 해결할 수 있다는 점을 알 수 있었습니다.
@@ -63,7 +70,7 @@ order: 5
 <!-- 이미지 플레이스홀더 -->
 ![보스 공격 모듈 다이어그램](https://lh3.googleusercontent.com/d/1yNb3N3VOf7sbEepW1fNkJw8V2A6NEYLC)
 
-<h3 id="performance-optimization">2. 성능 최적화</h3>
+<h3 id="performance-optimization">3. 성능 최적화</h3>
 
 1. 공격 패턴 선정 과정에서 처리 속도개선 테스트를 진행 했습니다:
 
@@ -75,9 +82,8 @@ order: 5
 - 프로파일러를 통한 문제 파악
 - 적이 다수 존재하는 씬에서 40FPS -> 80FPS의 성능 향상
 
-
 <div class="code-block-container">
-<pre><code class= "language-csharp">
+{% highlight csharp %}
 using EnumTypes;
 using System.Collections.Generic;
 using UnityEngine;
@@ -94,7 +100,6 @@ public class SO_Boss_Both_UltimateAttackModule : SO_AttackModule
 
     public override void StartAttack(EnemyBase owner, int type)
     {
-
         switch (type)
         {
             case 0:
@@ -199,7 +204,7 @@ public class SO_Boss_Both_UltimateAttackModule : SO_AttackModule
         return spikeInst;
     }
 }
-</code></pre>
+{% endhighlight %}
 </div>
 
 <h2 id="tech-stack">기술 스택</h2>
