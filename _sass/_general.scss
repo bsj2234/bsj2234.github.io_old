@@ -2,6 +2,15 @@
  * General
  * ----------------------------------------
  */
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 html {
     font-family: $base-font;
 }
@@ -557,86 +566,45 @@ a.post-thumbnail:hover img {
     }
 }
 
-/* Blog Layout */
-.blog-layout {
-    display: flex;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-}
-
 /* Category Sidebar */
 .category-sidebar {
-    flex: 0 0 220px;
-    padding-right: 20px;
-    border-right: 1px solid #eee;
-    margin-top: 30px;
-    position: fixed;
-    left: 0;
-    top: 80px;
-    height: calc(100vh - 80px);
-    overflow-y: auto;
-    background: #fff;
-    padding-left: 30px;
-}
-
-.sidebar-title {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.category-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.category-item {
-    margin-bottom: 10px;
-    
-    a {
-        display: flex;
-        justify-content: space-between;
-        text-decoration: none;
-        color: #666;
-        padding: 5px 10px;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-        
-        &:hover {
-            background-color: #f5f5f5;
-            color: $accent-color;
-        }
-    }
-    
-    &.active a {
-        background-color: $accent-color;
-        color: #fff;
-        
-        .count {
-            color: rgba(255, 255, 255, 0.8);
-        }
-    }
-}
-
-.count {
     font-size: 0.9em;
-    color: #999;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1000;  // z-index를 높여 컨텐츠 위에 표시되도록 함
+    width: 250px;
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);  // 그림자 효과 추가
+
+    &.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
-.blog-content {
-    flex: 1;
-    margin-left: 220px;
-    min-width: 0;
-    max-width: 900px;
-}
+#sidebar-toggle {
+    display: none;  // 기본적으로 숨김
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
 
-/* Responsive adjustments */
-@media screen and (max-width: 1100px) {
-    .blog-layout {
-        padding: 0 20px;
+    @media (min-width: 1610px) {
+        opacity: 0;
+        visibility: hidden;
     }
 }
 
@@ -660,13 +628,16 @@ a.post-thumbnail:hover img {
     .blog-content {
         margin-left: 0;
         max-width: 100%;
+        padding: 0 15px;
     }
 }
 
 .inner-wide {
-    max-width: 1200px;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 0px;
+    font-family: $base-font;
+    font-size: 18px;
 }
 
 @media screen and (max-width: 768px) {
@@ -682,100 +653,45 @@ a.post-thumbnail:hover img {
     color: #333;
 }
 
-.site-category {
-    margin-bottom: 30px;
+.code-block-container {
+    position: relative;
+    margin: 1em 0;
     
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+    .code-toggle {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 10;
+        padding: 4px 8px;
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        opacity: 0.8;
+        
+        &:hover {
+            background: #e5e5e5;
+            opacity: 1;
+        }
     }
     
-    .category-item {
-        display: inline-block;
-        margin-right: 10px;
-        margin-bottom: 10px;
+    .highlight {
+        position: relative;
         
-        a {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 4px;
-            text-decoration: none;
-            color: #666;
-            background: #f5f5f5;
-            
-            &:hover {
-                background: $accent-color;
-                color: #fff;
-            }
-        }
-        
-        &.active a {
-            background: $accent-color;
-            color: #fff;
-        }
-        
-        .count {
-            font-size: 0.9em;
-            margin-left: 5px;
-        }
-    }
-}
-
-.blog-layout {
-    display: flex;
-    
-    .category-sidebar {
-        width: 200px;
-        flex-shrink: 0;
-        padding-right: 20px;
-        border-right: 1px solid #eee;
-        margin-top: 30px;
-        
-        .sidebar-title {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .category-list {
-            list-style: none;
-            padding: 0;
+        pre {
             margin: 0;
-            
-            .category-item {
-                margin-bottom: 10px;
-                
-                a {
-                    display: flex;
-                    justify-content: space-between;
-                    text-decoration: none;
-                    color: #666;
-                    padding: 5px 10px;
-                    border-radius: 4px;
-                    transition: all 0.3s ease;
-                    
-                    &:hover {
-                        background-color: #f5f5f5;
-                        color: $accent-color;
-                    }
-                }
-                
-                &.active a {
-                    background-color: $accent-color;
-                    color: #fff;
-                    
-                    .count {
-                        color: rgba(255, 255, 255, 0.8);
-                    }
-                }
-            }
+            max-height: 400px;
+            overflow-y: auto;
+            overflow-x: auto;
+            transition: max-height 0.3s ease;
         }
     }
     
-    .blog-content {
-        flex: 1;
-        min-width: 0;
-        padding-left: 30px;
+    &.expanded {
+        .highlight pre {
+            max-height: none !important;
+            overflow-y: visible !important;
+        }
     }
 }

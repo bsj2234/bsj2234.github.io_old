@@ -70,7 +70,6 @@ plugins:
 # If you're using GitHub Pages, add:
 safe: false
 
-permalink: /blog/:categories/:title/
 markdown: kramdown
 kramdown:
   syntax_highlighter_opts:

@@ -20,7 +20,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
 </head>
 
-<body class="fixed-nav">
+<body class="{% if page.code_blocks_expanded %}code-blocks-expanded{% endif %}">
   <div id="page" class="site">
     {% include header.html %}
     {{content}}

@@ -76,15 +76,112 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        var items = document.querySelectorAll('.portfolio-item');
-        items.forEach(function(item) {
-            item.addEventListener('mouseenter', function() {
-                this.querySelector('.portfolio-description').style.opacity = '1';
-            });
-            item.addEventListener('mouseleave', function() {
-                this.querySelector('.portfolio-description').style.opacity = '0';
-            });
+        const codeToggles = document.querySelectorAll('.code-toggle');
+        const isExpandedByDefault = document.body.classList.contains('code-blocks-expanded');
+        
+        document.querySelectorAll('.code-block-container').forEach(container => {
+            const pre = container.querySelector('pre');
+            const toggle = container.querySelector('.code-toggle');
+            
+            if (isExpandedByDefault) {
+                container.classList.add('expanded');
+                pre.style.maxHeight = 'none';
+                if (toggle) {
+                    toggle.textContent = 'Collapse';
+                }
+            }
+
+            // Add click event listener to toggle button
+            if (toggle) {
+                toggle.addEventListener('click', function() {
+                    const isExpanded = container.classList.contains('expanded');
+                    if (isExpanded) {
+                        container.classList.remove('expanded');
+                        pre.style.maxHeight = '300px'; // or whatever your collapsed height should be
+                        toggle.textContent = 'Expand';
+                    } else {
+                        container.classList.add('expanded');
+                        pre.style.maxHeight = 'none';
+                        toggle.textContent = 'Collapse';
+                    }
+                });
+            }
         });
+
+
+
+        const sidebar = document.querySelector('.category-sidebar'); // Adjust the selector to match your sidebar
+        const sidebarToggle = document.getElementById('sidebar-toggle') || document.createElement('button');
+
+
+        if (sidebar) {
+            const isMobile = () => window.innerWidth <= 1610;
+    
+            function updateSidebarPosition() {
+                const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                const headerHeight = 60;
+                const topMargin = 20;
+                const maxTop = document.body.offsetHeight - sidebar.offsetHeight - topMargin;
+    
+                let topPosition = Math.max(headerHeight + topMargin, scrollPosition + topMargin);
+                topPosition = Math.min(topPosition, maxTop);
+    
+                sidebar.style.top = `${topPosition}px`;
+            }
+    
+            function showSidebar() {
+                sidebar.classList.remove('hidden');
+                if (isMobile()) {
+                    sidebarToggle.style.display = 'none';
+                }
+            }
+    
+            function hideSidebar() {
+                sidebar.classList.add('hidden');
+                if (isMobile()) {
+                    sidebarToggle.style.display = 'block';
+                }
+            }
+    
+            // 토글 버튼 설정
+            if (!document.getElementById('sidebar-toggle')) {
+                sidebarToggle.id = 'sidebar-toggle';
+                sidebarToggle.textContent = '카테고리 보기';
+                document.body.appendChild(sidebarToggle);
+            }
+    
+            sidebarToggle.addEventListener('click', showSidebar);
+    
+            // 목차 외부 클릭 시 목차 닫기
+            document.addEventListener('click', (e) => {
+                if (!sidebar.contains(e.target) && e.target !== sidebarToggle && isMobile()) {
+                    hideSidebar();
+                }
+            });
+
+            updateSidebarPosition();
+            window.addEventListener('scroll', updateSidebarPosition);
+            window.addEventListener('resize', () => {
+                updateSidebarPosition();
+                if (isMobile()) {
+                    hideSidebar();
+                } else {
+                    showSidebar();
+                }
+            });
+    
+            // 초기 상태 설정
+            if (isMobile()) {
+                hideSidebar();
+            } else {
+                showSidebar();
+            }
+        }
+
+
+
+
+
     });
 
 }(jQuery));
