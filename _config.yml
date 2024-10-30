@@ -39,10 +39,9 @@ navigation:
   url: /about/
 
 # Author information - author info at the bottom of the post
-author_name: "John Doe"
-author_bio: "My name is John Doe. I’m a full-time adventure travel blogger and photographer who’s been exploring the world for over 6 years."
-author_url: "https://justgoodthemes.com"
-author_location: "Vilnius, Lithuania"
+author_name: "변석진"
+author_bio: "유니티 클라이언트 지망하는 변석진입니다."
+author_location: "경기, 남양주"
 author_image: authorimage.jpg
 
 # Footer ad banner
