@@ -581,7 +581,7 @@ a.post-thumbnail:hover img {
     top: 60px;
     left: 20px;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);  // 그림자 효과 추가
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);  // 그림자 효��� 추가
 
     &.hidden {
         opacity: 0;
@@ -693,5 +693,105 @@ a.post-thumbnail:hover img {
             max-height: none !important;
             overflow-y: visible !important;
         }
+    }
+}
+
+.post-preview {
+    margin-bottom: 1.5rem;
+    background: #fff;
+    border: 1px solid #eee;
+    transition: box-shadow 0.2s ease;
+    
+    &:hover {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+}
+
+.post-preview-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    
+    &:hover {
+        text-decoration: none;
+        
+        .preview-title {
+            color: #007bff;  // Change title color on hover
+        }
+    }
+}
+
+.post-preview-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.preview-thumbnail {
+    flex: 0 0 120px;
+    
+    img {
+        width: 120px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 3px;
+    }
+}
+
+.preview-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.preview-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    color: #333;
+    transition: color 0.2s ease;
+}
+
+.preview-meta {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    
+    .category {
+        color: #007bff;
+    }
+}
+
+.preview-excerpt {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media (max-width: 480px) {
+    .post-preview-container {
+        flex-direction: row;
+    }
+    
+    .preview-thumbnail {
+        flex: 0 0 80px;
+        
+        img {
+            width: 80px;
+            height: 60px;
+        }
+    }
+    
+    .preview-title {
+        font-size: 1rem;
+    }
+    
+    .preview-excerpt {
+        -webkit-line-clamp: 2;
+        font-size: 0.85rem;
     }
 }
