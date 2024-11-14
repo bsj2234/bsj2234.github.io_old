@@ -1,0 +1,14 @@
+{
+	"Jekyll Code Block with Toggle": {
+	  "prefix": "jcode",
+	  "body": [
+		"<div class=\"code-block-container\">",
+		"    <button class=\"code-toggle\">Expand</button>",
+		"    {% highlight ${1:language} %}",
+		"    $0",
+		"    {% endhighlight %}",
+		"</div>"
+	  ],
+	  "description": "Creates a Jekyll code block with expand/collapse toggle"
+	}
+  }
