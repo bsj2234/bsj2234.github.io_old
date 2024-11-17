@@ -31,8 +31,8 @@ sass:
 navigation:
 - text: 홈
   url: /
-- text: 포트폴리오
-  url: /portfolio/
+#- text: 포트폴리오
+#  url: /portfolio/
 - text: 블로그
   url: /blog/
 - text: 소개
