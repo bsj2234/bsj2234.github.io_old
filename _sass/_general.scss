@@ -3,6 +3,36 @@
  * ----------------------------------------
  */
 
+ $mobile-width: 768px;
+ $tablet-width: 1024px;
+ $desktop-width: 1400px;
+ $large-desktop-width: 1610px;
+
+ 
+@mixin mobile {
+    @media screen and (max-width: $mobile-width) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: $tablet-width) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (max-width: $desktop-width) {
+        @content;
+    }
+}
+
+@mixin large-desktop {
+    @media screen and (max-width: $large-desktop-width) {
+        @content;
+    }
+}
+
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -577,15 +607,50 @@ a.post-thumbnail:hover img {
     overflow-y: auto;
     z-index: 1000;  // z-index를 높여 컨텐츠 위에 표시되도록 함
     width: 250px;
-    position: fixed;
+    position: sticky;
     top: 60px;
+    bottom: 20px;
     left: 20px;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);  // 그림자 효��� 추가
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);  // 그림자 추가
+    flex-shrink: 0;  // 사이드바 크기 고정
 
     &.hidden {
         opacity: 0;
         visibility: hidden;
+    }
+
+    .category-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .category-item {
+        margin: 5px 0;
+        
+        &.parent > a {
+            font-weight: bold;
+        }
+        
+        &.active > a {
+            color: #007bff;
+        }
+    }
+
+    .subcategory-list {
+        list-style: none;
+        padding-left: 20px;
+        margin: 5px 0;
+        
+        .category-item {
+            font-size: 0.9em;
+            
+            &:before {
+                content: "└ ";
+                color: #999;
+            }
+        }
     }
 }
 
@@ -602,47 +667,129 @@ a.post-thumbnail:hover img {
     border-radius: 5px;
     cursor: pointer;
 
-    @media (min-width: 1610px) {
+    @media (min-width: $large-desktop-width) {
         opacity: 0;
         visibility: hidden;
     }
+}
+.blog-layout {
+    display: flex;
+    gap: 30px;  // 간격 조정
+    margin: 0 -20px;  // negative margin으로 full-width 효과
+}
+
+.blog-content {
+    flex: 1;
+    min-width: 0;
+    padding: 0 20px;
 }
 
 @media screen and (max-width: 768px) {
     .blog-layout {
         flex-direction: column;
-        padding: 0 15px;
+        margin: 0;
     }
     
     .category-sidebar {
-        position: static;
-        flex: none;
-        padding: 0;
-        border-right: none;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 20px;
-        margin-bottom: 20px;
-        height: auto;
+        position: fixed;
+        left: -250px;
+        margin: 0;
+        height: 100vh;
+        transition: left 0.3s ease-in-out;
+        background: white;
+        z-index: 1000;
+        
+        &.visible {
+            left: 0;
+        }
     }
-
+    
     .blog-content {
-        margin-left: 0;
-        max-width: 100%;
-        padding: 0 15px;
+        width: 100%;
+        padding: 0;
+        transition: margin-left 0.3s ease-in-out;
+        
+        &.sidebar-visible {
+            margin-left: 250px;
+        }
     }
 }
 
 .inner-wide {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 0px;
-    font-family: $base-font;
-    font-size: 18px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
-@media screen and (max-width: 768px) {
-    .inner-wide {
-        padding: 0 15px;
+.blog-layout {
+    display: flex;
+    width: 100%;
+    gap: 0;
+    margin: 0;
+}
+
+// 왼쪽 사이드바
+.category-sidebar {
+    position: sticky;
+    top: 60px;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background: white;
+    padding: 20px;
+    overflow-y: auto;
+    flex-shrink: 0;
+    border-right: 1px solid #ddd;
+}
+
+// 중앙 컨텐츠
+.blog-content {
+    flex: 0 1 960px; // 중앙 컨텐츠의 최대 너비
+    min-width: 0;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+// 오른쪽 사이드바 (새로 추가)
+.right-sidebar {
+    position: sticky;
+    top: 60px;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background: white;
+    padding: 20px;
+    overflow-y: auto;
+    flex-shrink: 0;
+    border-left: 1px solid #ddd;
+
+    @include desktop {
+        display: none;
+    }
+}
+
+// 반응형 처리
+@media screen and (max-width: 1400px) {
+    .right-sidebar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1610px) {
+    .category-sidebar {
+        position: fixed;
+        left: -250px;
+        z-index: 1000;
+        transition: left 0.3s ease-in-out;
+        
+        &.visible {
+            left: 0;
+        }
+    }
+    
+    .blog-content {
+        padding: 0 20px;
     }
 }
 
@@ -793,5 +940,36 @@ a.post-thumbnail:hover img {
     .preview-excerpt {
         -webkit-line-clamp: 2;
         font-size: 0.85rem;
+    }
+}
+
+@include mobile {
+    .blog-layout {
+        flex-direction: column;
+        margin: 0;
+    }
+    
+    .category-sidebar {
+        position: fixed;
+        left: -250px;
+        margin: 0;
+        height: 100vh;
+        transition: left 0.3s ease-in-out;
+        background: white;
+        z-index: 1000;
+        
+        &.visible {
+            left: 0;
+        }
+    }
+    
+    .blog-content {
+        width: 100%;
+        padding: 0;
+        transition: margin-left 0.3s ease-in-out;
+        
+        &.sidebar-visible {
+            margin-left: 250px;
+        }
     }
 }

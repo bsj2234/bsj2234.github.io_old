@@ -117,31 +117,38 @@
         if (sidebar) {
             const isMobile = () => window.innerWidth <= 1610;
     
-            function updateSidebarPosition() {
-                const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-                const headerHeight = 60;
-                const topMargin = 20;
-                const maxTop = document.body.offsetHeight - sidebar.offsetHeight - topMargin;
-    
-                let topPosition = Math.max(headerHeight + topMargin, scrollPosition + topMargin);
-                topPosition = Math.min(topPosition, maxTop);
-    
-                sidebar.style.top = `${topPosition}px`;
-            }
-    
             function showSidebar() {
                 sidebar.classList.remove('hidden');
-                if (isMobile()) {
-                    sidebarToggle.style.display = 'none';
-                }
+                sidebar.classList.add('visible');
+                document.querySelector('.blog-content').classList.add('sidebar-visible');
+                sidebarToggle.style.display = 'none';
             }
     
             function hideSidebar() {
                 sidebar.classList.add('hidden');
+                sidebar.classList.remove('visible');
+                document.querySelector('.blog-content').classList.remove('sidebar-visible');
                 if (isMobile()) {
                     sidebarToggle.style.display = 'block';
+                } else {
+                    sidebarToggle.style.display = 'none';
                 }
             }
+    
+            function updateSidebarState() {
+                if (isMobile()) {
+                    hideSidebar();
+                } else {
+                    showSidebar();
+                    sidebarToggle.style.display = 'none';
+                }
+            }
+    
+            // 초기 상태 설정
+            updateSidebarState();
+    
+            // 리사이즈 이벤트에 상태 업데이트 함수 연결
+            window.addEventListener('resize', updateSidebarState);
     
             // 토글 버튼 설정
             if (!document.getElementById('sidebar-toggle')) {
@@ -158,30 +165,7 @@
                     hideSidebar();
                 }
             });
-
-            updateSidebarPosition();
-            window.addEventListener('scroll', updateSidebarPosition);
-            window.addEventListener('resize', () => {
-                updateSidebarPosition();
-                if (isMobile()) {
-                    hideSidebar();
-                } else {
-                    showSidebar();
-                }
-            });
-    
-            // 초기 상태 설정
-            if (isMobile()) {
-                hideSidebar();
-            } else {
-                showSidebar();
-            }
         }
-
-
-
-
-
     });
 
 }(jQuery));
