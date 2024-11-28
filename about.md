@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 블로그 소개
+permalink: /about/
 ---
 안녕하세요, 변석진입니다. 저는 프로그래밍을 공부하고 있는 취업준비생입니다.
 
