@@ -20,7 +20,7 @@ module Jekyll
     def generate(site)
       if site.layouts.key? 'category'
         site.categories.each_key do |category|
-          category_path = category.gsub('/', '-').downcase
+          category_path = category.downcase
           dir = File.join('blog', 'category', category_path)
           
           site.pages << CategoryPage.new(
