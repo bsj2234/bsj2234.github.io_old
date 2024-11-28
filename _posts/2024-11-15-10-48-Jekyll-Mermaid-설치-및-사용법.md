@@ -2,7 +2,7 @@
 layout: post
 title: "Jekyll에서 Mermaid 다이어그램 사용하기"
 date: 2024-11-15
-categories: [Jekyll]
+categories: [Blog/Jekyll]
 tags: [jekyll, mermaid, diagram, documentation]
 mermaid: true
 ---

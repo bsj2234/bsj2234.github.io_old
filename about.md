@@ -1,24 +1,42 @@
 ---
 layout: page
-title: About this blog
-description: An optional about page for BlogBox Jekyll theme
-featured_image: aboutPage.jpg
+title: 블로그 소개
 ---
+안녕하세요, 변석진입니다. 저는 프로그래밍을 공부하고 있는 취업준비생입니다.
 
-My name is John Doe. I’m a full-time adventure travel blogger and photographer who’s been exploring the world for over 5 years.
+제 블로그를 방문해 주셔서 감사합니다. 이 블로그는 2024년 10월 29일에 개설하여 공부한 내용들을 담고 있습니다.
 
-Welcome to my blog and I absolutely appreciate you stopping by! On December 25th, 2001, I left the Canada for a four months, trip to Asia. The idea was to backpack around China, Thailand, Vietnam and Cambodia and then return home and start a career in the IT industry.
+## 게임 프로그래머로서 '이해하고 싶은 욕심'을 채우기 위해
 
-When I landed in Bangkok, I had $3500 USD to my name and that was it. I booked a bed in a old guesthouse in the center of the city for about a dollar per night and let the adventure begin.
+저는 게임을 즐겨할 때 게임이 어떻게 작동하는지 이해하고자 하는 욕심이 있었습니다. 특히 레이싱 게임에서의 물리, 레벨을 어떻게 적은 노력으로 효율적으로 만드는지, 배틀필드 같은 게임은 여러 인원의 실시간 멀티플레이가 어떻게 동작하는지와 같은 의문으로 시작되었습니다.
 
-> “To live is the rarest thing in the world. Most people exist, that is all.” <cite>― Oscar Wilde ―</cite>
+## 경일게임아카데미
 
-In the end, I never went home after those three months. And it’s now been over 14 years and that trip has still yet to finish.
+이러한 의문을 채우고 직접 게임을 만들어보는 경험을 하기 위해 저는 경일게임아카데미에서 9개월간 유니티를 이용한 게임 개발을 교육받았습니다. 그 기간 동안 3개의 개인 프로젝트, 2개의 팀 프로젝트를 진행하며 게임을 어떻게 만드는지에 대한 감을 잡아갔습니다.
 
-The adventure has involved over 75+ countries on 5 continents as I’ve worked, lived, traveled and volunteered all over the planet.
+### 프로젝트 VL에서의 경험
 
-Through my own adventures – from the incredible moments and rewarding interactions to the struggles and major challenges – I aim to provide a realistic and honest account of what long-term travel is truly about and how you can work on achieving such a goal yourself.
+특히 마지막 프로젝트인 프로젝트 VL에서 보스의 구현이 가장 기억에 남습니다. 보스를 구현하던 중 다음과 같은 개선점을 발견하고 구현했습니다:
 
-While the recognition and mentions this blog has received over the years are certainly nice, nothing compares to an email from a reader telling me that the blog helped them achieve their own travel goals.
+1. **객체 지향적 설계**
+   - 보스의 공격을 객체로 분리하여 유지보수성 향상
+   - ScriptableObject를 활용해 기획팀이 쉽게 변수를 조정할 수 있도록 구현
 
-*Thank You for reading!*
+2. **구현 성과**
+   - 패턴별로 분리된 형태로 구현하여 유지보수성 향상
+   - 에디터에서 쿨타임, 범위, 데미지, 공격우선순위, 페이즈 조정 가능
+   - 기획팀이 직접 폴리싱할 수 있는 환경 구축
+
+3. **문제 해결 경험**
+   - 패턴 공격 중 이동속도 버그 발견
+   - 객체의 상태 관리 함수를 추가하여 해결
+
+### 개발자로서의 성장
+
+Object Pooling, Singleton 패턴, Combat Class 등의 구현을 통해 잘 설계된 클래스의 재사용성이 개발 효율성을 높일 수 있다는 것을 경험했습니다.
+
+> "If you can't explain it simply, you don't understand it well enough." <cite>― Albert Einstein ―</cite>
+
+이 블로그를 통해 학습한 내용을 정리하고 더 깊이 이해하며, 제 것으로 만들어가고자 합니다.
+
+*읽어주셔서 감사합니다!*

@@ -2,7 +2,7 @@
 layout: post
 title: "Restful Stateless"
 date: 2024-11-25
-categories: [Server]
+categories: [Network]
 tags: [restful, stateless]
 ---
 
