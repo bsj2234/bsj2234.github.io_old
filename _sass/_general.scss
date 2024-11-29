@@ -3,12 +3,12 @@
  * ----------------------------------------
  */
 
- $mobile-width: 768px;
- $tablet-width: 1024px;
- $desktop-width: 1400px;
- $large-desktop-width: 1610px;
+$mobile-width: 768px;
+$tablet-width: 1024px;
+$desktop-width: 1400px;
+$large-desktop-width: 1610px;
 
- 
+
 @mixin mobile {
     @media screen and (max-width: $mobile-width) {
         @content;
@@ -56,6 +56,7 @@ a {
     text-decoration: underline;
     -webkit-transition: .3s;
     transition: .3s;
+
     &:hover {
         color: #aeb0b1;
         text-decoration: none;
@@ -102,12 +103,12 @@ h6 {
     font-size: 18px;
 }
 
-.entry-content > h1:first-child,
-.entry-content > h2:first-child,
-.entry-content > h3:first-child,
-.entry-content > h4:first-child,
-.entry-content > h5:first-child,
-.entry-content > h6:first-child {
+.entry-content>h1:first-child,
+.entry-content>h2:first-child,
+.entry-content>h3:first-child,
+.entry-content>h4:first-child,
+.entry-content>h5:first-child,
+.entry-content>h6:first-child {
     margin-top: 0;
 }
 
@@ -170,7 +171,7 @@ blockquote p {
     margin-bottom: 12px;
 }
 
-blockquote > :last-child {
+blockquote> :last-child {
     margin-bottom: 0;
 }
 
@@ -198,8 +199,8 @@ ol {
     list-style: decimal;
 }
 
-li > ul,
-li > ol {
+li>ul,
+li>ol {
     margin-bottom: 0;
 }
 
@@ -576,6 +577,7 @@ a.post-thumbnail:hover img {
         -webkit-transform: translateY(-15px);
         transform: translateY(-15px);
     }
+
     to {
         opacity: 1;
         -webkit-transform: translateY(0);
@@ -589,6 +591,7 @@ a.post-thumbnail:hover img {
         -webkit-transform: translateY(-15px);
         transform: translateY(-15px);
     }
+
     to {
         opacity: 1;
         -webkit-transform: translateY(0);
@@ -596,66 +599,8 @@ a.post-thumbnail:hover img {
     }
 }
 
-/* Category Sidebar */
-.category-sidebar {
-    font-size: 0.9em;
-    background: white;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    max-height: 80vh;
-    overflow-y: auto;
-    z-index: 1000;  // z-index를 높여 컨텐츠 위에 표시되도록 함
-    width: 250px;
-    position: sticky;
-    top: 60px;
-    bottom: 20px;
-    left: 20px;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);  // 그림자 추가
-    flex-shrink: 0;  // 사이드바 크기 고정
-
-    &.hidden {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    .category-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .category-item {
-        margin: 5px 0;
-        
-        &.parent > a {
-            font-weight: bold;
-        }
-        
-        &.active > a {
-            color: #007bff;
-        }
-    }
-
-    .subcategory-list {
-        list-style: none;
-        padding-left: 20px;
-        margin: 5px 0;
-        
-        .category-item {
-            font-size: 0.9em;
-            
-            &:before {
-                content: "└ ";
-                color: #999;
-            }
-        }
-    }
-}
-
 #sidebar-toggle {
-    display: none;  // 기본적으로 숨김
+    display: none; // 기본적으로 숨김
     position: fixed;
     bottom: 20px;
     left: 20px;
@@ -672,47 +617,22 @@ a.post-thumbnail:hover img {
         visibility: hidden;
     }
 }
+
 .blog-layout {
     display: flex;
-    gap: 30px;  // 간격 조정
-    margin: 0 -20px;  // negative margin으로 full-width 효과
+    width: 100%;
+    gap: 30px;
+    margin: 0;
+    justify-content: center;
 }
 
+// 중앙 컨텐츠
 .blog-content {
-    flex: 1;
+    flex: 0 1 960px; // 중앙 컨텐츠의 최대 너비
     min-width: 0;
     padding: 0 20px;
-}
-
-@media screen and (max-width: 768px) {
-    .blog-layout {
-        flex-direction: column;
-        margin: 0;
-    }
-    
-    .category-sidebar {
-        position: fixed;
-        left: -250px;
-        margin: 0;
-        height: 100vh;
-        transition: left 0.3s ease-in-out;
-        background: white;
-        z-index: 1000;
-        
-        &.visible {
-            left: 0;
-        }
-    }
-    
-    .blog-content {
-        width: 100%;
-        padding: 0;
-        transition: margin-left 0.3s ease-in-out;
-        
-        &.sidebar-visible {
-            margin-left: 250px;
-        }
-    }
+    margin: 0;
+    max-width: 960px;
 }
 
 .inner-wide {
@@ -721,35 +641,81 @@ a.post-thumbnail:hover img {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between;
 }
 
-.blog-layout {
-    display: flex;
-    width: 100%;
-    gap: 0;
-    margin: 0;
-}
-
-// 왼쪽 사이드바
+/* Category Sidebar */
 .category-sidebar {
-    position: sticky;
-    top: 60px;
+    // 기본 레이아웃
     width: 250px;
     height: calc(100vh - 60px);
+    max-height: 80vh;
+    flex-shrink: 0; // 사이드바 크기 고정
+
+    // 위치 설정
+    position: sticky;
+    top: 60px;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000; // 컨텐츠 위에 표시
+
+    // 스크롤 설정
+    overflow-y: auto;
+
+    // 시각적 스타일
     background: white;
     padding: 20px;
-    overflow-y: auto;
-    flex-shrink: 0;
-    border-right: 1px solid #ddd;
-}
+    font-size: 0.9em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-// 중앙 컨텐츠
-.blog-content {
-    flex: 0 1 960px; // 중앙 컨텐츠의 최대 너비
-    min-width: 0;
-    padding: 0 40px;
-    margin: 0 auto;
+    // 애니메이션
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+    // 숨김 상태
+    &.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    // 카테고리 목록 스타일
+    .category-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    // 카테고리 아이템 스타일
+    .category-item {
+        margin: 5px 0;
+
+        // 부모 카테고리
+        &.parent>a {
+            font-weight: bold;
+        }
+
+        // 활성 카테고리
+        &.active>a {
+            color: #007bff;
+        }
+    }
+
+    // 서브 카테고리 스타일
+    .subcategory-list {
+        list-style: none;
+        padding-left: 20px;
+        margin: 5px 0;
+
+        .category-item {
+            font-size: 0.9em;
+
+            // 서브 카테고리 화살표
+            &:before {
+                content: "└ ";
+                color: #999;
+            }
+        }
+    }
 }
 
 // 오른쪽 사이드바 (새로 추가)
@@ -769,30 +735,6 @@ a.post-thumbnail:hover img {
     }
 }
 
-// 반응형 처리
-@media screen and (max-width: 1400px) {
-    .right-sidebar {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 1610px) {
-    .category-sidebar {
-        position: fixed;
-        left: -250px;
-        z-index: 1000;
-        transition: left 0.3s ease-in-out;
-        
-        &.visible {
-            left: 0;
-        }
-    }
-    
-    .blog-content {
-        padding: 0 20px;
-    }
-}
-
 .category-title {
     margin-bottom: 40px;
     padding-bottom: 20px;
@@ -803,7 +745,7 @@ a.post-thumbnail:hover img {
 .code-block-container {
     position: relative;
     margin: 1em 0;
-    
+
     .code-toggle {
         position: absolute;
         top: 5px;
@@ -816,16 +758,16 @@ a.post-thumbnail:hover img {
         cursor: pointer;
         font-size: 12px;
         opacity: 0.8;
-        
+
         &:hover {
             background: #e5e5e5;
             opacity: 1;
         }
     }
-    
+
     .highlight {
         position: relative;
-        
+
         pre {
             margin: 0;
             max-height: 400px;
@@ -834,7 +776,7 @@ a.post-thumbnail:hover img {
             transition: max-height 0.3s ease;
         }
     }
-    
+
     &.expanded {
         .highlight pre {
             max-height: none !important;
@@ -848,9 +790,9 @@ a.post-thumbnail:hover img {
     background: #fff;
     border: 1px solid #eee;
     transition: box-shadow 0.2s ease;
-    
+
     &:hover {
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 }
 
@@ -858,12 +800,12 @@ a.post-thumbnail:hover img {
     display: block;
     text-decoration: none;
     color: inherit;
-    
+
     &:hover {
         text-decoration: none;
-        
+
         .preview-title {
-            color: #007bff;  // Change title color on hover
+            color: #007bff; // Change title color on hover
         }
     }
 }
@@ -877,7 +819,7 @@ a.post-thumbnail:hover img {
 
 .preview-thumbnail {
     flex: 0 0 120px;
-    
+
     img {
         width: 120px;
         height: 90px;
@@ -903,7 +845,7 @@ a.post-thumbnail:hover img {
     font-size: 0.8rem;
     color: #666;
     margin-bottom: 0.5rem;
-    
+
     .category {
         color: #007bff;
     }
@@ -919,57 +861,81 @@ a.post-thumbnail:hover img {
     overflow: hidden;
 }
 
-@media (max-width: 480px) {
-    .post-preview-container {
-        flex-direction: row;
+
+
+
+// 반응형 처리
+@include desktop {
+    .blog-layout {
+        margin: 0;
     }
-    
-    .preview-thumbnail {
-        flex: 0 0 80px;
-        
-        img {
-            width: 80px;
-            height: 60px;
+
+    .blog-content {
+        flex: 1;
+        padding: 0 20px;
+    }
+
+    .category-sidebar {
+        position: sticky;
+        z-index: 1000;
+        transition: left 0.3s ease-in-out;
+        width: 0px;
+        &.visible {
+            left: 0;
+            width: 250px;
         }
     }
-    
-    .preview-title {
-        font-size: 1rem;
-    }
-    
-    .preview-excerpt {
-        -webkit-line-clamp: 2;
-        font-size: 0.85rem;
+
+    .right-sidebar {
+        display: none;
     }
 }
 
 @include mobile {
     .blog-layout {
-        flex-direction: column;
         margin: 0;
     }
-    
-    .category-sidebar {
-        position: fixed;
-        left: -250px;
-        margin: 0;
-        height: 100vh;
-        transition: left 0.3s ease-in-out;
-        background: white;
-        z-index: 1000;
-        
-        &.visible {
-            left: 0;
-        }
-    }
-    
+
     .blog-content {
         width: 100%;
         padding: 0;
         transition: margin-left 0.3s ease-in-out;
-        
-        &.sidebar-visible {
-            margin-left: 250px;
+    }
+
+    .category-sidebar {
+        position: sticky;
+        left: -500px;
+        width: 0px;
+        margin: 0;
+        height: 100vh;
+        transition: left 0.3s ease-in-out;
+        z-index: 1000;
+
+        &.visible {
+            left: 0;
+            width: 250px;
         }
+    }
+
+    .post-preview-container {
+        flex-direction: row;
+    }
+
+    .preview-thumbnail {
+        flex: 0 0 80px;
+
+        img {
+            width: 80px;
+            height: 60px;
+        }
+    }
+
+    .preview-title {
+        font-size: 1rem;
+    }
+
+    .preview-excerpt {
+        -webkit-line-clamp: 2;
+        font-size: 0.85rem;
     }
 }

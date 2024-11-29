@@ -1089,7 +1089,7 @@ ul.search-results {
 }
 
 #toc-toggle {
-    display: none;  // 기본적으로 숨김
+    display: block;
     position: fixed;
     bottom: 20px;
     right: 20px;
