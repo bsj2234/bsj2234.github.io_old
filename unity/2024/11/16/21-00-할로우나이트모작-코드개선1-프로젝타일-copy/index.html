@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>GroundProjectile 클래스 리팩토링 분석</title>
+  <meta name="description"
+    content="BlogBox is a bold theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net.
+">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic%7COpen+Sans:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="canonical" href="https://bsj2234.github.io/unity/2024/11/16/21-00-%ED%95%A0%EB%A1%9C%EC%9A%B0%EB%82%98%EC%9D%B4%ED%8A%B8%EB%AA%A8%EC%9E%91-%EC%BD%94%EB%93%9C%EA%B0%9C%EC%84%A01-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%83%80%EC%9D%BC-copy/">
+  <link rel="alternate" type="application/rss+xml" title="BlogBox Feed"
+    href="https://bsj2234.github.io/feed.xml">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body class="">
+  <div id="page" class="site">
+    <nav class="site-nav" aria-label="Main Menu">
+    <div class="inner">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false"><span class="icon-menu" aria-hidden="true"></span> Menu</button>
+        <div id="nav-menu" class="nav-menu">
+            <ul class="menu">
+            
+                
+                
+                <li class=""><a class="" href="/">홈</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/blog/">블로그</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/about/">소개</a></li>
+            
+            </ul>
+        </div><!-- .nav-menu -->
+        <a id="search-open" class="search-toggle"><i class="fa-search" aria-hidden="true"></i><span class="screen-reader-text">Search</span></a>
+    </div><!-- .inner -->
+</nav><!-- .site-nav -->
+<header class="site-header fade-in-down delay-0_5s">
+    <div class="inner">
+        
+        <h1 class="site-title"><a href="/" rel="home">BlogBox</a></h1>
+        
+        <p class="site-description">Tales of a digital nomad.</p>
+    </div><!-- .inner -->
+</header><!-- .site-header -->
+
+<!-- Add Mermaid support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default'
+    });
+  });
+</script>
+
+<section class="site-search" role="search">
+		<div class="search-scrollable">
+			<div class="search-box">
+				<div class="search-box-inside">
+					<h2 class="screen-reader-text">Search </h2>
+					<form class="search-form">
+						<label class="screen-reader-text">Search for:</label>
+						<input type="text" id="search-field" class="search-field" placeholder="Type your keywords&hellip;" />
+						<input type="submit" class="search-submit screen-reader-text" value="Search" />
+					</form>
+					<ul id="search-results" class="search-results"></ul>
+				</div><!-- .search-box-inside -->
+				<button id="search-close" class="search-toggle"><span class="close-icon" aria-hidden="true"></span><span class="screen-reader-text">Close</span></button>
+			</div><!-- .search-box -->
+		</div><!-- .search-scrollable -->
+</section><!-- .site-search -->
+
+
+    <main class="content fade-in-down delay-0_75s">
+    <div class="inner-wide blog-layout">
+        <aside class="category-sidebar">
+    <h2 class="sidebar-title">Categories</h2>
+    <ul class="category-list">
+        <li class="category-item active">
+            <a href="/blog/">
+                All Posts
+                <span class="count">(32)</span>
+            </a>
+        </li>
+        
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog">
+                    Blog
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog/jekyll">
+                    Blog/Jekyll
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/csharp">
+                    CSharp
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/codingtest">
+                    CodingTest
+                    <span class="count">(11)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/computerscience">
+                    ComputerScience
+                    <span class="count">(3)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/datastructure">
+                    DataStructure
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/graphics">
+                    Graphics
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/network">
+                    Network
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/unity">
+                    Unity
+                    <span class="count">(9)</span>
+                </a>
+            </li>
+        
+    </ul>
+</aside> 
+        <div class="blog-content">
+            <article class="post">
+                
+                <div class="entry-box">
+                    <header class="entry-header">
+                        <h1 class="entry-title">GroundProjectile 클래스 리팩토링 분석</h1>
+                        <div class="entry-meta">
+                            <time class="post-date" datetime="2024-11-16">November 16, 2024</time> by 변석진
+                        </div>
+                    </header>
+                    <div class="entry-content">
+                        <h1 id="groundprojectile-클래스-리팩토링-분석">GroundProjectile 클래스 리팩토링 분석</h1>
+
+<h2 id="기존-코드">기존 코드</h2>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine.Assertions</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">GroundProjectile</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="n">Rigidbody2D</span> <span class="n">_rb</span><span class="p">;</span>
+    <span class="k">private</span> <span class="kt">float</span> <span class="n">_time</span> <span class="p">=</span> <span class="m">0f</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">CircleCollider2D</span> <span class="n">_collider</span><span class="p">;</span>
+    <span class="k">public</span> <span class="n">Transform</span> <span class="n">_groundCheckPos</span><span class="p">;</span>
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">_rb</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody2D</span><span class="p">&gt;();</span>
+        <span class="n">_collider</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">GetComponentInChildren</span><span class="p">&lt;</span><span class="n">CircleCollider2D</span><span class="p">&gt;();</span>
+        <span class="n">_groundCheckPos</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">GetComponentInChildren</span><span class="p">&lt;</span><span class="n">Transform</span><span class="p">&gt;();</span>
+        <span class="c1">// 컴포넌트 지정 안됐을 시 에러 발생</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">IsNotNull</span><span class="p">(</span><span class="n">_rb</span><span class="p">);</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">IsNotNull</span><span class="p">(</span><span class="n">_collider</span><span class="p">);</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">IsNotNull</span><span class="p">(</span><span class="n">_groundCheckPos</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 컴포넌트 활성화 시 초기화</span>
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnEnable</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">_time</span> <span class="p">=</span> <span class="m">0f</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 고정 업데이트 시 시간 기반 가속도 증가 및 크기 증가</span>
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">FixedUpdate</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">_time</span> <span class="p">+=</span> <span class="n">Time</span><span class="p">.</span><span class="n">fixedDeltaTime</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">calcTime</span> <span class="p">=</span> <span class="n">_time</span> <span class="p">*</span> <span class="m">2f</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">powTime</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Pow</span><span class="p">(</span><span class="n">calcTime</span><span class="p">,</span> <span class="m">3f</span><span class="p">);</span>
+        <span class="n">_rb</span><span class="p">.</span><span class="n">velocity</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Min</span><span class="p">(</span><span class="n">powTime</span> <span class="p">*</span> <span class="m">5f</span> <span class="p">,</span> <span class="m">30f</span> <span class="p">)</span> <span class="p">*</span> <span class="n">transform</span><span class="p">.</span><span class="n">right</span><span class="p">;</span>
+        <span class="n">transform</span><span class="p">.</span><span class="n">localScale</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="nf">Min</span><span class="p">(</span><span class="n">powTime</span> <span class="p">*</span> <span class="m">3f</span><span class="p">,</span> <span class="m">1f</span><span class="p">),</span><span class="m">1f</span><span class="p">,</span><span class="m">1f</span><span class="p">);</span>
+        <span class="n">Collider2D</span> <span class="n">hit</span> <span class="p">=</span> <span class="n">Physics2D</span><span class="p">.</span><span class="nf">OverlapCircle</span><span class="p">(</span><span class="n">_groundCheckPos</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="p">.</span><span class="m">5f</span><span class="p">,</span> <span class="n">LayerMask</span><span class="p">.</span><span class="nf">GetMask</span><span class="p">(</span><span class="s">"Ground"</span><span class="p">));</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">hit</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">Destroy</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnDrawGizmos</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Gizmos</span><span class="p">.</span><span class="nf">DrawSphere</span><span class="p">(</span><span class="n">_groundCheckPos</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="p">.</span><span class="m">5f</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h3 id="주요-기능">주요 기능</h3>
+<ul>
+  <li>시간 기반 가속도 증가</li>
+  <li>시간 기반 크기 변화</li>
+  <li>지면 접촉 확인 및 소멸</li>
+</ul>
+
+<h2 id="ai-추천-개선-코드">AI 추천 개선 코드</h2>
+
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">GroundProjectile</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Header</span><span class="p">(</span><span class="s">"Movement Settings"</span><span class="p">)]</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="kt">float</span> <span class="n">_maxSpeed</span> <span class="p">=</span> <span class="m">30f</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="kt">float</span> <span class="n">_accelerationMultiplier</span> <span class="p">=</span> <span class="m">5f</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="kt">float</span> <span class="n">_timeMultiplier</span> <span class="p">=</span> <span class="m">2f</span><span class="p">;</span>
+    
+    <span class="p">[</span><span class="nf">Header</span><span class="p">(</span><span class="s">"Scale Settings"</span><span class="p">)]</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="kt">float</span> <span class="n">_maxScale</span> <span class="p">=</span> <span class="m">1f</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="kt">float</span> <span class="n">_scaleMultiplier</span> <span class="p">=</span> <span class="m">3f</span><span class="p">;</span>
+    
+    <span class="p">[</span><span class="nf">Header</span><span class="p">(</span><span class="s">"Ground Check"</span><span class="p">)]</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="kt">float</span> <span class="n">_groundCheckRadius</span> <span class="p">=</span> <span class="m">0.5f</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="n">LayerMask</span> <span class="n">_groundLayer</span><span class="p">;</span>
+    
+    <span class="k">private</span> <span class="n">Rigidbody2D</span> <span class="n">_rb</span><span class="p">;</span>
+    <span class="k">private</span> <span class="kt">float</span> <span class="n">_elapsedTime</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">CircleCollider2D</span> <span class="n">_collider</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">Transform</span> <span class="n">_groundCheckPos</span><span class="p">;</span>
+    
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">_rb</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody2D</span><span class="p">&gt;();</span>
+        <span class="n">_collider</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">GetComponentInChildren</span><span class="p">&lt;</span><span class="n">CircleCollider2D</span><span class="p">&gt;();</span>
+        <span class="n">_groundCheckPos</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">GetComponentInChildren</span><span class="p">&lt;</span><span class="n">Transform</span><span class="p">&gt;();</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">IsNotNull</span><span class="p">(</span><span class="n">_rb</span><span class="p">);</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">IsNotNull</span><span class="p">(</span><span class="n">_collider</span><span class="p">);</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">IsNotNull</span><span class="p">(</span><span class="n">_groundCheckPos</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnEnable</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">_time</span> <span class="p">=</span> <span class="m">0f</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">FixedUpdate</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">_time</span> <span class="p">+=</span> <span class="n">Time</span><span class="p">.</span><span class="n">fixedDeltaTime</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">calcTime</span> <span class="p">=</span> <span class="n">_time</span> <span class="p">*</span> <span class="m">2f</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">powTime</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Pow</span><span class="p">(</span><span class="n">calcTime</span><span class="p">,</span> <span class="m">3f</span><span class="p">);</span>
+        <span class="n">_rb</span><span class="p">.</span><span class="n">velocity</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Min</span><span class="p">(</span><span class="n">powTime</span> <span class="p">*</span> <span class="m">5f</span> <span class="p">,</span> <span class="m">30f</span> <span class="p">)</span> <span class="p">*</span> <span class="n">transform</span><span class="p">.</span><span class="n">right</span><span class="p">;</span>
+        <span class="n">transform</span><span class="p">.</span><span class="n">localScale</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="nf">Min</span><span class="p">(</span><span class="n">powTime</span> <span class="p">*</span> <span class="m">3f</span><span class="p">,</span> <span class="m">1f</span><span class="p">),</span><span class="m">1f</span><span class="p">,</span><span class="m">1f</span><span class="p">);</span>
+        <span class="n">Collider2D</span> <span class="n">hit</span> <span class="p">=</span> <span class="n">Physics2D</span><span class="p">.</span><span class="nf">OverlapCircle</span><span class="p">(</span><span class="n">_groundCheckPos</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="p">.</span><span class="m">5f</span><span class="p">,</span> <span class="n">LayerMask</span><span class="p">.</span><span class="nf">GetMask</span><span class="p">(</span><span class="s">"Ground"</span><span class="p">));</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">hit</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">Destroy</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnDrawGizmos</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Gizmos</span><span class="p">.</span><span class="nf">DrawSphere</span><span class="p">(</span><span class="n">_groundCheckPos</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="p">.</span><span class="m">5f</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h2 id="ai-추천-개선-사항">AI 추천 개선 사항</h2>
+
+<h3 id="1-설정값-직렬화">1. 설정값 직렬화</h3>
+<ul>
+  <li>Inspector에서 조정 가능한 변수들을 SerializeField로 변경</li>
+  <li>매직 넘버 제거 및 설정값의 중앙화</li>
+</ul>
+
+<h3 id="2-코드-구조화">2. 코드 구조화</h3>
+<ul>
+  <li>기능별로 메서드 분리</li>
+  <li>초기화, 업데이트, 검사 로직을 명확히 구분</li>
+</ul>
+
+<h3 id="3-가독성-향상">3. 가독성 향상</h3>
+<ul>
+  <li>의미 있는 변수명과 메서드명 사용</li>
+  <li>관련 기능을 그룹화하여 Header 속성으로 구분</li>
+</ul>
+
+<h3 id="4-디버깅-개선">4. 디버깅 개선</h3>
+<ul>
+  <li>Gizmos 색상 추가</li>
+  <li>null 체크 추가</li>
+</ul>
+
+<h2 id="추가-개선-가능-사항">추가 개선 가능 사항</h2>
+
+<h3 id="1-객체-풀링-도입">1. 객체 풀링 도입</h3>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="c1">// 객체 파괴 대신 풀링 시스템 사용</span>
+<span class="k">private</span> <span class="k">void</span> <span class="nf">Deactivate</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">ObjectPool</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="nf">ReturnToPool</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span>
+<span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h3 id="2-이벤트-시스템-활용">2. 이벤트 시스템 활용</h3>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">event</span> <span class="n">System</span><span class="p">.</span><span class="n">Action</span> <span class="n">OnProjectileDestroy</span><span class="p">;</span>
+
+<span class="k">private</span> <span class="k">void</span> <span class="nf">HandleDestruction</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">OnProjectileDestroy</span><span class="p">?.</span><span class="nf">Invoke</span><span class="p">();</span>
+    <span class="nf">Deactivate</span><span class="p">();</span>
+<span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h3 id="3-성능-최적화">3. 성능 최적화</h3>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="k">readonly</span> <span class="n">Collider2D</span><span class="p">[]</span> <span class="n">_results</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Collider2D</span><span class="p">[</span><span class="m">1</span><span class="p">];</span>
+
+<span class="k">private</span> <span class="k">void</span> <span class="nf">CheckGroundContact</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">hitCount</span> <span class="p">=</span> <span class="n">Physics2D</span><span class="p">.</span><span class="nf">OverlapCircleNonAlloc</span><span class="p">(</span><span class="n">_groundCheckPos</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> 
+        <span class="n">_groundCheckRadius</span><span class="p">,</span> <span class="n">_results</span><span class="p">,</span> <span class="n">_groundLayer</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">hitCount</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nf">Deactivate</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h2 id="장점">장점</h2>
+
+<ol>
+  <li><strong>유지보수성</strong>
+    <ul>
+      <li>모듈화된 코드로 수정이 용이</li>
+      <li>설정값 조정이 간편</li>
+    </ul>
+  </li>
+  <li><strong>재사용성</strong>
+    <ul>
+      <li>명확한 구조로 다른 프로젝트에서도 활용 가능</li>
+      <li>설정값 분리로 다양한 발사체 구현 가능</li>
+    </ul>
+  </li>
+  <li><strong>디버깅</strong>
+    <ul>
+      <li>시각적 디버깅 도구 개선</li>
+      <li>명확한 에러 메시지</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="단점">단점</h2>
+
+<ol>
+  <li><strong>메모리 사용</strong>
+    <ul>
+      <li>메서드 분리로 인한 오버헤드</li>
+    </ul>
+  </li>
+  <li><strong>복잡성</strong>
+    <ul>
+      <li>간단한 기능에 비해 다소 복잡한 구조</li>
+      <li>초기 학습 곡선이 있음</li>
+    </ul>
+  </li>
+</ol>
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+    <aside class="footer-widgets">
+
+    
+
+    <div id="footer-columns" class="footer-columns">
+        <div class="inner">
+            <div class="grid">
+
+                
+                <div class="one-third">
+                    <section class="widget widget-text">
+                        <h2 class="widget-title">About 변석진</h2>
+                        <p>유니티 클라이언트 지망하는 변석진입니다.</p>
+                    </section><!-- .widget-text -->
+                </div><!-- .one-third -->
+                
+
+                <div class="one-third">
+                    <section class="widget widget-recent-posts">
+                        <h2 class="widget-title">Latest Posts</h2>
+                        <ul class="recent-posts">
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/">버그-평면에서의 튀어오름</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/">미분 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/">마크업 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                        </ul><!-- .recent-posts -->
+                    </section><!-- .widget-recent-posts -->
+                </div><!-- .one-third -->
+
+                <!-- Create a sorted array of tags -->
+                <div class="one-third">
+                    
+                    
+                    <section class="widget widget-tags">
+                        <h2 class="widget-title">Tags</h2>
+                        <div class="tagcloud">
+                            
+                            <a href="/tags/#Animation">Animation</a>
+                            
+                            <a href="/tags/#Animator">Animator</a>
+                            
+                            <a href="/tags/#Bug">Bug</a>
+                            
+                            <a href="/tags/#CodingTest">CodingTest</a>
+                            
+                            <a href="/tags/#Physics">Physics</a>
+                            
+                            <a href="/tags/#Programmers">Programmers</a>
+                            
+                            <a href="/tags/#SRP">SRP</a>
+                            
+                            <a href="/tags/#Unity">Unity</a>
+                            
+                            <a href="/tags/#algorithm">algorithm</a>
+                            
+                            <a href="/tags/#animator">animator</a>
+                            
+                        </div><!-- .tagcloud -->
+                    </section><!-- .widget -->
+                </div><!-- .one-third -->
+
+            </div><!-- .grid -->
+        </div><!-- .inner -->
+    </div><!-- .footer-columns -->
+
+</aside><!-- .footer-widgets -->
+
+    <footer class="site-footer">
+    <div class="inner">
+        <div class="social-links">
+            
+            
+            
+            
+            <a href="https://github.com/bsj2234"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">GitHub</span></a>
+            
+            
+            <a href="https://www.youtube.com/@siko102" ><i class="fa fa-youtube-play" aria-hidden="true"></i><span class="screen-reader-text">Youtube</span></a>
+            
+            
+            
+            
+            
+            
+        </div><!-- .social-links -->
+        <div class="copyright">
+            &copy; 2024 <a href="/">BlogBox</a> <br />BlogBox theme by <a target="_blank" href="https://justgoodthemes.com/">JustGoodThemes</a>
+        </div><!-- .copyright -->
+        <a href="#page" id="top-link" class="top-link"><i class="fa fa-chevron-up" aria-hidden="true"></i><span class="screen-reader-text">Back to the top</span></a>
+    </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+  </div><!-- .site -->
+
+  <script type="text/javascript" src="/js/plugins.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      Prism.highlightAll();
+    });
+  </script>
+
+</body>
+
+</html>

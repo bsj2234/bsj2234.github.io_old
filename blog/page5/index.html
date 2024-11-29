@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>Blog</title>
+  <meta name="description"
+    content="BlogBox is a bold theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net.
+">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic%7COpen+Sans:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="canonical" href="https://bsj2234.github.io/blog/page5/">
+  <link rel="alternate" type="application/rss+xml" title="BlogBox Feed"
+    href="https://bsj2234.github.io/feed.xml">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body class="">
+  <div id="page" class="site">
+    <nav class="site-nav" aria-label="Main Menu">
+    <div class="inner">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false"><span class="icon-menu" aria-hidden="true"></span> Menu</button>
+        <div id="nav-menu" class="nav-menu">
+            <ul class="menu">
+            
+                
+                
+                <li class=""><a class="" href="/">홈</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/blog/">블로그</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/about/">소개</a></li>
+            
+            </ul>
+        </div><!-- .nav-menu -->
+        <a id="search-open" class="search-toggle"><i class="fa-search" aria-hidden="true"></i><span class="screen-reader-text">Search</span></a>
+    </div><!-- .inner -->
+</nav><!-- .site-nav -->
+<header class="site-header fade-in-down delay-0_5s">
+    <div class="inner">
+        
+        <h1 class="site-title"><a href="/" rel="home">BlogBox</a></h1>
+        
+        <p class="site-description">Tales of a digital nomad.</p>
+    </div><!-- .inner -->
+</header><!-- .site-header -->
+
+<!-- Add Mermaid support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default'
+    });
+  });
+</script>
+
+<section class="site-search" role="search">
+		<div class="search-scrollable">
+			<div class="search-box">
+				<div class="search-box-inside">
+					<h2 class="screen-reader-text">Search </h2>
+					<form class="search-form">
+						<label class="screen-reader-text">Search for:</label>
+						<input type="text" id="search-field" class="search-field" placeholder="Type your keywords&hellip;" />
+						<input type="submit" class="search-submit screen-reader-text" value="Search" />
+					</form>
+					<ul id="search-results" class="search-results"></ul>
+				</div><!-- .search-box-inside -->
+				<button id="search-close" class="search-toggle"><span class="close-icon" aria-hidden="true"></span><span class="screen-reader-text">Close</span></button>
+			</div><!-- .search-box -->
+		</div><!-- .search-scrollable -->
+</section><!-- .site-search -->
+
+
+    <main class="content fade-in-down delay-0_75s">
+    <div class="inner-wide blog-layout">
+        <aside class="category-sidebar">
+    <h2 class="sidebar-title">Categories</h2>
+    <ul class="category-list">
+        <li class="category-item active">
+            <a href="/blog/">
+                All Posts
+                <span class="count">(32)</span>
+            </a>
+        </li>
+        
+        
+            
+            
+            <li class="category-item active">
+                <a href="/blog/category/blog">
+                    Blog
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog/jekyll">
+                    Blog/Jekyll
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/csharp">
+                    CSharp
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/codingtest">
+                    CodingTest
+                    <span class="count">(11)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/computerscience">
+                    ComputerScience
+                    <span class="count">(3)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/datastructure">
+                    DataStructure
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/graphics">
+                    Graphics
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/network">
+                    Network
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/unity">
+                    Unity
+                    <span class="count">(9)</span>
+                </a>
+            </li>
+        
+    </ul>
+</aside> 
+        <div class="blog-content">
+            
+            
+                
+
+
+<article class="post-preview">
+    <a href="/datastructure/2024/11/14/17-35-%ED%95%B4%EC%8B%9C%ED%85%8C%EC%9D%B4%EB%B8%94/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-content">
+                <h2 class="preview-title">해시테이블(Hash Table)</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-14">
+                        November 14, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">DataStructure</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    해시테이블(Hash Table) 해시테이블은 키를 값에 매핑하는 자료구조 평균 O(1)의 시간 복잡도로 데이터를 저장하고 검색 기본 개념 구성 요소 해시 함수: 키를 정수 인덱스로 변환 버킷/슬롯: 실제 데이터가 저장되는 공간 충돌...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/csharp/2024/11/14/17-35-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-content">
+                <h2 class="preview-title">C# 딕셔너리(Dictionary)</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-14">
+                        November 14, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">CSharp</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    C# 딕셔너리(Dictionary) 딕셔너리는 키-값 쌍을 저장하는 컬렉션으로, 효율적인 데이터 검색과 관리를 위한 자료구조 기본 개념 특징 키와 값으로 구성된 쌍을 저장 키는 고유해야 함 값은 중복 가능 O(1) 시간 복잡도로...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/unity/2024/11/14/17-17-%EA%B0%80%EB%B9%84%EC%A7%80-%EC%BB%AC%EB%A0%89%ED%84%B0/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-content">
+                <h2 class="preview-title">Unity 가비지 컬렉터 이해하기</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-14">
+                        November 14, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">Unity</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    Unity 가비지 컬렉터(Garbage Collector) 가비지 컬렉터는 Unity에서 자동으로 메모리를 관리하는 시스템으로, 더 이상 사용되지 않는 객체를 감지하고 제거하여 메모리를 확보합니다. 가비지 컬렉터의 이해 기본 개념 참조되지 않는 객체를 자동으로 감지...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/unity/2024/11/14/15-22-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-content">
+                <h2 class="preview-title">오브젝트 풀링</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-14">
+                        November 14, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">Unity</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    오브젝트 풀링(Object Pooling) 오브젝트 풀링은 게임 개발에서 자주 사용되는 최적화 기법으로, 객체의 생성과 파괴를 최소화하여 성능을 향상시키는 방법입니다. 오브젝트 풀링의 이해 기본 개념 미리 객체들을 생성하여 풀(Pool)에 보관 필요할 때...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/computerscience/2024/11/13/15-09-%EC%BA%90%EC%8B%9C-%ED%9E%88%ED%8A%B8/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-content">
+                <h2 class="preview-title">캐시 히트</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-13">
+                        November 13, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">ComputerScience</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    캐시히트 캐시 히트(Cache Hit)와 캐시 미스(Cache Miss) 캐시 메모리는 CPU와 주 메모리 사이의 속도 차이를 줄이기 위한 고속 메모리이다. 데이터 접근 패턴에 따라 성능이 크게 달라질 수 있다. 캐시 히트와...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+            
+
+            
+            <nav class="pagination">
+                
+                <a href="/blog/page4/" class="newer-posts"><i class="fa fa-angle-left" aria-hidden="true"></i> Newer Posts</a>
+                
+                <span class="page-number">Page 5 of 7</span>
+                
+                <a href="/blog/page6/" class="older-posts">Older Posts <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                
+            </nav>
+            
+        </div>
+    </div>
+</main>
+
+    <aside class="footer-widgets">
+
+    
+
+    <div id="footer-columns" class="footer-columns">
+        <div class="inner">
+            <div class="grid">
+
+                
+                <div class="one-third">
+                    <section class="widget widget-text">
+                        <h2 class="widget-title">About 변석진</h2>
+                        <p>유니티 클라이언트 지망하는 변석진입니다.</p>
+                    </section><!-- .widget-text -->
+                </div><!-- .one-third -->
+                
+
+                <div class="one-third">
+                    <section class="widget widget-recent-posts">
+                        <h2 class="widget-title">Latest Posts</h2>
+                        <ul class="recent-posts">
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/">버그-평면에서의 튀어오름</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/">미분 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/">마크업 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                        </ul><!-- .recent-posts -->
+                    </section><!-- .widget-recent-posts -->
+                </div><!-- .one-third -->
+
+                <!-- Create a sorted array of tags -->
+                <div class="one-third">
+                    
+                    
+                    <section class="widget widget-tags">
+                        <h2 class="widget-title">Tags</h2>
+                        <div class="tagcloud">
+                            
+                            <a href="/tags/#Animation">Animation</a>
+                            
+                            <a href="/tags/#Animator">Animator</a>
+                            
+                            <a href="/tags/#Bug">Bug</a>
+                            
+                            <a href="/tags/#CodingTest">CodingTest</a>
+                            
+                            <a href="/tags/#Physics">Physics</a>
+                            
+                            <a href="/tags/#Programmers">Programmers</a>
+                            
+                            <a href="/tags/#SRP">SRP</a>
+                            
+                            <a href="/tags/#Unity">Unity</a>
+                            
+                            <a href="/tags/#algorithm">algorithm</a>
+                            
+                            <a href="/tags/#animator">animator</a>
+                            
+                        </div><!-- .tagcloud -->
+                    </section><!-- .widget -->
+                </div><!-- .one-third -->
+
+            </div><!-- .grid -->
+        </div><!-- .inner -->
+    </div><!-- .footer-columns -->
+
+</aside><!-- .footer-widgets -->
+
+    <footer class="site-footer">
+    <div class="inner">
+        <div class="social-links">
+            
+            
+            
+            
+            <a href="https://github.com/bsj2234"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">GitHub</span></a>
+            
+            
+            <a href="https://www.youtube.com/@siko102" ><i class="fa fa-youtube-play" aria-hidden="true"></i><span class="screen-reader-text">Youtube</span></a>
+            
+            
+            
+            
+            
+            
+        </div><!-- .social-links -->
+        <div class="copyright">
+            &copy; 2024 <a href="/">BlogBox</a> <br />BlogBox theme by <a target="_blank" href="https://justgoodthemes.com/">JustGoodThemes</a>
+        </div><!-- .copyright -->
+        <a href="#page" id="top-link" class="top-link"><i class="fa fa-chevron-up" aria-hidden="true"></i><span class="screen-reader-text">Back to the top</span></a>
+    </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+  </div><!-- .site -->
+
+  <script type="text/javascript" src="/js/plugins.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      Prism.highlightAll();
+    });
+  </script>
+
+</body>
+
+</html>

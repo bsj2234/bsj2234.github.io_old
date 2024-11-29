@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>완전 탐색 - 피로도</title>
+  <meta name="description"
+    content="BlogBox is a bold theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net.
+">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic%7COpen+Sans:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="canonical" href="https://bsj2234.github.io/codingtest/2024/11/15/10-00-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%895%EB%B2%88/">
+  <link rel="alternate" type="application/rss+xml" title="BlogBox Feed"
+    href="https://bsj2234.github.io/feed.xml">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body class="">
+  <div id="page" class="site">
+    <nav class="site-nav" aria-label="Main Menu">
+    <div class="inner">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false"><span class="icon-menu" aria-hidden="true"></span> Menu</button>
+        <div id="nav-menu" class="nav-menu">
+            <ul class="menu">
+            
+                
+                
+                <li class=""><a class="" href="/">홈</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/blog/">블로그</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/about/">소개</a></li>
+            
+            </ul>
+        </div><!-- .nav-menu -->
+        <a id="search-open" class="search-toggle"><i class="fa-search" aria-hidden="true"></i><span class="screen-reader-text">Search</span></a>
+    </div><!-- .inner -->
+</nav><!-- .site-nav -->
+<header class="site-header fade-in-down delay-0_5s">
+    <div class="inner">
+        
+        <h1 class="site-title"><a href="/" rel="home">BlogBox</a></h1>
+        
+        <p class="site-description">Tales of a digital nomad.</p>
+    </div><!-- .inner -->
+</header><!-- .site-header -->
+
+<!-- Add Mermaid support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default'
+    });
+  });
+</script>
+
+<section class="site-search" role="search">
+		<div class="search-scrollable">
+			<div class="search-box">
+				<div class="search-box-inside">
+					<h2 class="screen-reader-text">Search </h2>
+					<form class="search-form">
+						<label class="screen-reader-text">Search for:</label>
+						<input type="text" id="search-field" class="search-field" placeholder="Type your keywords&hellip;" />
+						<input type="submit" class="search-submit screen-reader-text" value="Search" />
+					</form>
+					<ul id="search-results" class="search-results"></ul>
+				</div><!-- .search-box-inside -->
+				<button id="search-close" class="search-toggle"><span class="close-icon" aria-hidden="true"></span><span class="screen-reader-text">Close</span></button>
+			</div><!-- .search-box -->
+		</div><!-- .search-scrollable -->
+</section><!-- .site-search -->
+
+
+    <main class="content fade-in-down delay-0_75s">
+    <div class="inner-wide blog-layout">
+        <aside class="category-sidebar">
+    <h2 class="sidebar-title">Categories</h2>
+    <ul class="category-list">
+        <li class="category-item active">
+            <a href="/blog/">
+                All Posts
+                <span class="count">(32)</span>
+            </a>
+        </li>
+        
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog">
+                    Blog
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog/jekyll">
+                    Blog/Jekyll
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/csharp">
+                    CSharp
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/codingtest">
+                    CodingTest
+                    <span class="count">(11)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/computerscience">
+                    ComputerScience
+                    <span class="count">(3)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/datastructure">
+                    DataStructure
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/graphics">
+                    Graphics
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/network">
+                    Network
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/unity">
+                    Unity
+                    <span class="count">(9)</span>
+                </a>
+            </li>
+        
+    </ul>
+</aside> 
+        <div class="blog-content">
+            <article class="post">
+                
+                <div class="entry-box">
+                    <header class="entry-header">
+                        <h1 class="entry-title">완전 탐색 - 피로도</h1>
+                        <div class="entry-meta">
+                            <time class="post-date" datetime="2024-11-15">November 15, 2024</time> by 변석진
+                        </div>
+                    </header>
+                    <div class="entry-content">
+                        <h1 id="피로도-문제-풀이">피로도 문제 풀이</h1>
+
+<h2 id="문제-설명">문제 설명</h2>
+<p>던전마다 입장에 필요한 “최소 필요 피로도”와 탐험 후 소모되는 “소모 피로도”가 있을 때, 유저가 탐험할 수 있는 최대 던전 수를 구하는 문제입니다.</p>
+
+<h3 id="제한사항">제한사항</h3>
+<ul>
+  <li>k(현재 피로도): 1 이상 5,000 이하 자연수</li>
+  <li>dungeons의 세로(행) 길이: 1 이상 8 이하</li>
+  <li>dungeons의 각 행: [최소 필요 피로도, 소모 피로도]</li>
+  <li>최소 필요 피로도 ≥ 소모 피로도</li>
+</ul>
+
+<h2 id="접근-방법-1-dfs-깊이-우선-탐색">접근 방법 1: DFS (깊이 우선 탐색)</h2>
+
+<h3 id="dfs-코드">DFS 코드</h3>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="kt">bool</span><span class="p">[]</span> <span class="n">visited</span><span class="p">;</span>
+    <span class="k">private</span> <span class="kt">int</span> <span class="n">maxCount</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    
+    <span class="k">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="kt">int</span><span class="p">[,]</span> <span class="n">dungeons</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">visited</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">bool</span><span class="p">[</span><span class="n">dungeons</span><span class="p">.</span><span class="nf">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">)];</span>
+        <span class="nf">DFS</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">dungeons</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">maxCount</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">DFS</span><span class="p">(</span><span class="kt">int</span> <span class="n">currentK</span><span class="p">,</span> <span class="kt">int</span><span class="p">[,]</span> <span class="n">dungeons</span><span class="p">,</span> <span class="kt">int</span> <span class="n">count</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">maxCount</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Max</span><span class="p">(</span><span class="n">maxCount</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">dungeons</span><span class="p">.</span><span class="nf">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">);</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(!</span><span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&amp;&amp;</span> <span class="n">currentK</span> <span class="p">&gt;=</span> <span class="n">dungeons</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">0</span><span class="p">])</span> <span class="p">{</span>
+                <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+                <span class="nf">DFS</span><span class="p">(</span><span class="n">currentK</span> <span class="p">-</span> <span class="n">dungeons</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">1</span><span class="p">],</span> <span class="n">dungeons</span><span class="p">,</span> <span class="n">count</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+                <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<h3 id="dfs-풀이-설명">DFS 풀이 설명</h3>
+<ol>
+  <li><strong>상태 관리</strong>
+    <ul>
+      <li>visited 배열로 각 던전의 방문 여부 추적</li>
+      <li>maxCount로 최대 던전 탐험 횟수 기록</li>
+    </ul>
+  </li>
+  <li><strong>재귀 호출</strong>
+    <ul>
+      <li>현재 피로도(currentK)가 던전의 최소 필요 피로도 이상인 경우에만 탐험</li>
+      <li>던전 탐험 후 소모 피로도를 차감하고 다음 던전으로 진행</li>
+      <li>백트래킹을 통해 모든 가능한 순서 탐색</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="dfs-실행-과정-실제-접근-순서">DFS 실행 과정 (실제 접근 순서)</h3>
+<div class="mermaid">
+graph TD
+    A[시작: 80] --&gt;|1| B[던전1: 60]
+    B --&gt;|2| C[던전2: 20]
+    C --&gt;|3| D[던전3: X]
+    B --&gt;|4| E[던전3: 50]
+    E --&gt;|5| F[던전2: 10]
+    A --&gt;|6| G[던전2: 40]
+    G --&gt;|7| H[던전1: X]
+    G --&gt;|8| I[던전3: 30]
+    A --&gt;|9| J[던전3: 70]
+    J --&gt;|10| K[던전1: X]
+    J --&gt;|11| L[던전2: 30]
+
+    style A fill:#f9f,stroke:#333
+    style F fill:#9f9,stroke:#333
+</div>
+
+<p><strong>DFS 순서 설명:</strong></p>
+<ol>
+  <li>80 → 던전1(60)</li>
+  <li>60 → 던전2(20)</li>
+  <li>20 → 던전3(불가)</li>
+  <li>백트래킹 후 60 → 던전3(50)</li>
+  <li>50 → 던전2(10) ✓ 최적해 발견!</li>
+  <li>백트래킹 후 80 → 던전2(40)</li>
+  <li>40 → 던전1(불가)</li>
+  <li>40 → 던전3(30)</li>
+  <li>백트래킹 후 80 → 던전3(70)</li>
+  <li>70 → 던전1(불가)</li>
+  <li>70 → 던전2(30)</li>
+</ol>
+
+<h2 id="접근-방법-2-bfs-너비-우선-탐색">접근 방법 2: BFS (너비 우선 탐색)</h2>
+
+<h3 id="bfs-코드">BFS 코드</h3>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">State</span> <span class="p">{</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">Fatigue</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">bool</span><span class="p">[]</span> <span class="n">Visited</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">Count</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="k">public</span> <span class="nf">State</span><span class="p">(</span><span class="kt">int</span> <span class="n">fatigue</span><span class="p">,</span> <span class="kt">bool</span><span class="p">[]</span> <span class="n">visited</span><span class="p">,</span> <span class="kt">int</span> <span class="n">count</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">Fatigue</span> <span class="p">=</span> <span class="n">fatigue</span><span class="p">;</span>
+            <span class="n">Visited</span> <span class="p">=</span> <span class="p">(</span><span class="kt">bool</span><span class="p">[])</span><span class="n">visited</span><span class="p">.</span><span class="nf">Clone</span><span class="p">();</span>
+            <span class="n">Count</span> <span class="p">=</span> <span class="n">count</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="kt">int</span><span class="p">[,]</span> <span class="n">dungeons</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">maxCount</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+        <span class="n">Queue</span><span class="p">&lt;</span><span class="n">State</span><span class="p">&gt;</span> <span class="n">queue</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">&lt;</span><span class="n">State</span><span class="p">&gt;();</span>
+        <span class="n">queue</span><span class="p">.</span><span class="nf">Enqueue</span><span class="p">(</span><span class="k">new</span> <span class="nf">State</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="k">new</span> <span class="kt">bool</span><span class="p">[</span><span class="n">dungeons</span><span class="p">.</span><span class="nf">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">)],</span> <span class="m">0</span><span class="p">));</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="n">Count</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">current</span> <span class="p">=</span> <span class="n">queue</span><span class="p">.</span><span class="nf">Dequeue</span><span class="p">();</span>
+            <span class="n">maxCount</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Max</span><span class="p">(</span><span class="n">maxCount</span><span class="p">,</span> <span class="n">current</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
+
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">dungeons</span><span class="p">.</span><span class="nf">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">);</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(!</span><span class="n">current</span><span class="p">.</span><span class="n">Visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&amp;&amp;</span> <span class="n">current</span><span class="p">.</span><span class="n">Fatigue</span> <span class="p">&gt;=</span> <span class="n">dungeons</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">0</span><span class="p">])</span> <span class="p">{</span>
+                    <span class="n">current</span><span class="p">.</span><span class="n">Visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+                    <span class="n">queue</span><span class="p">.</span><span class="nf">Enqueue</span><span class="p">(</span><span class="k">new</span> <span class="nf">State</span><span class="p">(</span>
+                        <span class="n">current</span><span class="p">.</span><span class="n">Fatigue</span> <span class="p">-</span> <span class="n">dungeons</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">1</span><span class="p">],</span> 
+                        <span class="n">current</span><span class="p">.</span><span class="n">Visited</span><span class="p">,</span> 
+                        <span class="n">current</span><span class="p">.</span><span class="n">Count</span> <span class="p">+</span> <span class="m">1</span>
+                    <span class="p">));</span>
+                    <span class="n">current</span><span class="p">.</span><span class="n">Visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">maxCount</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<h3 id="bfs-풀이-설명">BFS 풀이 설명</h3>
+<ol>
+  <li><strong>상태 클래스</strong>
+    <ul>
+      <li>현재 피로도(Fatigue)</li>
+      <li>방문한 던전 목록(Visited)</li>
+      <li>방문한 던전 수(Count)</li>
+    </ul>
+  </li>
+  <li><strong>큐를 이용한 탐색</strong>
+    <ul>
+      <li>초기 상태를 큐에 넣고 시작</li>
+      <li>현재 상태에서 방문 가능한 모든 던전을 큐에 추가</li>
+      <li>각 상태마다 최대 던전 수 갱신</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="bfs-실행-과정-실제-접근-순서">BFS 실행 과정 (실제 접근 순서)</h3>
+<div class="mermaid">
+graph LR
+    A[80] --&gt;|1| B[60 던전1]
+    A --&gt;|2| C[40 던전2]
+    A --&gt;|3| D[70 던전3]
+    
+    B --&gt;|4| E[20 던전2]
+    B --&gt;|5| F[50 던전3]
+    
+    C --&gt;|6| G[X 던전1]
+    C --&gt;|7| H[30 던전3]
+    
+    D --&gt;|8| I[X 던전1]
+    D --&gt;|9| J[30 던전2]
+    
+    F --&gt;|10| K[10 던전2]
+    
+    style A fill:#f9f,stroke:#333
+    style K fill:#9f9,stroke:#333
+</div>
+
+<p><strong>BFS 순서 설명:</strong></p>
+<ol>
+  <li>레벨 0: 시작(80)</li>
+  <li>레벨 1: 모든 첫 번째 선택 시도
+    <ul>
+      <li>1번: 던전1 선택 (80 → 60)</li>
+      <li>2번: 던전2 선택 (80 → 40)</li>
+      <li>3번: 던전3 선택 (80 → 70)</li>
+    </ul>
+  </li>
+  <li>레벨 2: 60에서 가능한 모든 선택
+    <ul>
+      <li>4번: 던전2 선택 (60 → 20)</li>
+      <li>5번: 던전3 선택 (60 → 50)</li>
+    </ul>
+  </li>
+  <li>레벨 2: 40에서 가능한 모든 선택
+    <ul>
+      <li>6번: 던전1 선택 (불가)</li>
+      <li>7번: 던전3 선택 (40 → 30)</li>
+    </ul>
+  </li>
+  <li>레벨 2: 70에서 가능한 모든 선택
+    <ul>
+      <li>8번: 던전1 선택 (불가)</li>
+      <li>9번: 던전2 선택 (70 → 30)</li>
+    </ul>
+  </li>
+  <li>레벨 3: 50에서 마지막 선택
+    <ul>
+      <li>10번: 던전2 선택 (50 → 10) ✓ 최적해 발견!</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="시간-복잡도">시간 복잡도</h2>
+<ul>
+  <li>두 방식 모두 O(N!) : N은 던전의 개수</li>
+  <li>모든 가능한 순열을 확인해야 하므로 factorial 시간 복잡도</li>
+</ul>
+
+<h2 id="공간-복잡도">공간 복잡도</h2>
+<ul>
+  <li>DFS: O(N) - 재귀 호출 스택과 visited 배열</li>
+  <li>BFS: O(N!) - 최악의 경우 모든 순열이 큐에 저장될 수 있음</li>
+</ul>
+
+<h2 id="구현-방식-비교">구현 방식 비교</h2>
+<ol>
+  <li><strong>DFS 장점</strong>
+    <ul>
+      <li>구현이 더 간단</li>
+      <li>메모리 사용량이 적음</li>
+      <li>백트래킹이 자연스러움</li>
+    </ul>
+  </li>
+  <li><strong>BFS 장점</strong>
+    <ul>
+      <li>상태 관리가 명확</li>
+      <li>레벨 단위로 탐색하므로 최단 경로 찾기에 유리</li>
+      <li>단계별 진행 상황 파악이 용이</li>
+    </ul>
+  </li>
+  <li><strong>이 문제에서는?</strong>
+    <ul>
+      <li>DFS가 더 효율적</li>
+      <li>메모리 사용량이 적고 구현이 단순</li>
+      <li>백트래킹이 자연스럽게 구현됨</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="주요-차이점">주요 차이점</h3>
+<ol>
+  <li><strong>탐색 순서</strong>
+    <ul>
+      <li>DFS: 한 경로를 끝까지 탐색한 후 백트래킹</li>
+      <li>BFS: 같은 레벨의 모든 가능성을 먼저 탐색</li>
+    </ul>
+  </li>
+  <li><strong>메모리 사용</strong>
+    <ul>
+      <li>DFS: 재귀 호출 스택만 사용</li>
+      <li>BFS: 각 레벨의 모든 상태를 큐에 저장</li>
+    </ul>
+  </li>
+  <li><strong>경로 발견</strong>
+    <ul>
+      <li>DFS: 빠르게 가능한 경로 발견</li>
+      <li>BFS: 단계별로 체계적인 탐색</li>
+    </ul>
+  </li>
+</ol>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+    <aside class="footer-widgets">
+
+    
+
+    <div id="footer-columns" class="footer-columns">
+        <div class="inner">
+            <div class="grid">
+
+                
+                <div class="one-third">
+                    <section class="widget widget-text">
+                        <h2 class="widget-title">About 변석진</h2>
+                        <p>유니티 클라이언트 지망하는 변석진입니다.</p>
+                    </section><!-- .widget-text -->
+                </div><!-- .one-third -->
+                
+
+                <div class="one-third">
+                    <section class="widget widget-recent-posts">
+                        <h2 class="widget-title">Latest Posts</h2>
+                        <ul class="recent-posts">
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/">버그-평면에서의 튀어오름</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/">미분 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/">마크업 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                        </ul><!-- .recent-posts -->
+                    </section><!-- .widget-recent-posts -->
+                </div><!-- .one-third -->
+
+                <!-- Create a sorted array of tags -->
+                <div class="one-third">
+                    
+                    
+                    <section class="widget widget-tags">
+                        <h2 class="widget-title">Tags</h2>
+                        <div class="tagcloud">
+                            
+                            <a href="/tags/#Animation">Animation</a>
+                            
+                            <a href="/tags/#Animator">Animator</a>
+                            
+                            <a href="/tags/#Bug">Bug</a>
+                            
+                            <a href="/tags/#CodingTest">CodingTest</a>
+                            
+                            <a href="/tags/#Physics">Physics</a>
+                            
+                            <a href="/tags/#Programmers">Programmers</a>
+                            
+                            <a href="/tags/#SRP">SRP</a>
+                            
+                            <a href="/tags/#Unity">Unity</a>
+                            
+                            <a href="/tags/#algorithm">algorithm</a>
+                            
+                            <a href="/tags/#animator">animator</a>
+                            
+                        </div><!-- .tagcloud -->
+                    </section><!-- .widget -->
+                </div><!-- .one-third -->
+
+            </div><!-- .grid -->
+        </div><!-- .inner -->
+    </div><!-- .footer-columns -->
+
+</aside><!-- .footer-widgets -->
+
+    <footer class="site-footer">
+    <div class="inner">
+        <div class="social-links">
+            
+            
+            
+            
+            <a href="https://github.com/bsj2234"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">GitHub</span></a>
+            
+            
+            <a href="https://www.youtube.com/@siko102" ><i class="fa fa-youtube-play" aria-hidden="true"></i><span class="screen-reader-text">Youtube</span></a>
+            
+            
+            
+            
+            
+            
+        </div><!-- .social-links -->
+        <div class="copyright">
+            &copy; 2024 <a href="/">BlogBox</a> <br />BlogBox theme by <a target="_blank" href="https://justgoodthemes.com/">JustGoodThemes</a>
+        </div><!-- .copyright -->
+        <a href="#page" id="top-link" class="top-link"><i class="fa fa-chevron-up" aria-hidden="true"></i><span class="screen-reader-text">Back to the top</span></a>
+    </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+  </div><!-- .site -->
+
+  <script type="text/javascript" src="/js/plugins.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      Prism.highlightAll();
+    });
+  </script>
+
+</body>
+
+</html>

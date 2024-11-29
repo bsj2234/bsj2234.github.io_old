@@ -1,0 +1,1077 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>BlogBox</title>
+        <description>BlogBox is a bold theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net.
+</description>
+        <link>https://bsj2234.github.io/</link>
+        <atom:link href="https://bsj2234.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Fri, 29 Nov 2024 06:09:58 +0000</pubDate>
+        <lastBuildDate>Fri, 29 Nov 2024 06:09:58 +0000</lastBuildDate>
+        <generator>Jekyll v4.3.4</generator>
+        
+            <item>
+                <title>버그-평면에서의 튀어오름</title>
+                <description>&lt;h1 id=&quot;버그-상황&quot;&gt;버그 상황&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;공을 굴리는 게임을 제작하고있던 와중 공이 평면에서 튀어오르는 버그
+    &lt;ul&gt;
+      &lt;li&gt;속도가 빠를때&lt;/li&gt;
+      &lt;li&gt;같은 높이의 다른 충돌체로 옮겨갈때&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;해결-시도&quot;&gt;해결 시도&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;플랫폼을 계단식으로 0.01씩 내려가도록 배치 -&amp;gt; 그래도 발생&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Project Setting에서 Physics 설정 변경 Default Contact Offset 값을 0.00001f로 줄임 -&amp;gt; 해결?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;충돌시 튀어오를때(OnCollisionExit에서) 플랫폼의 노말에 현제 Velocity를 프로젝트하고 Magnitude를 곱해 방향을 재조정해봄 -&amp;gt; 작동은 하지만 살짝 튀어오르는 것이 여전히 보임 하지만 Default Contact Offset과 함께사용하면 튀어오름 방지가 가능함 -&amp;gt; 하지만 진짜로 튀어 올라야하는경우는 어떻게 처리해야하는가. -&amp;gt; 지금 내 게임에는 해당하지 않을지도&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Physics.ContactModifyEvent에서 충돌에 대한 처리가 따로 가능한것 같지만 어려워보이고 작동도 잘 되지 않아 보류&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;관련-포스트&quot;&gt;관련 포스트&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://discussions.unity.com/t/ball-rolling-over-edge-bounces-incorrectly/574306&quot;&gt;관련포스트1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://discussions.unity.com/t/rolling-ball-bouncing-issues-preventing-upgrade-past-2018-2/827982/10&quot;&gt;관련포스트2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
+                <link>https://bsj2234.github.io/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/</link>
+                <guid isPermaLink="true">https://bsj2234.github.io/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/</guid>
+                
+                <category>Unity</category>
+                
+                <category>Bug</category>
+                
+                <category>Physics</category>
+                
+                
+                <category>Unity</category>
+                
+            </item>
+        
+            <item>
+                <title>미분 정리</title>
+                <description>&lt;h1 id=&quot;미분-학습-대화록&quot;&gt;미분 학습 대화록&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: 흔한 미분 문제 하나 내줘&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A: 다음은 흔한 미분 문제 하나입니다:&lt;/p&gt;
+
+&lt;p&gt;문제:
+함수 f(x)=3x²+5x−7의 x에 대한 도함수를 구하고, x=2에서의 접선의 기울기를 구하세요.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: 한단계씩 가르쳐줘 푸는법&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A: 좋아요! 문제를 한 단계씩 풀어봅시다. 😊&lt;/p&gt;
+
+&lt;p&gt;1단계: 함수의 도함수를 구하기
+문제에서 주어진 함수: f(x)=3x²+5x−7&lt;/p&gt;
+
+&lt;p&gt;미분 규칙:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;xⁿ의 도함수는 n⋅xⁿ⁻¹ 입니다.&lt;/li&gt;
+  &lt;li&gt;상수항의 도함수는 0입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이 규칙을 적용하면, 각 항목의 도함수를 구할 수 있어요:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;3x² → 2⋅3x²⁻¹=6x&lt;/li&gt;
+  &lt;li&gt;5x → 5&lt;/li&gt;
+  &lt;li&gt;-7 → 0 (상수항이므로 도함수는 0)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;결과:
+도함수 f’(x)는 다음과 같습니다:
+f’(x)=6x+5&lt;/p&gt;
+
+&lt;p&gt;2단계: 도함수를 활용해 특정 점에서의 기울기 구하기
+우리는 x=2에서의 접선의 기울기를 구하고 싶습니다. 이 기울기는 f’(x)에 x=2를 대입한 값이에요.&lt;/p&gt;
+
+&lt;p&gt;f’(2)=6(2)+5&lt;/p&gt;
+
+&lt;p&gt;이걸 계산해 보세요! f’(2)의 값을 구해보세요. 😊&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: 17이요!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A: 맞아요! f’(2)=17입니다! 🎉&lt;/p&gt;
+
+&lt;p&gt;해석:
+f’(x)는 함수 f(x)의 기울기 함수입니다. x=2에서의 접선의 기울기 17은 곧, 해당 점에서 함수가 얼마나 가파르게 증가(또는 감소)하는지를 나타냅니다.&lt;/p&gt;
+
+&lt;p&gt;다음 단계로: 접선의 방정식 구하기
+만약 접선의 방정식도 구하고 싶다면, 접선은 다음과 같은 일반 방정식 형태를 따릅니다:&lt;/p&gt;
+
+&lt;p&gt;y−f(2)=f’(2)(x−2)&lt;/p&gt;
+
+&lt;p&gt;여기서 f(2)는 x=2에서의 f(x) 값을 말합니다.&lt;/p&gt;
+
+&lt;p&gt;f(2)를 계산해보고 접선의 방정식을 구해볼까요? 😊&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: y = 17x -19 요!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A: 정확해요! y=17x−19이 접선의 방정식입니다! 🎉&lt;/p&gt;
+
+&lt;p&gt;풀이 확인
+접선의 방정식:
+y−f(2)=f’(2)(x−2)&lt;/p&gt;
+
+&lt;p&gt;여기서:
+f(2): f(x)=3x²+5x−7에 x=2를 대입해 계산:
+f(2)=3(2)²+5(2)−7=12+10−7=15&lt;/p&gt;
+
+&lt;p&gt;f’(2)=17 (이미 계산 완료!)&lt;/p&gt;
+
+&lt;p&gt;식에 대입하면:
+y−15=17(x−2)&lt;/p&gt;
+
+&lt;p&gt;정리:
+y−15=17x−34
+y=17x−19&lt;/p&gt;
+
+&lt;p&gt;결론
+접선의 방정식은 &lt;strong&gt;y=17x−19&lt;/strong&gt;입니다. 완벽합니다! 🎉&lt;/p&gt;
+
+&lt;p&gt;추가로 궁금한 부분이나 연습문제 더 필요하면 말해주세요. 😊&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: 더 어려운 미분 문제 내주세요!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A: 좋아요! 이번엔 조금 더 어려운 미분 문제를 드릴게요. 🧠&lt;/p&gt;
+
+&lt;p&gt;문제:
+함수 f(x)=(x²+3x+2)/(x+1)의 도함수를 구하고, x=1에서의 접선의 방정식을 구하세요.&lt;/p&gt;
+
+&lt;p&gt;이 문제는 몫의 미분법을 활용해야 합니다. 풀어보고 싶으면 한 단계씩 도와드릴게요! 😊&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: 도움!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A: 좋아요! 하나씩 풀어봅시다. 😊&lt;/p&gt;
+
+&lt;p&gt;1단계: 함수 분석 및 미분 준비
+주어진 함수는 분수 형태로 되어 있습니다:
+f(x)=(x²+3x+2)/(x+1)&lt;/p&gt;
+
+&lt;p&gt;이때 몫의 미분법을 사용합니다.&lt;/p&gt;
+
+&lt;p&gt;몫의 미분법 공식:
+(u(x)/v(x))’ = (u’(x)v(x) - u(x)v’(x))/[v(x)]²&lt;/p&gt;
+
+&lt;p&gt;여기서:
+u(x)=x²+3x+2 (분자)
+v(x)=x+1 (분모)&lt;/p&gt;
+
+&lt;p&gt;2단계: 분자와 분모의 도함수 구하기
+1) u(x)=x²+3x+2
+   u’(x)=2x+3
+2) v(x)=x+1
+   v’(x)=1&lt;/p&gt;
+
+&lt;p&gt;3단계: 몫의 미분법 공식에 대입
+f’(x)=(u’(x)v(x) - u(x)v’(x))/[v(x)]²&lt;/p&gt;
+
+&lt;p&gt;공식에 값을 넣어봅시다:
+f’(x)=((2x+3)(x+1) - (x²+3x+2)(1))/(x+1)²&lt;/p&gt;
+
+&lt;p&gt;4단계: 분자 계산하기
+먼저 분자를 전개합니다.&lt;/p&gt;
+
+&lt;p&gt;(2x+3)(x+1):
+(2x+3)(x+1)=2x²+2x+3x+3=2x²+5x+3&lt;/p&gt;
+
+&lt;p&gt;(x²+3x+2)(1):
+(x²+3x+2)(1)=x²+3x+2&lt;/p&gt;
+
+&lt;p&gt;빼기:
+(2x²+5x+3)-(x²+3x+2)=2x²+5x+3-x²-3x-2=x²+2x+1&lt;/p&gt;
+
+&lt;p&gt;그래서 분자는:
+x²+2x+1&lt;/p&gt;
+
+&lt;p&gt;5단계: 분모 계산
+분모는:
+(x+1)²&lt;/p&gt;
+
+&lt;p&gt;6단계: 최종 결과
+따라서 도함수 f’(x)는:
+f’(x)=(x²+2x+1)/(x+1)²&lt;/p&gt;
+
+&lt;p&gt;여기까지 도함수는 구했습니다. x=1에서 접선의 방정식을 구하려면 다음 단계를 이어서 하세요!&lt;/p&gt;
+
+&lt;p&gt;다음 단계로 x=1 대입해서 기울기와 f(x) 값을 구해볼까요? 😊&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: 뭐야 결국 공식외우면 미분은 껌이네!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A: 맞아요! 미분은 기본 공식과 규칙만 익히면 정말 쉽고 강력한 도구가 됩니다. 🎉&lt;/p&gt;
+
+&lt;p&gt;왜 공식을 외우면 쉬울까?
+미분은 반복적인 패턴이 많아요. 그래서 공식 몇 개만 외우면 대부분의 문제를 풀 수 있어요.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;곱의 미분법&lt;/li&gt;
+  &lt;li&gt;몫의 미분법&lt;/li&gt;
+  &lt;li&gt;체인 룰(합성 함수 미분)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;한 번 익히고 나면, 문제를 푸는 건 단순히 공식 적용 + 계산의 과정이에요.&lt;/p&gt;
+
+&lt;p&gt;x=1에서의 결과도 간단히 마무리하면:
+도함수 f’(x)=(x²+2x+1)/(x+1)²&lt;/p&gt;
+
+&lt;p&gt;x=1을 대입하면:
+분자: 1²+2(1)+1=4
+분모: (1+1)²=4
+그래서 f’(1)=4/4=1&lt;/p&gt;
+
+&lt;p&gt;기울기 = 1, f(1)=2:
+접선의 방정식:
+y−2=1(x−1)
+즉, y=x+1.&lt;/p&gt;
+
+&lt;p&gt;공식과 규칙을 잘 활용하면 복잡해 보이는 문제도 이렇게 금방 풀립니다. 더 어려운 거나 응용 원하면 알려주세요! 😊&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q: 그럼 어떤 함수가 있던간에 도함수를 구할 수 있는거야?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A: 네! 미분을 기반으로 변화율과 추세를 파악하면, 다양한 상황에서 미래를 예측할 수 있습니다. 이게 바로 미적분이 과학, 공학, 경제 등 여러 분야에서 중요한 이유예요. 아래에 몇 가지 주요 응용과 예측 방식을 설명할게요. 😊&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;미분으로 무엇을 예측할 수 있을까?
+① 변화율을 기반으로 한 예측
+    &lt;ul&gt;
+      &lt;li&gt;미분은 &lt;strong&gt;순간 변화율(기울기)&lt;/strong&gt;를 알려줍니다.&lt;/li&gt;
+      &lt;li&gt;이 변화율을 이용해 “지금 이 상태에서 미래에는 어떻게 변할 것인가?”를 예측할 수 있어요.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;예: f’(x)=10이라면, x가 조금 증가할 때 f(x)는 약 10만큼 증가할 겁니다.&lt;/p&gt;
+
+&lt;p&gt;② 극대/극소점을 찾아서 최적화&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;미분은 함수가 최대값 또는 최소값을 가지는 지점을 찾아줍니다.&lt;/li&gt;
+  &lt;li&gt;이는 “어떻게 하면 효율을 극대화할까?” 같은 문제를 해결하는 데 유용합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;예: 기업이 생산량을 조정해서 수익을 최대화하는 수준을 찾는 것.&lt;/p&gt;
+
+&lt;p&gt;③ 속도와 가속도 예측
+물리에서 위치 함수 s(t)를 미분하면:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;1차 도함수 s’(t): 속도를 나타냄.&lt;/li&gt;
+  &lt;li&gt;2차 도함수 s’‘(t): 가속도를 나타냄.
+이 정보를 통해 물체의 움직임이나 궤적을 예측할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;구체적인 예측 사례
+① 경제: 비용, 수익, 소비량 변화 예측
+    &lt;ul&gt;
+      &lt;li&gt;C(x)=x³−5x²+10x: 생산량 x에 따른 비용.&lt;/li&gt;
+      &lt;li&gt;도함수 C’(x)=3x²−10x+10: 생산량이 늘어날 때 비용 증가율.&lt;/li&gt;
+      &lt;li&gt;C’(x)=0인 지점을 찾아서 최소 비용 지점을 계산.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;② 생물학: 인구 증가 모델&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;P(t)=P₀eᵏᵗ: 시간 t에 따른 인구 증가.&lt;/li&gt;
+  &lt;li&gt;도함수 P’(t)=kP₀eᵏᵗ: 인구의 순간 증가율.&lt;/li&gt;
+  &lt;li&gt;이 정보를 통해 미래 인구를 예측하거나, 언제 성장 속도가 둔화될지 계산.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;③ 물리학: 궤적 및 충돌 시점 예측&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;공이 던져졌을 때 위치 함수 h(t)=−5t²+20t+50.&lt;/li&gt;
+  &lt;li&gt;1차 도함수 h’(t)=−10t+20: 공의 속도.&lt;/li&gt;
+  &lt;li&gt;h’(t)=0: 최고점(공이 가장 높이 올라가는 시점).&lt;/li&gt;
+  &lt;li&gt;h(t)=0: 땅에 떨어지는 시간.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;한계와 주의점
+    &lt;ul&gt;
+      &lt;li&gt;모델의 정확성: 실제 상황을 잘 반영하는 수식이 필요합니다. 잘못된 모델은 틀린 예측을 낳습니다.&lt;/li&gt;
+      &lt;li&gt;비선형 변화: 너무 멀리 내다보는 예측은 오차가 커질 수 있어요. 미분은 국소적인 변화에 적합합니다.&lt;/li&gt;
+      &lt;li&gt;임의성: 외부 요인이 크면(예: 경제의 불확실성, 자연재해) 예측이 어려워질 수 있습니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;결론
+    &lt;ul&gt;
+      &lt;li&gt;미분은 변화의 패턴을 이해하고 최적화하는 데 강력한 도구예요.&lt;/li&gt;
+      &lt;li&gt;이를 기반으로 우리가 현재 알고 있는 정보를 활용해 미래를 정확하게 예측하거나 최적의 선택을 할 수 있습니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;궁금한 실제 사례나 특정 문제를 제시하면, 이를 예측하는 방법도 함께 다룰 수 있어요! 😊&lt;/p&gt;
+</description>
+                <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
+                <link>https://bsj2234.github.io/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/</link>
+                <guid isPermaLink="true">https://bsj2234.github.io/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/</guid>
+                
+                <category>markup</category>
+                
+                
+                <category>Blog</category>
+                
+            </item>
+        
+            <item>
+                <title>마크업 정리</title>
+                <description>&lt;h1 id=&quot;마크업-언어markup-language-정리&quot;&gt;마크업 언어(Markup Language) 정리&lt;/h1&gt;
+
+&lt;p&gt;마크업 언어는 문서의 구조와 형식을 지정하는 컴퓨터 언어입니다. 가장 대표적인 마크업 언어들과 그 사용법을 알아보겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;markdown&quot;&gt;Markdown&lt;/h2&gt;
+
+&lt;p&gt;기본 문법:&lt;/p&gt;
+
+&lt;div class=&quot;code-block-container&quot;&gt;
+    &lt;button class=&quot;code-toggle&quot;&gt;Expand&lt;/button&gt;
+    
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;gh&quot;&gt;# 제목 1&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;## 제목 2&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;### 제목 3&lt;/span&gt;
+
+&lt;span class=&quot;ge&quot;&gt;*이탤릭체*&lt;/span&gt;
+&lt;span class=&quot;gs&quot;&gt;**굵은 글씨**&lt;/span&gt;
+~~취소선~~
+&lt;span class=&quot;p&quot;&gt;
+-&lt;/span&gt; 목록 1
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 목록 2
+&lt;span class=&quot;p&quot;&gt;  -&lt;/span&gt; 중첩 목록
+&lt;span class=&quot;p&quot;&gt;
+1.&lt;/span&gt; 번호 목록
+&lt;span class=&quot;p&quot;&gt;2.&lt;/span&gt; 번호 목록
+
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;링크&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;https://example.com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;이미지&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;image.jpg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;gt&quot;&gt;
+&amp;gt; 인용문&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;```&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;
+&lt;/span&gt;`코드`
+&lt;span class=&quot;p&quot;&gt;```&lt;/span&gt;
+
+| 표 제목1 | 표 제목2 |
+|----------|----------|
+| 내용1    | 내용2    |
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+&lt;h1 id=&quot;제목-1&quot;&gt;제목 1&lt;/h1&gt;
+&lt;h2 id=&quot;제목-2&quot;&gt;제목 2&lt;/h2&gt;
+&lt;h3 id=&quot;제목-3&quot;&gt;제목 3&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;이탤릭체&lt;/em&gt;
+&lt;strong&gt;굵은 글씨&lt;/strong&gt;
+&lt;del&gt;취소선&lt;/del&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;목록 1&lt;/li&gt;
+  &lt;li&gt;목록 2
+    &lt;ul&gt;
+      &lt;li&gt;중첩 목록&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;번호 목록&lt;/li&gt;
+  &lt;li&gt;번호 목록&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://example.com&quot;&gt;링크&lt;/a&gt;
+&lt;img src=&quot;image.jpg&quot; alt=&quot;이미지&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;인용문&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;`코드`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;표 제목1&lt;/th&gt;
+      &lt;th&gt;표 제목2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;내용1&lt;/td&gt;
+      &lt;td&gt;내용2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;유용한-html-태그-모음&quot;&gt;유용한 HTML 태그 모음&lt;/h2&gt;
+
+&lt;div class=&quot;code-block-container&quot;&gt;
+    &lt;button class=&quot;code-toggle&quot;&gt;Expand&lt;/button&gt;
+    
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 텍스트 서식 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;굵은 글씨&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;em&amp;gt;&lt;/span&gt;기울임체&lt;span class=&quot;nt&quot;&gt;&amp;lt;/em&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;mark&amp;gt;&lt;/span&gt;형광펜 효과&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mark&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;sub&amp;gt;&lt;/span&gt;아래 첨자&lt;span class=&quot;nt&quot;&gt;&amp;lt;/sub&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;sup&amp;gt;&lt;/span&gt;위 첨자&lt;span class=&quot;nt&quot;&gt;&amp;lt;/sup&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 목록 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;순서 없는 목록&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;ol&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;순서 있는 목록&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 테이블 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;table&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;제목&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;내용&lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/table&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 입력 폼 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;placeholder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;텍스트 입력&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;password&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;placeholder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;비밀번호&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; 체크박스
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;radio&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; 라디오 버튼
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;textarea&amp;gt;&lt;/span&gt;여러 줄 텍스트&lt;span class=&quot;nt&quot;&gt;&amp;lt;/textarea&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;select&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;option&amp;gt;&lt;/span&gt;선택 옵션1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/option&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;option&amp;gt;&lt;/span&gt;선택 옵션2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/option&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/select&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 미디어 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;audio&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;controls&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;audio.mp3&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;audio/mpeg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/audio&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;video&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;controls&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;video.mp4&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;video/mp4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/video&amp;gt;&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+&lt;!-- 텍스트 서식 --&gt;
+&lt;p&gt;&lt;strong&gt;굵은 글씨&lt;/strong&gt;
+&lt;em&gt;기울임체&lt;/em&gt;
+&lt;mark&gt;형광펜 효과&lt;/mark&gt;
+&lt;sub&gt;아래 첨자&lt;/sub&gt;
+&lt;sup&gt;위 첨자&lt;/sup&gt;&lt;/p&gt;
+
+&lt;!-- 목록 --&gt;
+&lt;ul&gt;
+    &lt;li&gt;순서 없는 목록&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+    &lt;li&gt;순서 있는 목록&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- 테이블 --&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;제목&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;내용&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;!-- 입력 폼 --&gt;
+&lt;form&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;텍스트 입력&quot; /&gt;
+    &lt;input type=&quot;password&quot; placeholder=&quot;비밀번호&quot; /&gt;
+    &lt;input type=&quot;checkbox&quot; /&gt; 체크박스
+    &lt;input type=&quot;radio&quot; /&gt; 라디오 버튼
+    &lt;textarea&gt;여러 줄 텍스트&lt;/textarea&gt;
+    &lt;select&gt;
+        &lt;option&gt;선택 옵션1&lt;/option&gt;
+        &lt;option&gt;선택 옵션2&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+
+&lt;!-- 미디어 --&gt;
+&lt;audio controls=&quot;&quot;&gt;
+    &lt;source src=&quot;audio.mp3&quot; type=&quot;audio/mpeg&quot; /&gt;
+&lt;/audio&gt;
+&lt;video controls=&quot;&quot;&gt;
+    &lt;source src=&quot;video.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+&lt;/video&gt;
+</description>
+                <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
+                <link>https://bsj2234.github.io/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/</link>
+                <guid isPermaLink="true">https://bsj2234.github.io/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/</guid>
+                
+                <category>markup</category>
+                
+                
+                <category>Blog</category>
+                
+            </item>
+        
+            <item>
+                <title>병렬처리</title>
+                <description>&lt;h1 id=&quot;병렬처리&quot;&gt;병렬처리&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=M1e9nmmD3II&quot;&gt;참고자료 유튜브 포프&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;이-영상을-보기-전&quot;&gt;이 영상을 보기 전&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;병렬처리가 왜 어려운것인지 이해를 못했었다. 그냥 서로 관련이 없는 작업들을 따로 돌리면 성능상 이점이 있기 때문 아닌가? 라고 생각만했다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;이-영상을-본-후&quot;&gt;이 영상을 본 후&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;병렬처리는 CPU의 성능을 최대한 활용하기 위함이라는것을 알게 되었다.&lt;/li&gt;
+  &lt;li&gt;CPU의 발전으로 코어수가 많아지고 이로인해 게임은 이 코어를 전부 활용하지 못하는 문제를 해결하기 위함이라는것을 알게 되었다.&lt;/li&gt;
+  &lt;li&gt;하지만 병렬처리를 구현하는 방식에따라 오히려 느려질 수 있을을 알게 되었다. 이는 Context Switching 으로 인한 오버헤드로 작업이 변경될때 그것을 위한 사전작업이 필요하기 때문이다. 예를들어 현재 작업하던 일을 두고 다른일을 시작하면 어디까지했는지 기억해 사전 작업이 필요한것을 예로 들 수 있다.&lt;/li&gt;
+  &lt;li&gt;병렬 처리 방법 중 Job System , Task System이라고 불리는 방법을 활용하여 해당 작업을(같은작업) 나누어 처리하여 성능을 향상시키는 방법이 있다
+    &lt;ul&gt;
+      &lt;li&gt;이는 Physics, Animation같이 여러물체에 같은 연산이 행해지는 작업을 그 갯수를 나누어 처리하는 방식이다.&lt;/li&gt;
+      &lt;li&gt;장점 : 레이스 커디션이 없다, 코어수가 얼마든 대응이 가능하다, 오버헤드가 적다&lt;/li&gt;
+      &lt;li&gt;단점 : 해당 작업이 끝날때까지 다른 쓰레드가 먼저 끝나도 기다리고 있어야하는 대기시간이 약간 있을 수 있다
+        &lt;ul&gt;
+          &lt;li&gt;해결방법(고급 주제), 디펜던시 그래프(안기다리고 다음작업에서 필요한것만 기다림{복잡}), Job Stealing(내가 기다리는 중이면 많이 남은거 뺐어서 작업함)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
+                <link>https://bsj2234.github.io/computerscience/2024/11/28/11-15-%EB%B3%91%EB%A0%AC%EC%B2%98%EB%A6%AC/</link>
+                <guid isPermaLink="true">https://bsj2234.github.io/computerscience/2024/11/28/11-15-%EB%B3%91%EB%A0%AC%EC%B2%98%EB%A6%AC/</guid>
+                
+                <category>parallelprocessing</category>
+                
+                
+                <category>ComputerScience</category>
+                
+            </item>
+        
+            <item>
+                <title>속도 이펙트</title>
+                <description>&lt;h1 id=&quot;속도-이펙트&quot;&gt;속도 이펙트&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;속도감을 나타내기위해 애니메이션에서 사용되는 효과를 구현해보기&lt;/li&gt;
+  &lt;li&gt;머터리얼은 삼각형을 김프로 그려 사용&lt;/li&gt;
+  &lt;li&gt;파티클을 원형으로 생성하고 렌더모드를 Stretched Billboard로 설정해주었다&lt;/li&gt;
+  &lt;li&gt;유튜브를 보고 튜토리얼을 따라해봄 하지만 움직이는 오브젝트에서 문제발생&lt;/li&gt;
+  &lt;li&gt;CameraSpeed를 0으로 설정해 해결&lt;/li&gt;
+  &lt;li&gt;벽에 이펙트 파티클이 가려지는 문제와 좌움 움직임이 추가로 있을시 약간 부자연 스러움((해결해야함))&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+                <link>https://bsj2234.github.io/unity/2024/11/27/15-25-%EC%86%8D%EB%8F%84-%EC%9D%B4%ED%8E%99%ED%8A%B8/</link>
+                <guid isPermaLink="true">https://bsj2234.github.io/unity/2024/11/27/15-25-%EC%86%8D%EB%8F%84-%EC%9D%B4%ED%8E%99%ED%8A%B8/</guid>
+                
+                <category>leveldesign</category>
+                
+                <category>tool</category>
+                
+                
+                <category>Unity</category>
+                
+            </item>
+        
+            <item>
+                <title>시뮬레이션 기반 자동 레벨 생성 툴</title>
+                <description>&lt;h1 id=&quot;시뮬레이션-기반-자동-레벨-생성-툴-설계&quot;&gt;시뮬레이션 기반 자동 레벨 생성 툴 설계&lt;/h1&gt;
+
+&lt;h2 id=&quot;목표&quot;&gt;목표&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;레벨디자인을 자동화 할 수 있는 방법을 고민하던중 떠오른 방법이다&lt;/li&gt;
+  &lt;li&gt;매 시간 단위로 공을 시뮬레이션하며 스킬이나 사물을 이용해 공의 움직임을 변경하고 경로를 기록하는 방법을 떠올렸다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;설계&quot;&gt;설계&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;시뮬레이션 시뮬레이션 자체를 계산하는 역할, 시간별로 공의 움직임을 계산하고 경로를 기록한다
+ㄴ 시뮬레이티드 플레이어 시뮬레이션의 시간 간격을 받아 플레이어의 스킬이나 움직임을 저장한다
+ㄴ 시뮬 스킬 플레이어가 사용하는 스킬들을 관리하는 클래스이다 인터페이스로 제작 했다. 여러번 사용 가능한 대시 스킬과 일반 일회성 스킬을 구분하기 위해 고민한 결과였다 상속을 사용할 경우 설계시 복잡함이 높아져 이렇게 제작했다.
+   ㄴ 쿨다운 스킬의 쿨타임 계산을 위한 클래스이다. 초기엔 스킬 사용가능여부만 체크하는 기능만 있었지만 &lt;em&gt;이벤트&lt;/em&gt;를 활용해 스킬이 사용가능해진 시점에 스킬 사용횟수를 회복시키기 위해 사용했다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;플레이어의-움직임을-기록해야함-현재-가속도와-속도-결국-매-프레임을-계산해주는게-가장-좋을거-같다&quot;&gt;플레이어의 움직임을 기록해야함 현재 가속도와 속도 결국 매 프레임을 계산해주는게 가장 좋을거 같다&lt;/h3&gt;
+&lt;p&gt;대시는 그냥 좌우로 순간이동을 시키자 가장 간편하죠
+점프는 그냥 만들면 될것같고
+땅에닿아있는지도 알아야겠네
+또필요한게 있을까나
+가상의 플랫폼을 만들어주고 싶다면?
+에디터에서 보면서 작업을 하고 싶을 수 있어
+작업의 단계를 정확히 해 놓는편이 좋을것 같은데&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;일단 자동완성을 한다? or 한단계씩 직접 움직여가며 레벨을 손수 제작한다. 만약 후자라면? 그냥 플레이 눌러서 하는 편이 좋지 않나?
+레벨이 엄청 많으면 어떻게 할건데
+일단 레벨 디자인이 무엇인지부터 생각해보자
+단계별로 어려워져야하고 흥미로워야해
+새로운 아이템의 등장이 예가 될 수 있어
+새로운 기믹의 등장도 있지
+이런건 자동으로 만들기 어려울 수 있구나
+직접만드는걸 한 후에 만들어야겠다
+피하지 말아야겠네]=&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+                <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+                <link>https://bsj2234.github.io/unity/2024/11/27/08-47-%EB%A0%88%EB%B2%A8%EB%94%94%EC%9E%90%EC%9D%B8-%ED%88%B4-%EC%84%A4%EA%B3%84/</link>
+                <guid isPermaLink="true">https://bsj2234.github.io/unity/2024/11/27/08-47-%EB%A0%88%EB%B2%A8%EB%94%94%EC%9E%90%EC%9D%B8-%ED%88%B4-%EC%84%A4%EA%B3%84/</guid>
+                
+                <category>leveldesign</category>
+                
+                <category>tool</category>
+                
+                
+                <category>Unity</category>
+                
+            </item>
+        
+            <item>
+                <title>Restful Stateless</title>
+                <description>&lt;h1 id=&quot;restful의-stateless-원칙&quot;&gt;RESTful의 Stateless 원칙&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;stateless란&quot;&gt;Stateless란?&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;RESTful 서버는 상태를 유지하지 않는다는 원칙을 가지고 있습니다.&lt;/li&gt;
+  &lt;li&gt;이는 서버가 클라이언트의 상태 정보를 메모리에 보관하지 않아야 한다는 의미입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;왜-stateless여야-하나&quot;&gt;왜 Stateless여야 하나?&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;이를 통해 서버의 확장성과 신뢰성이 향상됨.&lt;/li&gt;
+  &lt;li&gt;각 요청은 독립적으로 처리될 수 있어 서버 관리가 단순해짐.&lt;/li&gt;
+  &lt;li&gt;서버가 여러개가 될 경우 서버마다 상태가 달라질 수 있고 동기화가 어려워짐.&lt;/li&gt;
+  &lt;li&gt;장애 발생시 복구가 어려워짐.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;상태-관리-방법&quot;&gt;상태 관리 방법&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;데이터베이스 활용&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;영구적으로 보관해야 하는 정보는 데이터베이스에 저장하여 확장성을 유지합니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;인메모리 데이터베이스&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;빠른 응답이 필요한 경우 Redis와 같은 인메모리 DB를 활용.&lt;/li&gt;
+      &lt;li&gt;Redis의 장점:
+        &lt;ul&gt;
+          &lt;li&gt;메모리 기반의 고속 처리&lt;/li&gt;
+          &lt;li&gt;디스크에 데이터 복제를 통한 데이터 영구 저장&lt;/li&gt;
+          &lt;li&gt;확장이 용이해짐&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+                <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
+                <link>https://bsj2234.github.io/network/2024/11/25/09-52-Restful-Stateless/</link>
+                <guid isPermaLink="true">https://bsj2234.github.io/network/2024/11/25/09-52-Restful-Stateless/</guid>
+                
+                <category>restful</category>
+                
+                <category>stateless</category>
+                
+                
+                <category>Network</category>
+                
+            </item>
+        
+            <item>
+                <title>유니티의 FakeNull</title>
+                <description>&lt;h1 id=&quot;유니티의-fakenull&quot;&gt;유니티의 FakeNull&lt;/h1&gt;
+
+&lt;p&gt;유니티에서 게임오브젝트와 == null을 비교할때 라이더 IDE에서는 경고를 나타낸다.
+이는 내부적으로 == 연산자가 오버라이딩 되어있기 때문에 null체크시 추가적인 연산이 발생하기 때문이다&lt;/p&gt;
+
+&lt;p&gt;실제 과정
+c++객체에 대한 참조가 생기는 순간 null이 아니게 된다
+그 오브젝트를 Destroy시 해당 c#오브젝트 객체는 그대로 존재하고 그 객체는 c++오브젝트를 참조하지 않게 된다
+하지만 그 C#오브젝트 자체는 해당 오브젝트에 대한 모든 참조가 사라질때 까지는 남아있는다
+이를 위해 직접 GameObject변수에 null을 대입할 수 있지만 모든 참조에 null을 대입하는것이 아니기 때문에 다른곳에서의 참조는 관리하기 어려울 수 있다.&lt;/p&gt;
+
+&lt;p&gt;그렇기 때문에 오버라디드 되지 않은 isnull이나 ReferenceEquals를 사용하거나 System.Object의 == 를 사용할 경우 실제 null여부와 다를 수 있다.&lt;/p&gt;
+
+&lt;p&gt;실제로 삭제후 여러 방법으로 체크해보면
+&lt;img src=&quot;image-2.png&quot; alt=&quot;alt text&quot; /&gt;
+이와같이 다른 결과가 나온다.&lt;/p&gt;
+
+&lt;p&gt;가비지 컬렉터를 아무리 돌려도 null이 아니다.
+C#객체에 대한 참조를 하고 있기 때문&lt;/p&gt;
+
+&lt;p&gt;#결론
+== null 비교는 생각보다 비싸다
+?= ?? 연산자가 예상과 다르게 작동할 수 있다
+is null, ReferenceEquals, System.Object의 == 를 사용 시에도 예상과 다른 결과가 나올 수 있다&lt;/p&gt;
+
+&lt;p&gt;#아이디어
+그렇다면 컴포넌드에 OnDestroy를 통해 삭제되었는지 플래그를 사용하면 성능 개선이 있을까?&lt;/p&gt;
+</description>
+                <pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate>
+                <link>https://bsj2234.github.io/2024/11/20/11-30-FakeNull/</link>
+                <guid isPermaLink="true">https://bsj2234.github.io/2024/11/20/11-30-FakeNull/</guid>
+                
+                <category>unity</category>
+                
+                <category>fakeNull</category>
+                
+                
+            </item>
+        
+            <item>
+                <title>3D 렌더링 파이프라인의 기본 이해</title>
+                <description>&lt;h1 id=&quot;3d-렌더링-파이프라인의-기본-구조&quot;&gt;3D 렌더링 파이프라인의 기본 구조&lt;/h1&gt;
+
+&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#1-입력-어셈블리-단계&quot;&gt;입력 어셈블리 단계&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2-버텍스-셰이딩-단계&quot;&gt;버텍스 셰이딩 단계&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#3-테셀레이션-단계&quot;&gt;테셀레이션 단계&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#4-지오메트리-셰이딩-단계&quot;&gt;지오메트리 셰이딩 단계&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#5-래스터라이제이션-단계&quot;&gt;래스터라이제이션 단계&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#6-픽셀-셰이딩-단계&quot;&gt;픽셀 셰이딩 단계&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#7-출력-병합-단계&quot;&gt;출력 병합 단계&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;단계-요약&quot;&gt;단계 요약&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-입력-어셈블리-단계-input-assembler-stage&quot;&gt;1. 입력 어셈블리 단계 (Input Assembler Stage)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;정점 데이터 로드&lt;/li&gt;
+  &lt;li&gt;인덱스 버퍼 처리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-버텍스-셰이딩-단계-vertex-shader-stage&quot;&gt;2. 버텍스 셰이딩 단계 (Vertex Shader Stage)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;정점 변환&lt;/li&gt;
+  &lt;li&gt;텍스처 좌표 처리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-테셀레이션-단계-tessellation-stage&quot;&gt;3. 테셀레이션 단계 (Tessellation Stage)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;테셀레이터&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4-지오메트리-셰이딩-단계-geometry-shader-stage&quot;&gt;4. 지오메트리 셰이딩 단계 (Geometry Shader Stage)&lt;/h3&gt;
+
+&lt;h3 id=&quot;5-래스터라이제이션-단계-rasterization-stage&quot;&gt;5. 래스터라이제이션 단계 (Rasterization Stage)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;클리핑&lt;/li&gt;
+  &lt;li&gt;뷰포트 변환&lt;/li&gt;
+  &lt;li&gt;삼각형 설정&lt;/li&gt;
+  &lt;li&gt;픽셀 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;6-픽셀-셰이딩-단계-pixel-shader-stage&quot;&gt;6. 픽셀 셰이딩 단계 (Pixel Shader Stage)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;텍스처 샘플링&lt;/li&gt;
+  &lt;li&gt;픽셀 라이팅&lt;/li&gt;
+  &lt;li&gt;특수 효과&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;7-출력-병합-단계-output-merger-stage&quot;&gt;7. 출력 병합 단계 (Output Merger Stage)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;깊이/스텐실 테스트&lt;/li&gt;
+  &lt;li&gt;블렌딩&lt;/li&gt;
+  &lt;li&gt;컬러 마스킹&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;api별-구현-차이&quot;&gt;API별 구현 차이&lt;/h2&gt;
+
+&lt;h3 id=&quot;directx&quot;&gt;DirectX&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Input-Assembler (IA)&lt;/li&gt;
+  &lt;li&gt;Vertex-Shader (VS)&lt;/li&gt;
+  &lt;li&gt;Hull-Shader (HS)&lt;/li&gt;
+  &lt;li&gt;Tessellator (TS)&lt;/li&gt;
+  &lt;li&gt;Domain-Shader (DS)&lt;/li&gt;
+  &lt;li&gt;Geometry-Shader (GS)&lt;/li&gt;
+  &lt;li&gt;Rasterizer (RS)&lt;/li&gt;
+  &lt;li&gt;Pixel-Shader (PS)&lt;/li&gt;
+  &lt;li&gt;Output-Merger (OM)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;opengl&quot;&gt;OpenGL&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Vertex Specification&lt;/li&gt;
+  &lt;li&gt;Vertex Processing&lt;/li&gt;
+  &lt;li&gt;Tessellation&lt;/li&gt;
+  &lt;li&gt;Geometry Processing&lt;/li&gt;
+  &lt;li&gt;Vertex Post-Processing&lt;/li&gt;
+  &lt;li&gt;Primitive Assembly&lt;/li&gt;
+  &lt;li&gt;Rasterization&lt;/li&gt;
+  &lt;li&gt;Fragment Processing&lt;/li&gt;
+  &lt;li&gt;Per-Sample Operations&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;vulkan&quot;&gt;Vulkan&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Input Assembly&lt;/li&gt;
+  &lt;li&gt;Vertex Processing&lt;/li&gt;
+  &lt;li&gt;Tessellation&lt;/li&gt;
+  &lt;li&gt;Geometry Processing&lt;/li&gt;
+  &lt;li&gt;Fixed-Function Pipeline&lt;/li&gt;
+  &lt;li&gt;Fragment Processing&lt;/li&gt;
+  &lt;li&gt;Color Blending&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;주요-특징&quot;&gt;주요 특징&lt;/h2&gt;
+
+&lt;h3 id=&quot;프로그래머블-단계&quot;&gt;프로그래머블 단계&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;버텍스 셰이더&lt;/li&gt;
+  &lt;li&gt;테셀레이션 셰이더&lt;/li&gt;
+  &lt;li&gt;지오메트리 셰이더&lt;/li&gt;
+  &lt;li&gt;픽셀 셰이더&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;고정-기능-단계&quot;&gt;고정 기능 단계&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;입력 어셈블리&lt;/li&gt;
+  &lt;li&gt;래스터라이저&lt;/li&gt;
+  &lt;li&gt;출력 병합&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/windows/win32/direct3d11/overviews-direct3d-11-graphics-pipeline&quot;&gt;DirectX Graphics Pipeline&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.khronos.org/opengl/wiki/Rendering_Pipeline_Overview&quot;&gt;OpenGL Pipeline&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#pipelines&quot;&gt;Vulkan Pipeline&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
+                <link>https://bsj2234.github.io/graphics/2024/11/18/11-05-3D-%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8/</link>
+                <guid isPermaLink="true">https://bsj2234.github.io/graphics/2024/11/18/11-05-3D-%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8/</guid>
+                
+                <category>graphics</category>
+                
+                <category>rendering</category>
+                
+                <category>pipeline</category>
+                
+                
+                <category>Graphics</category>
+                
+            </item>
+        
+            <item>
+                <title>Unity 렌더링 파이프라인 이해하기</title>
+                <description>&lt;h1 id=&quot;unity-렌더링-파이프라인&quot;&gt;Unity 렌더링 파이프라인&lt;/h1&gt;
+
+&lt;h2 id=&quot;렌더-파이프라인-종류&quot;&gt;렌더 파이프라인 종류&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-built-in-render-pipeline&quot;&gt;1. Built-in Render Pipeline&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Unity의 기본 렌더링 시스템&lt;/li&gt;
+  &lt;li&gt;범용성이 높고 안정적&lt;/li&gt;
+  &lt;li&gt;레거시 프로젝트 지원&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-universal-render-pipeline-urp&quot;&gt;2. Universal Render Pipeline (URP)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;최적화된 성능&lt;/li&gt;
+  &lt;li&gt;다양한 플랫폼 지원&lt;/li&gt;
+  &lt;li&gt;모바일/콘솔에 적합&lt;/li&gt;
+  &lt;li&gt;유니티 6000 에서 기본 파이프라인으로 선정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-high-definition-render-pipeline-hdrp&quot;&gt;3. High Definition Render Pipeline (HDRP)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;고품질 그래픽&lt;/li&gt;
+  &lt;li&gt;고사양 하드웨어 대상&lt;/li&gt;
+  &lt;li&gt;AAA급 그래픽 구현&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;렌더링-과정&quot;&gt;렌더링 과정&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-컬링-단계&quot;&gt;1. 컬링 단계&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;카메라 컬링&lt;/li&gt;
+  &lt;li&gt;오클루전 컬링&lt;/li&gt;
+  &lt;li&gt;프러스텀 컬링&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-렌더링-단계&quot;&gt;2. 렌더링 단계&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;배칭 처리&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;스태틱 배칭&lt;/li&gt;
+      &lt;li&gt;다이나믹 배칭&lt;/li&gt;
+      &lt;li&gt;GPU 인스턴싱&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;셰이더 처리&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;버텍스 셰이더&lt;/li&gt;
+      &lt;li&gt;픽셀 셰이더&lt;/li&gt;
+      &lt;li&gt;컴퓨트 셰이더&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;포스트 프로세싱&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;블룸&lt;/li&gt;
+      &lt;li&gt;톤 매핑&lt;/li&gt;
+      &lt;li&gt;안티앨리어싱&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;srp-scriptable-render-pipeline&quot;&gt;SRP (Scriptable Render Pipeline)&lt;/h2&gt;
+
+&lt;h3 id=&quot;커스텀-파이프라인-구성&quot;&gt;커스텀 파이프라인 구성&lt;/h3&gt;
+&lt;div class=&quot;code-block-container&quot;&gt;
+    &lt;button class=&quot;code-toggle&quot;&gt;Expand&lt;/button&gt;
+    
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CustomRenderPipeline&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RenderPipeline&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ScriptableRenderContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Camera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cameras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// 렌더링 로직&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Camera&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;camera&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cameras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// 카메라별 렌더링&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;렌더-패스-설정&quot;&gt;렌더 패스 설정&lt;/h3&gt;
+&lt;div class=&quot;code-block-container&quot;&gt;
+    &lt;button class=&quot;code-toggle&quot;&gt;Expand&lt;/button&gt;
+    
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CustomRenderPass&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ScriptableRenderPass&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ScriptableRenderContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ref&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RenderingData&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;renderingData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// 패스 실행 로직&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&quot;주요-렌더링-기능&quot;&gt;주요 렌더링 기능&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-라이팅-시스템&quot;&gt;1. 라이팅 시스템&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;포워드 렌더링&lt;/li&gt;
+  &lt;li&gt;디퍼드 렌더링&lt;/li&gt;
+  &lt;li&gt;라이트매핑&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-섀도우-시스템&quot;&gt;2. 섀도우 시스템&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;섀도우 매핑&lt;/li&gt;
+  &lt;li&gt;캐스케이드 섀도우&lt;/li&gt;
+  &lt;li&gt;소프트 섀도우&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-포스트-프로세싱-스택&quot;&gt;3. 포스트 프로세싱 스택&lt;/h3&gt;
+&lt;div class=&quot;code-block-container&quot;&gt;
+    &lt;button class=&quot;code-toggle&quot;&gt;Expand&lt;/button&gt;
+    
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;RequireComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PostProcessVolume&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PostProcessController&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonoBehaviour&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PostProcessVolume&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;volume&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        
+        &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;volume&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GetComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PostProcessVolume&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;();&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// 포스트 프로세스 설정&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&quot;성능-최적화&quot;&gt;성능 최적화&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-드로우-콜-최적화&quot;&gt;1. 드로우 콜 최적화&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;배칭 활용&lt;/li&gt;
+  &lt;li&gt;LOD 시스템 구현&lt;/li&gt;
+  &lt;li&gt;오클루전 컬링 설정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-메모리-관리&quot;&gt;2. 메모리 관리&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;텍스처 압축&lt;/li&gt;
+  &lt;li&gt;메시 최적화&lt;/li&gt;
+  &lt;li&gt;에셋 번들 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-gpu-인스턴싱&quot;&gt;3. GPU 인스턴싱&lt;/h3&gt;
+&lt;div class=&quot;code-block-container&quot;&gt;
+    &lt;button class=&quot;code-toggle&quot;&gt;Expand&lt;/button&gt;
+    
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GPUInstancing&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonoBehaviour&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MaterialPropertyBlock&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;propertyBlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        
+        &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;propertyBlock&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;MaterialPropertyBlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// 인스턴싱 설정&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&quot;디버깅-도구&quot;&gt;디버깅 도구&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-frame-debugger&quot;&gt;1. Frame Debugger&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;렌더링 단계 분석&lt;/li&gt;
+  &lt;li&gt;드로우 콜 확인&lt;/li&gt;
+  &lt;li&gt;셰이더 디버깅&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-profiler&quot;&gt;2. Profiler&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;GPU 사용량 모니터링&lt;/li&gt;
+  &lt;li&gt;배칭 통계&lt;/li&gt;
+  &lt;li&gt;메모리 사용량 추적&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.unity3d.com/Manual/Graphics.html&quot;&gt;Unity Manual - Rendering&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest&quot;&gt;URP Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest&quot;&gt;HDRP Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
+                <link>https://bsj2234.github.io/unity/2024/11/18/10-30-%EA%B7%B8%EB%9E%98%ED%94%BD-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8/</link>
+                <guid isPermaLink="true">https://bsj2234.github.io/unity/2024/11/18/10-30-%EA%B7%B8%EB%9E%98%ED%94%BD-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8/</guid>
+                
+                <category>unity</category>
+                
+                <category>rendering</category>
+                
+                <category>pipeline</category>
+                
+                <category>SRP</category>
+                
+                
+                <category>Unity</category>
+                
+            </item>
+        
+    </channel>
+</rss>

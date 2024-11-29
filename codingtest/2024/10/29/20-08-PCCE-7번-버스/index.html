@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>PCCE 7번 버스</title>
+  <meta name="description"
+    content="BlogBox is a bold theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net.
+">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic%7COpen+Sans:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="canonical" href="https://bsj2234.github.io/codingtest/2024/10/29/20-08-PCCE-7%EB%B2%88-%EB%B2%84%EC%8A%A4/">
+  <link rel="alternate" type="application/rss+xml" title="BlogBox Feed"
+    href="https://bsj2234.github.io/feed.xml">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body class="code-blocks-expanded">
+  <div id="page" class="site">
+    <nav class="site-nav" aria-label="Main Menu">
+    <div class="inner">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false"><span class="icon-menu" aria-hidden="true"></span> Menu</button>
+        <div id="nav-menu" class="nav-menu">
+            <ul class="menu">
+            
+                
+                
+                <li class=""><a class="" href="/">홈</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/blog/">블로그</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/about/">소개</a></li>
+            
+            </ul>
+        </div><!-- .nav-menu -->
+        <a id="search-open" class="search-toggle"><i class="fa-search" aria-hidden="true"></i><span class="screen-reader-text">Search</span></a>
+    </div><!-- .inner -->
+</nav><!-- .site-nav -->
+<header class="site-header fade-in-down delay-0_5s">
+    <div class="inner">
+        
+        <h1 class="site-title"><a href="/" rel="home">BlogBox</a></h1>
+        
+        <p class="site-description">Tales of a digital nomad.</p>
+    </div><!-- .inner -->
+</header><!-- .site-header -->
+
+<!-- Add Mermaid support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default'
+    });
+  });
+</script>
+
+<section class="site-search" role="search">
+		<div class="search-scrollable">
+			<div class="search-box">
+				<div class="search-box-inside">
+					<h2 class="screen-reader-text">Search </h2>
+					<form class="search-form">
+						<label class="screen-reader-text">Search for:</label>
+						<input type="text" id="search-field" class="search-field" placeholder="Type your keywords&hellip;" />
+						<input type="submit" class="search-submit screen-reader-text" value="Search" />
+					</form>
+					<ul id="search-results" class="search-results"></ul>
+				</div><!-- .search-box-inside -->
+				<button id="search-close" class="search-toggle"><span class="close-icon" aria-hidden="true"></span><span class="screen-reader-text">Close</span></button>
+			</div><!-- .search-box -->
+		</div><!-- .search-scrollable -->
+</section><!-- .site-search -->
+
+
+    <main class="content fade-in-down delay-0_75s">
+    <div class="inner-wide blog-layout">
+        <aside class="category-sidebar">
+    <h2 class="sidebar-title">Categories</h2>
+    <ul class="category-list">
+        <li class="category-item active">
+            <a href="/blog/">
+                All Posts
+                <span class="count">(32)</span>
+            </a>
+        </li>
+        
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog">
+                    Blog
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog/jekyll">
+                    Blog/Jekyll
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/csharp">
+                    CSharp
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/codingtest">
+                    CodingTest
+                    <span class="count">(11)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/computerscience">
+                    ComputerScience
+                    <span class="count">(3)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/datastructure">
+                    DataStructure
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/graphics">
+                    Graphics
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/network">
+                    Network
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/unity">
+                    Unity
+                    <span class="count">(9)</span>
+                </a>
+            </li>
+        
+    </ul>
+</aside> 
+        <div class="blog-content">
+            <article class="post">
+                
+                <div class="post-thumbnail"><img src="/images/posts/road.jpg" alt="PCCE 7번 버스" /></div>
+                
+                <div class="entry-box">
+                    <header class="entry-header">
+                        <h1 class="entry-title">PCCE 7번 버스</h1>
+                        <div class="entry-meta">
+                            <time class="post-date" datetime="2024-10-29">October 29, 2024</time> by 변석진
+                        </div>
+                    </header>
+                    <div class="entry-content">
+                        <p>PCCE 7번 버스 문제, 실행부에 빈칸으로 어떤 함수가 실행되어야 하는지 입력해줘야 하는 문제입니다.
+정거장마다 타고 내리는 사람들을 계산하여 남아있는 좌석 수를 구합니다.</p>
+
+<p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/340201">문제 링크</a></p>
+
+<div class="code-block-container expanded">
+    <button class="code-toggle">Collapse</button>
+    
+<figure class="highlight"><pre><code class="language-cplus" data-lang="cplus">#include &lt;string&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+// 음수일 경우 0을 반환하는 함수
+int func1(int num) {
+    return (num &lt; 0) ? 0 : num;
+}
+
+// 양수일 경우 0을 반환하는 함수
+int func2(int num) {
+    return (num &gt; 0) ? 0 : num;
+}
+
+// "Off" 문자열을 세는 함수
+int func3(vector&lt;string&gt; station) {
+    int num = 0;
+    for (const auto&amp; s : station) {
+        if (s == "Off") {
+            num++;
+        }
+    }
+    return num;
+}
+
+// "On" 문자열을 세는 함수
+int func4(vector&lt;string&gt; station) {
+    int num = 0;
+    for (const auto&amp; s : station) {
+        if (s == "On") {
+            num++;
+        }
+    }
+    return num;
+}
+
+// 좌석 수와 승객 정보를 기반으로 남은 좌석 수를 계산하는 함수
+int solution(int seat, vector&lt;vector&lt;string&gt;&gt; passengers) {
+    int num_passenger = 0;
+    for (const auto&amp; station : passengers) {
+        num_passenger += func4(station);
+        num_passenger -= func3(station);
+    }
+    return func1(seat - num_passenger);
+}
+    </code></pre></figure>
+
+</div>
+
+<h3 id="코드-설명">코드 설명</h3>
+
+<ul>
+  <li><code>passengers[i]</code>는 각 정거장에서 타고 내리는 사람들</li>
+  <li><code>func4</code>는 “On” 문자열을 세어 탑승하는 사람 수를 반환</li>
+  <li><code>func3</code>는 “Off” 문자열을 세어 하차하는 사람 수를 반환</li>
+  <li><code>func1</code>은 남아있는 좌석 수를 계산하여 음수일 경우 0을 반환</li>
+</ul>
+
+<p>이 코드는 각 정거장에서 타고 내리는 사람 수를 계산하여 최종적으로 남아있는 좌석 수를 반환합니다.
+이를 통해 빈칸에 해당하는 함수를 호출하여 좌석 수를 계산할 수 있습니다.</p>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+    <aside class="footer-widgets">
+
+    
+
+    <div id="footer-columns" class="footer-columns">
+        <div class="inner">
+            <div class="grid">
+
+                
+                <div class="one-third">
+                    <section class="widget widget-text">
+                        <h2 class="widget-title">About 변석진</h2>
+                        <p>유니티 클라이언트 지망하는 변석진입니다.</p>
+                    </section><!-- .widget-text -->
+                </div><!-- .one-third -->
+                
+
+                <div class="one-third">
+                    <section class="widget widget-recent-posts">
+                        <h2 class="widget-title">Latest Posts</h2>
+                        <ul class="recent-posts">
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/">버그-평면에서의 튀어오름</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/">미분 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/">마크업 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                        </ul><!-- .recent-posts -->
+                    </section><!-- .widget-recent-posts -->
+                </div><!-- .one-third -->
+
+                <!-- Create a sorted array of tags -->
+                <div class="one-third">
+                    
+                    
+                    <section class="widget widget-tags">
+                        <h2 class="widget-title">Tags</h2>
+                        <div class="tagcloud">
+                            
+                            <a href="/tags/#Animation">Animation</a>
+                            
+                            <a href="/tags/#Animator">Animator</a>
+                            
+                            <a href="/tags/#Bug">Bug</a>
+                            
+                            <a href="/tags/#CodingTest">CodingTest</a>
+                            
+                            <a href="/tags/#Physics">Physics</a>
+                            
+                            <a href="/tags/#Programmers">Programmers</a>
+                            
+                            <a href="/tags/#SRP">SRP</a>
+                            
+                            <a href="/tags/#Unity">Unity</a>
+                            
+                            <a href="/tags/#algorithm">algorithm</a>
+                            
+                            <a href="/tags/#animator">animator</a>
+                            
+                        </div><!-- .tagcloud -->
+                    </section><!-- .widget -->
+                </div><!-- .one-third -->
+
+            </div><!-- .grid -->
+        </div><!-- .inner -->
+    </div><!-- .footer-columns -->
+
+</aside><!-- .footer-widgets -->
+
+    <footer class="site-footer">
+    <div class="inner">
+        <div class="social-links">
+            
+            
+            
+            
+            <a href="https://github.com/bsj2234"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">GitHub</span></a>
+            
+            
+            <a href="https://www.youtube.com/@siko102" ><i class="fa fa-youtube-play" aria-hidden="true"></i><span class="screen-reader-text">Youtube</span></a>
+            
+            
+            
+            
+            
+            
+        </div><!-- .social-links -->
+        <div class="copyright">
+            &copy; 2024 <a href="/">BlogBox</a> <br />BlogBox theme by <a target="_blank" href="https://justgoodthemes.com/">JustGoodThemes</a>
+        </div><!-- .copyright -->
+        <a href="#page" id="top-link" class="top-link"><i class="fa fa-chevron-up" aria-hidden="true"></i><span class="screen-reader-text">Back to the top</span></a>
+    </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+  </div><!-- .site -->
+
+  <script type="text/javascript" src="/js/plugins.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      Prism.highlightAll();
+    });
+  </script>
+
+</body>
+
+</html>

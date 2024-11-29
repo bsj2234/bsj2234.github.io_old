@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>보스 전투 시스템 최적화 프로젝트</title>
+  <meta name="description"
+    content="보스 공격 모듈화 및 성능 최적화를 통한 게임플레이 향상">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic%7COpen+Sans:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="canonical" href="https://bsj2234.github.io/portfolio/project5/">
+  <link rel="alternate" type="application/rss+xml" title="BlogBox Feed"
+    href="https://bsj2234.github.io/feed.xml">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body class="">
+  <div id="page" class="site">
+    <nav class="site-nav" aria-label="Main Menu">
+    <div class="inner">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false"><span class="icon-menu" aria-hidden="true"></span> Menu</button>
+        <div id="nav-menu" class="nav-menu">
+            <ul class="menu">
+            
+                
+                
+                <li class=""><a class="" href="/">홈</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/blog/">블로그</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/about/">소개</a></li>
+            
+            </ul>
+        </div><!-- .nav-menu -->
+        <a id="search-open" class="search-toggle"><i class="fa-search" aria-hidden="true"></i><span class="screen-reader-text">Search</span></a>
+    </div><!-- .inner -->
+</nav><!-- .site-nav -->
+<header class="site-header fade-in-down delay-0_5s">
+    <div class="inner">
+        
+        <h1 class="site-title"><a href="/" rel="home">BlogBox</a></h1>
+        
+        <p class="site-description">Tales of a digital nomad.</p>
+    </div><!-- .inner -->
+</header><!-- .site-header -->
+
+<!-- Add Mermaid support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default'
+    });
+  });
+</script>
+
+<section class="site-search" role="search">
+		<div class="search-scrollable">
+			<div class="search-box">
+				<div class="search-box-inside">
+					<h2 class="screen-reader-text">Search </h2>
+					<form class="search-form">
+						<label class="screen-reader-text">Search for:</label>
+						<input type="text" id="search-field" class="search-field" placeholder="Type your keywords&hellip;" />
+						<input type="submit" class="search-submit screen-reader-text" value="Search" />
+					</form>
+					<ul id="search-results" class="search-results"></ul>
+				</div><!-- .search-box-inside -->
+				<button id="search-close" class="search-toggle"><span class="close-icon" aria-hidden="true"></span><span class="screen-reader-text">Close</span></button>
+			</div><!-- .search-box -->
+		</div><!-- .search-scrollable -->
+</section><!-- .site-search -->
+
+
+    <main class="content fade-in-down delay-0_75s">
+    <div class="inner">
+        <article class="post single-portfolio-item">
+            
+            <div class="portfolio-image-container">
+                <img src="https://lh3.googleusercontent.com/d/13--bB7a81Kv06HgrtOf4U5ao6TZDEG7G" alt="보스 전투 시스템 최적화 프로젝트" class="portfolio-image">
+            </div>
+            
+            <div class="entry-box">
+                <header class="entry-header">
+                    <h1 class="entry-title">보스 전투 시스템 최적화 프로젝트</h1>
+                    <div class="entry-meta">
+                        <p>게임 유형: 액션</p>
+                        <p>프로젝트 유형: 개인 프로젝트</p>
+                        <p>주요 포커스: 보스 전투 시스템 모듈화, 최적화, 협업경험</p>
+                    </div>
+                    <div id="mobile-toc" class="mobile-toc-container">
+                        <!-- 모바일용 목차가 여기에 동적으로 추가됩니다 -->
+                    </div>
+                </header>
+                <div class="entry-content">
+                    <!-- 목차 -->
+<div id="toc" class="toc-container">
+    <h2>목차</h2>
+    <ul>
+        <li><a href="#project-overview">프로젝트 개요</a></li>
+        <li><a href="#key-achievements">주요 성과</a>
+            <ul>
+                <li><a href="#collaboration">협업 경험</a></li>
+                <ul>
+                    <li><a href="#jira">지라 일정관리</a></li>
+                    <li><a href="#git">깃 머지 충돌 해결</a></li>
+                </ul>
+                <li><a href="#boss-attack-modularization">보스 공격 모듈화</a></li>
+                <li><a href="#performance-optimization">성능 최적화</a></li>
+            </ul>
+        </li>
+        <li><a href="#tech-stack">기술 스택</a></li>
+        <li><a href="#collaboration">협업 경험</a></li>
+        <li><a href="#conclusion">결론</a></li>
+    </ul>
+</div>
+
+<!-- 유튜브 영상 삽입 -->
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/tjLz6Xdfl2Y" title="보스 전투 시스템 데모" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+    </iframe>
+</div>
+
+<h2 id="project-overview">프로젝트 개요</h2>
+
+<p>이 프로젝트에서는 액션 게임의 기획팀과의 협업이 중심이었습니다. 기업의 요구사항을 만족하는 기획 사항을 기획팀에서 작성해 제공하고 그를 토대로 게임을 개발하는 것이 목표였습니다.</p>
+
+<h2 id="key-achievements">주요 성과</h2>
+<p>이 과정에서 깃 파일관리, 지라를 통한 일정관리, 또 기획팀의 편의를 위한 개발로 협업 경험을 쌓을 수 있었습니다.</p>
+
+<h3 id="collaboration">1. 협업 경험</h3>
+<h4 id="jira">지라 일정관리</h4>
+<p><img src="https://lh3.googleusercontent.com/d/1Xx5Ewg4kX-t-dOj3vr0N1TT6lnu1U9kA" alt="지라 일정관리 예시" />
+지라를 통한 일정 관리로 프로젝트의 진행상황과 진행도를 한눈에 파악하기에 좋았습니다. 또한 앞으로 개발해야할 항목들을 한눈에 볼 수 있어 낭비되는 시간이 적어졌습니다.</p>
+
+<h4 id="git">깃 머지 충돌 해결</h4>
+<p><img src="https://lh3.googleusercontent.com/d/1rp8yKubtFkL-0kSUS-4E1FXYqP_o6cl1" alt="깃 머지 충돌 해결 예시" />
+깃에서 머지 충돌이 발생한 경우 손머지를 통해 충돌을 해결하는 경험을 할 수 있었습니다.
+이를 통해 프리팹을 포함한 여러 에셋들도 손머지를 통해 해결할 수 있다는 점과 메타데이터가 손상되거나 중복되는경우 이전의 메타데이터를 복구함으로서 문제를 해결할 수 있다는 점을 알 수 있었습니다.</p>
+
+<h3 id="boss-attack-modularization">2. 보스 공격 모듈화</h3>
+
+<p>보스의 공격 패턴을 개별 모듈로 분리하여 다음과 같은 이점을 얻었습니다:</p>
+
+<ul>
+  <li>새로운 공격 패턴을 쉽게 추가하고 기존 패턴을 수정할 수 있는 유연성 확보</li>
+  <li>코드의 가독성과 유지보수성 향상</li>
+  <li>다양한 보스 캐릭터 간 공격 패턴 재사용 가능</li>
+</ul>
+
+<!-- 이미지 플레이스홀더 -->
+<p><img src="https://lh3.googleusercontent.com/d/1yNb3N3VOf7sbEepW1fNkJw8V2A6NEYLC" alt="보스 공격 모듈 다이어그램" /></p>
+
+<h3 id="performance-optimization">3. 성능 최적화</h3>
+
+<ol>
+  <li>공격 패턴 선정 과정에서 처리 속도개선 테스트를 진행 했습니다:</li>
+</ol>
+
+<ul>
+  <li><code>stackalloc</code>과 <code>Span&lt;T&gt;</code>을 활용하여 힙 할당을 줄임</li>
+  <li>임시 배열 대신 스택 메모리 사용으로 가비지 컬렉션 부하 감소</li>
+  <li>결과적으로 이 부분의 성능이 40% 향상됨</li>
+</ul>
+
+<ol>
+  <li>대기 중인 적에서 비헤이비어 디자이너가 리소스를 사용하던 부분을 개선했습니다
+    <ul>
+      <li>프로파일러를 통한 문제 파악</li>
+      <li>적이 다수 존재하는 씬에서 40FPS -&gt; 80FPS의 성능 향상</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="code-block-container">
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">EnumTypes</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="p">[</span><span class="nf">CreateAssetMenu</span><span class="p">(</span><span class="n">fileName</span> <span class="p">=</span> <span class="s">"Boss_Both_UltimateAttackModule"</span><span class="p">,</span> <span class="n">menuName</span> <span class="p">=</span> <span class="s">"Enemy/AttackModule/Boss_Both_UltimateAttack"</span><span class="p">)]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">SO_Boss_Both_UltimateAttackModule</span> <span class="p">:</span> <span class="n">SO_AttackModule</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="n">Prefab_areaAttack</span><span class="p">;</span>
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="n">Prefab_Spike</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">float</span> <span class="n">MaxArea</span> <span class="p">=</span> <span class="m">50f</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">float</span> <span class="n">SpikeGap</span> <span class="p">=</span> <span class="m">4f</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">float</span> <span class="n">SpikeRandomOffset</span> <span class="p">=</span> <span class="m">2f</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">float</span> <span class="n">SpikeProbability</span> <span class="p">=</span> <span class="p">.</span><span class="m">3f</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">StartAttack</span><span class="p">(</span><span class="n">EnemyBase</span> <span class="n">owner</span><span class="p">,</span> <span class="kt">int</span> <span class="n">type</span><span class="p">)</span>
+    <span class="p">{</span>
+
+        <span class="k">switch</span> <span class="p">(</span><span class="n">type</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">case</span> <span class="m">0</span><span class="p">:</span>
+                <span class="c1">// 이펙트</span>
+                <span class="n">owner</span><span class="p">.</span><span class="nf">StartVFX</span><span class="p">(</span><span class="s">"Boss_Teleport_End1"</span><span class="p">);</span>
+                <span class="n">owner</span><span class="p">.</span><span class="nf">StartVFX</span><span class="p">(</span><span class="s">"Boss_Teleport_End2"</span><span class="p">);</span>
+
+                <span class="c1">// 공격 영역 생성</span>
+                <span class="n">Transform</span> <span class="n">targetTrf</span> <span class="p">=</span> <span class="n">owner</span><span class="p">.</span><span class="n">transform</span><span class="p">;</span>
+                <span class="n">Vector3</span> <span class="n">targetPos</span> <span class="p">=</span> <span class="n">targetTrf</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+                <span class="n">targetPos</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="m">0f</span><span class="p">;</span>
+                <span class="n">GameObject</span> <span class="n">attackArea_GO</span> <span class="p">=</span> <span class="n">GameObject</span><span class="p">.</span><span class="nf">Instantiate</span><span class="p">(</span><span class="n">Prefab_areaAttack</span><span class="p">,</span>
+                    <span class="n">targetPos</span><span class="p">,</span> <span class="n">Quaternion</span><span class="p">.</span><span class="n">identity</span><span class="p">);</span>
+                <span class="n">BossDoubleAreaAttack</span> <span class="n">areaAttack</span> <span class="p">=</span> <span class="n">attackArea_GO</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">BossDoubleAreaAttack</span><span class="p">&gt;();</span>
+                <span class="n">areaAttack</span><span class="p">.</span><span class="nf">Init</span><span class="p">(</span><span class="n">Damage</span><span class="p">,</span> <span class="n">owner</span><span class="p">.</span><span class="n">Attack</span><span class="p">.</span><span class="n">RangeTypeThreshold</span><span class="p">,</span> <span class="nf">IsClose</span><span class="p">(</span><span class="n">owner</span><span class="p">));</span>
+                <span class="n">owner</span><span class="p">.</span><span class="n">Attack</span><span class="p">.</span><span class="n">CurrentProjectile</span> <span class="p">=</span> <span class="n">areaAttack</span><span class="p">;</span>
+
+                <span class="c1">// 이전 스파이크 삭제</span>
+                <span class="n">SpikeManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="nf">DestroyAllSpike</span><span class="p">();</span>
+                <span class="n">SpikeManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="nf">DestroyAllTrash</span><span class="p">();</span>
+
+                <span class="c1">// 새로운 스파이크 생성</span>
+                <span class="nf">SpawnMultipleSpikeInAreaAndStore</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">Prefab_Spike</span><span class="p">,</span> <span class="n">MaxArea</span><span class="p">,</span>
+                <span class="n">SpikeGap</span><span class="p">,</span> <span class="n">SpikeProbability</span><span class="p">,</span> <span class="n">SpikeRandomOffset</span><span class="p">,</span>
+                <span class="n">owner</span><span class="p">.</span><span class="n">Attack</span><span class="p">.</span><span class="n">CurrentSpikeSpawners</span><span class="p">);</span>
+
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="m">1</span><span class="p">:</span>
+                <span class="c1">// 공격 영역 트리거</span>
+                <span class="n">owner</span><span class="p">.</span><span class="n">Attack</span><span class="p">.</span><span class="n">CurrentProjectile</span><span class="p">.</span><span class="nf">Trigger</span><span class="p">();</span>
+
+                <span class="c1">// 스파이크 트리거</span>
+                <span class="k">foreach</span> <span class="p">(</span><span class="n">SpikeSpawner</span> <span class="n">spike</span> <span class="k">in</span> <span class="n">owner</span><span class="p">.</span><span class="n">Attack</span><span class="p">.</span><span class="n">CurrentSpikeSpawners</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">spike</span><span class="p">.</span><span class="nf">Trigger</span><span class="p">();</span>
+                <span class="p">}</span>
+                <span class="n">owner</span><span class="p">.</span><span class="n">Attack</span><span class="p">.</span><span class="n">CurrentSpikeSpawners</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span>
+
+                <span class="c1">// 새로운 스파이크 생성</span>
+                <span class="nf">SpawnMultipleSpikeInAreaAndStore</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">Prefab_Spike</span><span class="p">,</span> <span class="n">MaxArea</span><span class="p">,</span>
+                <span class="n">SpikeGap</span><span class="p">,</span> <span class="n">SpikeProbability</span><span class="p">,</span> <span class="n">SpikeRandomOffset</span><span class="p">,</span>
+                <span class="n">owner</span><span class="p">.</span><span class="n">Attack</span><span class="p">.</span><span class="n">CurrentSpikeSpawners</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="m">2</span><span class="p">:</span>
+                <span class="c1">// 공격 영역 트리거</span>
+                <span class="n">owner</span><span class="p">.</span><span class="n">Attack</span><span class="p">.</span><span class="n">CurrentProjectile</span><span class="p">.</span><span class="nf">Trigger</span><span class="p">();</span>
+
+                <span class="c1">// 스파이크 트리거</span>
+                <span class="k">foreach</span> <span class="p">(</span><span class="n">SpikeSpawner</span> <span class="n">spike</span> <span class="k">in</span> <span class="n">owner</span><span class="p">.</span><span class="n">Attack</span><span class="p">.</span><span class="n">CurrentSpikeSpawners</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">spike</span><span class="p">.</span><span class="nf">Trigger</span><span class="p">();</span>
+                <span class="p">}</span>
+
+                <span class="c1">// 스파이크 초기화</span>
+                <span class="n">owner</span><span class="p">.</span><span class="n">Attack</span><span class="p">.</span><span class="n">CurrentProjectile</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+                <span class="n">owner</span><span class="p">.</span><span class="n">Attack</span><span class="p">.</span><span class="n">CurrentSpikeSpawners</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">StartAttackMove</span><span class="p">(</span><span class="n">EnemyBase</span> <span class="n">owner</span><span class="p">,</span> <span class="kt">int</span> <span class="n">type</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// 이펙트</span>
+        <span class="n">owner</span><span class="p">.</span><span class="nf">StartVFX</span><span class="p">(</span><span class="s">"Boss_Teleport"</span><span class="p">);</span>
+
+        <span class="k">switch</span> <span class="p">(</span><span class="n">type</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">case</span> <span class="m">0</span><span class="p">:</span>
+                <span class="c1">// 위로 캐릭터 발사</span>
+                <span class="n">owner</span><span class="p">.</span><span class="n">Move</span><span class="p">.</span><span class="nf">Launch</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="n">up</span> <span class="p">*</span> <span class="m">100</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="m">1</span><span class="p">:</span>
+                <span class="c1">// 중앙으로 이동</span>
+                <span class="n">owner</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">owner</span><span class="p">.</span><span class="n">SpawnedPosition</span> <span class="p">+</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">up</span> <span class="p">*</span> <span class="m">15</span><span class="p">;</span>
+
+                <span class="c1">// 아래로 캐릭터 발사</span>
+                <span class="n">owner</span><span class="p">.</span><span class="n">Move</span><span class="p">.</span><span class="nf">Launch</span><span class="p">(-</span><span class="n">Vector3</span><span class="p">.</span><span class="n">up</span> <span class="p">*</span> <span class="m">100</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">SpawnMultipleSpikeInAreaAndStore</span><span class="p">(</span><span class="n">EnemyBase</span> <span class="n">owner</span><span class="p">,</span> <span class="n">GameObject</span> <span class="n">spike</span><span class="p">,</span> <span class="kt">float</span> <span class="n">areaRadius</span><span class="p">,</span> <span class="kt">float</span> <span class="n">gap</span><span class="p">,</span>
+        <span class="kt">float</span> <span class="n">probability</span><span class="p">,</span> <span class="kt">float</span> <span class="n">spikeRandomOffset</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">SpikeSpawner</span><span class="p">&gt;</span> <span class="n">spikeContainer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// 사각 순회하며 원 내부만 체크 후 스폰</span>
+        <span class="n">Vector3</span> <span class="n">centerOffset</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">areaRadius</span> <span class="p">*</span> <span class="p">.</span><span class="m">5f</span><span class="p">,</span> <span class="m">0f</span><span class="p">,</span> <span class="n">areaRadius</span> <span class="p">*</span> <span class="p">.</span><span class="m">5f</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">areaRadius</span> <span class="p">/</span> <span class="n">gap</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">k</span> <span class="p">&lt;</span> <span class="n">areaRadius</span> <span class="p">/</span> <span class="n">gap</span><span class="p">;</span> <span class="n">k</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">Random</span><span class="p">.</span><span class="k">value</span> <span class="p">&lt;</span> <span class="n">probability</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">Vector3</span> <span class="n">offset</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">i</span> <span class="p">*</span> <span class="n">gap</span><span class="p">,</span> <span class="m">0f</span><span class="p">,</span> <span class="n">k</span> <span class="p">*</span> <span class="n">gap</span><span class="p">)</span> <span class="p">-</span> <span class="n">centerOffset</span><span class="p">;</span>
+                    <span class="n">Vector3</span> <span class="n">pos</span> <span class="p">=</span> <span class="n">owner</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">+</span> <span class="n">offset</span><span class="p">;</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Distance</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">owner</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">)</span> <span class="p">&lt;</span> <span class="n">areaRadius</span> <span class="p">*</span> <span class="p">.</span><span class="m">5f</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">SpikeSpawner</span> <span class="n">curSpike</span> <span class="p">=</span> <span class="nf">SpawnSpike</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">spike</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">spikeRandomOffset</span><span class="p">);</span>
+                        <span class="n">spikeContainer</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">curSpike</span><span class="p">);</span>
+                        <span class="n">SpikeManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Spikes</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">curSpike</span><span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="n">AttackRangeType</span> <span class="nf">IsClose</span><span class="p">(</span><span class="n">EnemyBase</span> <span class="n">owner</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">owner</span><span class="p">.</span><span class="n">Attack</span><span class="p">.</span><span class="nf">GetAttackRangeType</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="n">SpikeSpawner</span> <span class="nf">SpawnSpike</span><span class="p">(</span><span class="n">EnemyBase</span> <span class="n">owner</span><span class="p">,</span> <span class="n">GameObject</span> <span class="n">spike</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">position</span><span class="p">,</span> <span class="kt">float</span> <span class="n">spikeRandomOffset</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Vector3</span> <span class="n">targetPos</span> <span class="p">=</span> <span class="n">position</span><span class="p">;</span>
+        <span class="n">targetPos</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="m">0f</span><span class="p">;</span>
+        <span class="n">targetPos</span> <span class="p">+=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">Random</span><span class="p">.</span><span class="k">value</span> <span class="p">*</span> <span class="n">spikeRandomOffset</span><span class="p">,</span> <span class="m">0f</span><span class="p">,</span> <span class="n">Random</span><span class="p">.</span><span class="k">value</span> <span class="p">*</span> <span class="n">spikeRandomOffset</span><span class="p">);</span>
+        <span class="n">GameObject</span> <span class="n">projectileObject</span> <span class="p">=</span> <span class="n">ObjectPoolManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="nf">DequeueObject</span><span class="p">(</span><span class="n">spike</span><span class="p">);</span>
+        <span class="n">projectileObject</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">targetPos</span><span class="p">;</span>
+        <span class="n">projectileObject</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span> <span class="p">=</span> <span class="n">Quaternion</span><span class="p">.</span><span class="n">identity</span><span class="p">;</span>
+
+
+        <span class="n">SpikeSpawner</span> <span class="n">spikeInst</span> <span class="p">=</span> <span class="n">projectileObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">SpikeSpawner</span><span class="p">&gt;();</span>
+        <span class="n">spikeInst</span><span class="p">.</span><span class="nf">Init</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">spikeInst</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<h2 id="tech-stack">기술 스택</h2>
+
+<ul>
+  <li>C#</li>
+  <li>Unity Engine</li>
+</ul>
+
+<h2 id="conclusion">결론</h2>
+
+<p>이 프로젝트를 통해 기업, 기획팀과의 협업을 통해 실무에 조금 더 가까워진 것 같습니다. 게임의 중요 시스템 중 하나인 보스 전투 메커니즘을 모듈화 해 유연하게 사용 가능했습니다. 최적화를 통해 더 부드러운 게임 환경을 제작 할 수 있었습니다.</p>
+
+                </div>
+            </div>
+        </article>
+    </div>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const toc = document.querySelector('.toc-container');
+    const tocToggle = document.getElementById('toc-toggle') || document.createElement('button');
+    const mobileToc = document.getElementById('mobile-toc');
+    
+    if (toc && mobileToc) {
+        const isMobile = () => window.innerWidth <= 1610;
+
+        function createMobileToc() {
+            // 기존 목차의 내용을 복사하여 모바일 목차에 추가
+            mobileToc.innerHTML = toc.innerHTML;
+        }
+
+        function updateTocPosition() {
+            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            const headerHeight = 60;
+            const topMargin = 20;
+            const maxTop = document.body.offsetHeight - toc.offsetHeight - topMargin;
+
+            let topPosition = Math.max(headerHeight + topMargin, scrollPosition + topMargin);
+            topPosition = Math.min(topPosition, maxTop);
+
+            toc.style.top = `${topPosition}px`;
+        }
+
+        function showToc() {
+            toc.classList.remove('hidden');
+            if (isMobile()) {
+                tocToggle.style.display = 'none';
+            }
+        }
+
+        function hideToc() {
+            toc.classList.add('hidden');
+            if (isMobile()) {
+                tocToggle.style.display = 'block';
+            }
+        }
+
+        // 토글 버튼 설정
+        if (!document.getElementById('toc-toggle')) {
+            tocToggle.id = 'toc-toggle';
+            tocToggle.textContent = '목차 보기';
+            document.body.appendChild(tocToggle);
+        }
+
+        tocToggle.addEventListener('click', showToc);
+
+        // 목차 외부 클릭 시 목차 닫기
+        document.addEventListener('click', (e) => {
+            if (!toc.contains(e.target) && e.target !== tocToggle && isMobile()) {
+                hideToc();
+            }
+        });
+
+        // 목차 링크 클릭 이벤트 처리
+        toc.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const offset = 80;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    if (isMobile()) {
+                        hideToc();
+                    }
+                }
+            }
+        });
+
+        mobileToc.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const offset = 80;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    if (isMobile()) {
+                        hideToc();
+                    }
+                }
+            }
+        });
+
+        createMobileToc();
+        updateTocPosition();
+        window.addEventListener('scroll', updateTocPosition);
+        window.addEventListener('resize', () => {
+            updateTocPosition();
+            if (isMobile()) {
+                hideToc();
+            } else {
+                showToc();
+            }
+        });
+
+        // 초기 상태 설정
+        if (isMobile()) {
+            hideToc();
+        } else {
+            showToc();
+        }
+    }
+});
+</script>
+
+    <aside class="footer-widgets">
+
+    
+
+    <div id="footer-columns" class="footer-columns">
+        <div class="inner">
+            <div class="grid">
+
+                
+                <div class="one-third">
+                    <section class="widget widget-text">
+                        <h2 class="widget-title">About 변석진</h2>
+                        <p>유니티 클라이언트 지망하는 변석진입니다.</p>
+                    </section><!-- .widget-text -->
+                </div><!-- .one-third -->
+                
+
+                <div class="one-third">
+                    <section class="widget widget-recent-posts">
+                        <h2 class="widget-title">Latest Posts</h2>
+                        <ul class="recent-posts">
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/">버그-평면에서의 튀어오름</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/">미분 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/">마크업 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                        </ul><!-- .recent-posts -->
+                    </section><!-- .widget-recent-posts -->
+                </div><!-- .one-third -->
+
+                <!-- Create a sorted array of tags -->
+                <div class="one-third">
+                    
+                    
+                    <section class="widget widget-tags">
+                        <h2 class="widget-title">Tags</h2>
+                        <div class="tagcloud">
+                            
+                            <a href="/tags/#Animation">Animation</a>
+                            
+                            <a href="/tags/#Animator">Animator</a>
+                            
+                            <a href="/tags/#Bug">Bug</a>
+                            
+                            <a href="/tags/#CodingTest">CodingTest</a>
+                            
+                            <a href="/tags/#Physics">Physics</a>
+                            
+                            <a href="/tags/#Programmers">Programmers</a>
+                            
+                            <a href="/tags/#SRP">SRP</a>
+                            
+                            <a href="/tags/#Unity">Unity</a>
+                            
+                            <a href="/tags/#algorithm">algorithm</a>
+                            
+                            <a href="/tags/#animator">animator</a>
+                            
+                        </div><!-- .tagcloud -->
+                    </section><!-- .widget -->
+                </div><!-- .one-third -->
+
+            </div><!-- .grid -->
+        </div><!-- .inner -->
+    </div><!-- .footer-columns -->
+
+</aside><!-- .footer-widgets -->
+
+    <footer class="site-footer">
+    <div class="inner">
+        <div class="social-links">
+            
+            
+            
+            
+            <a href="https://github.com/bsj2234"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">GitHub</span></a>
+            
+            
+            <a href="https://www.youtube.com/@siko102" ><i class="fa fa-youtube-play" aria-hidden="true"></i><span class="screen-reader-text">Youtube</span></a>
+            
+            
+            
+            
+            
+            
+        </div><!-- .social-links -->
+        <div class="copyright">
+            &copy; 2024 <a href="/">BlogBox</a> <br />BlogBox theme by <a target="_blank" href="https://justgoodthemes.com/">JustGoodThemes</a>
+        </div><!-- .copyright -->
+        <a href="#page" id="top-link" class="top-link"><i class="fa fa-chevron-up" aria-hidden="true"></i><span class="screen-reader-text">Back to the top</span></a>
+    </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+  </div><!-- .site -->
+
+  <script type="text/javascript" src="/js/plugins.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      Prism.highlightAll();
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>CodingTest</title>
+  <meta name="description"
+    content="BlogBox is a bold theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net.
+">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic%7COpen+Sans:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="canonical" href="https://bsj2234.github.io/blog/category/codingtest/">
+  <link rel="alternate" type="application/rss+xml" title="BlogBox Feed"
+    href="https://bsj2234.github.io/feed.xml">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body class="">
+  <div id="page" class="site">
+    <nav class="site-nav" aria-label="Main Menu">
+    <div class="inner">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false"><span class="icon-menu" aria-hidden="true"></span> Menu</button>
+        <div id="nav-menu" class="nav-menu">
+            <ul class="menu">
+            
+                
+                
+                <li class=""><a class="" href="/">홈</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/blog/">블로그</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/about/">소개</a></li>
+            
+            </ul>
+        </div><!-- .nav-menu -->
+        <a id="search-open" class="search-toggle"><i class="fa-search" aria-hidden="true"></i><span class="screen-reader-text">Search</span></a>
+    </div><!-- .inner -->
+</nav><!-- .site-nav -->
+<header class="site-header fade-in-down delay-0_5s">
+    <div class="inner">
+        
+        <h1 class="site-title"><a href="/" rel="home">BlogBox</a></h1>
+        
+        <p class="site-description">Tales of a digital nomad.</p>
+    </div><!-- .inner -->
+</header><!-- .site-header -->
+
+<!-- Add Mermaid support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default'
+    });
+  });
+</script>
+
+<section class="site-search" role="search">
+		<div class="search-scrollable">
+			<div class="search-box">
+				<div class="search-box-inside">
+					<h2 class="screen-reader-text">Search </h2>
+					<form class="search-form">
+						<label class="screen-reader-text">Search for:</label>
+						<input type="text" id="search-field" class="search-field" placeholder="Type your keywords&hellip;" />
+						<input type="submit" class="search-submit screen-reader-text" value="Search" />
+					</form>
+					<ul id="search-results" class="search-results"></ul>
+				</div><!-- .search-box-inside -->
+				<button id="search-close" class="search-toggle"><span class="close-icon" aria-hidden="true"></span><span class="screen-reader-text">Close</span></button>
+			</div><!-- .search-box -->
+		</div><!-- .search-scrollable -->
+</section><!-- .site-search -->
+
+
+    <main class="content fade-in-down delay-0_75s">
+    <div class="inner-wide blog-layout">
+        <aside class="category-sidebar">
+    <h2 class="sidebar-title">Categories</h2>
+    <ul class="category-list">
+        <li class="category-item ">
+            <a href="/blog/">
+                All Posts
+                <span class="count">(32)</span>
+            </a>
+        </li>
+        
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog">
+                    Blog
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog/jekyll">
+                    Blog/Jekyll
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/csharp">
+                    CSharp
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item active">
+                <a href="/blog/category/codingtest">
+                    CodingTest
+                    <span class="count">(11)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/computerscience">
+                    ComputerScience
+                    <span class="count">(3)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/datastructure">
+                    DataStructure
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/graphics">
+                    Graphics
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/network">
+                    Network
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/unity">
+                    Unity
+                    <span class="count">(9)</span>
+                </a>
+            </li>
+        
+    </ul>
+</aside> 
+        <div class="blog-content">
+            
+            <h1 class="category-title">Category: CodingTest</h1>
+            
+
+
+<article class="post-preview">
+    <a href="/codingtest/2024/11/15/12-00-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%897%EB%B2%88/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-content">
+                <h2 class="preview-title">완전 탐색 - 모음 사전</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-15">
+                        November 15, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">CodingTest</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    모음사전 문제 풀이 문제 설명 알파벳 모음을 일전 순서로 나열하며 주어진 단어와 같을 때 그 단어가 몇번째에 나오는지 출력한다 제한사항 word: 길이가 1 이상 5 이하 문자열 문제 해결 접근...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/codingtest/2024/11/15/12-00-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%897%EB%B2%88-copy/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-content">
+                <h2 class="preview-title">완전 탐색 - 모음 사전</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-15">
+                        November 15, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">CodingTest</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    모음사전 문제 풀이 문제 설명 알파벳 모음을 일전 순서로 나열하며 주어진 단어와 같을 때 그 단어가 몇번째에 나오는지 출력한다 제한사항 word: 길이가 1 이상 5 이하 문자열 문제 해결 접근...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/codingtest/2024/11/15/11-00-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%896%EB%B2%88/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-content">
+                <h2 class="preview-title">완전 탐색 - 전력망을 둘로 나누기</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-15">
+                        November 15, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">CodingTest</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    전력망을 둘로 나누기 문제 풀이 문제 설명 n개의 송전탑이 전선으로 연결된 트리 형태의 전력망이 있습니다. 이 중 하나의 전선을 끊어 전력망을 두 개로 분할할 때, 두 전력망의 송전탑 개수 차이를...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/codingtest/2024/11/15/10-00-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%895%EB%B2%88/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-content">
+                <h2 class="preview-title">완전 탐색 - 피로도</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-15">
+                        November 15, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">CodingTest</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    피로도 문제 풀이 문제 설명 던전마다 입장에 필요한 “최소 필요 피로도”와 탐험 후 소모되는 “소모 피로도”가 있을 때, 유저가 탐험할 수 있는 최대 던전 수를 구하는 문제입니다. 제한사항 k(현재 피로도):...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/codingtest/2024/11/15/09-35-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%894%EB%B2%88/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-content">
+                <h2 class="preview-title">완전 탐색 - 카펫</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-15">
+                        November 15, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">CodingTest</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    카펫 문제 풀이 문제 설명 중앙에는 노란색으로 칠해져 있고 테두리 1줄은 갈색으로 칠해져 있는 격자 모양 카펫의 크기를 찾는 문제입니다. 제한사항 brown: 8 이상 5,000 이하 자연수 yellow: 1 이상...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/codingtest/2024/11/14/18-47-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%893%EB%B2%88/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-content">
+                <h2 class="preview-title">완전 탐색 - 소수 찾기 (두 가지 접근법)</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-14">
+                        November 14, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">CodingTest</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    소수 찾기 문제 풀이 문제 설명 주어진 숫자들로 만들 수 있는 모든 숫자 중 소수의 개수를 찾는 문제입니다. 제한사항 numbers 길이: 1~7 numbers는 0~9로만 구성 같은 숫자도 다른 위치면 다른...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/codingtest/2024/11/14/18-21-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%892%EB%B2%88/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-content">
+                <h2 class="preview-title">완전 탐색 - 모의고사 문제</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-14">
+                        November 14, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">CodingTest</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    모의고사 문제 풀이 문제 설명 수포자 3명이 각각 다른 패턴으로 문제를 찍을 때, 가장 많은 문제를 맞힌 사람을 찾는 문제입니다. 수포자들의 찍기 패턴 1번 수포자: 1, 2, 3, 4, 5...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/codingtest/2024/11/12/16-43-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%891%EB%B2%88/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-thumbnail">
+                <img src="/images/posts/road.jpg" 
+                     alt="완전 탐색 1번 명함 지갑">
+            </div>
+            
+            <div class="preview-content">
+                <h2 class="preview-title">완전 탐색 1번 명함 지갑</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-11-12">
+                        November 12, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">CodingTest</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    완전 탐색 문제입니다. 모든 경우의 수를 고려하여 최적의 해답을 찾는 문제입니다. 문제 링크 문제 해석 입력 명함들의 가로, 세로 크기가 담긴 2차원 배열 sizes sizes의 각 원소는 [w, h] 형식...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/codingtest/2024/10/31/10-52-PCCP-%EB%8F%99%EC%98%81%EC%83%81-%EC%9E%AC%EC%83%9D%EA%B8%B0/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-thumbnail">
+                <img src="/images/posts/road.jpg" 
+                     alt="PCCP 동영상 재생기">
+            </div>
+            
+            <div class="preview-content">
+                <h2 class="preview-title">PCCP 동영상 재생기</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-10-31">
+                        October 31, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">CodingTest</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    PCCP 동영상 재생기 문제, 주로 파싱, 문자열 변환이 필요한 문제이다. 문제 링크 문제 해석 -입력 입력 형식은 모두 string으로 00:00 형식으로 들어온다 비디오의 길이 현재 재생 위치 오프닝 시작 위치...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/codingtest/2024/10/30/14-01-%EA%B0%80%EC%9E%A5-%EB%A7%8E%EC%9D%B4-%EB%B0%9B%EC%9D%80-%EC%84%A0%EB%AC%BC/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-thumbnail">
+                <img src="/images/posts/road.jpg" 
+                     alt="가장 많이 받은 선물">
+            </div>
+            
+            <div class="preview-content">
+                <h2 class="preview-title">가장 많이 받은 선물</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-10-30">
+                        October 30, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">CodingTest</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    2024 카카오 윈터 인턴쉽 문제입니다. 선물을 주고받은 수에따라 점수를 매기고 점수에 따라 다음달에 줄 선물의 수가 정해집니다. 가장 많은 선물을 받는 친구의 받을 선물의 수를 출력하는 문제입니다. 문제 링크 문제...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<article class="post-preview">
+    <a href="/codingtest/2024/10/29/20-08-PCCE-7%EB%B2%88-%EB%B2%84%EC%8A%A4/" class="post-preview-link">
+        <div class="post-preview-container">
+            
+            <div class="preview-thumbnail">
+                <img src="/images/posts/road.jpg" 
+                     alt="PCCE 7번 버스">
+            </div>
+            
+            <div class="preview-content">
+                <h2 class="preview-title">PCCE 7번 버스</h2>
+                <div class="preview-meta">
+                    <time class="post-date" datetime="2024-10-29">
+                        October 29, 2024
+                    </time>
+                    
+                    in 
+                    
+                        <span class="category">CodingTest</span>
+                    
+                    
+                </div>
+                <div class="preview-excerpt">
+                    PCCE 7번 버스 문제, 실행부에 빈칸으로 어떤 함수가 실행되어야 하는지 입력해줘야 하는 문제입니다. 정거장마다 타고 내리는 사람들을 계산하여 남아있는 좌석 수를 구합니다. 문제 링크 Collapse #include &lt;string&gt; #include &lt;vector&gt; using...
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+        </div>
+    </div>
+</main> 
+    <aside class="footer-widgets">
+
+    
+
+    <div id="footer-columns" class="footer-columns">
+        <div class="inner">
+            <div class="grid">
+
+                
+                <div class="one-third">
+                    <section class="widget widget-text">
+                        <h2 class="widget-title">About 변석진</h2>
+                        <p>유니티 클라이언트 지망하는 변석진입니다.</p>
+                    </section><!-- .widget-text -->
+                </div><!-- .one-third -->
+                
+
+                <div class="one-third">
+                    <section class="widget widget-recent-posts">
+                        <h2 class="widget-title">Latest Posts</h2>
+                        <ul class="recent-posts">
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/">버그-평면에서의 튀어오름</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/">미분 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/">마크업 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                        </ul><!-- .recent-posts -->
+                    </section><!-- .widget-recent-posts -->
+                </div><!-- .one-third -->
+
+                <!-- Create a sorted array of tags -->
+                <div class="one-third">
+                    
+                    
+                    <section class="widget widget-tags">
+                        <h2 class="widget-title">Tags</h2>
+                        <div class="tagcloud">
+                            
+                            <a href="/tags/#Animation">Animation</a>
+                            
+                            <a href="/tags/#Animator">Animator</a>
+                            
+                            <a href="/tags/#Bug">Bug</a>
+                            
+                            <a href="/tags/#CodingTest">CodingTest</a>
+                            
+                            <a href="/tags/#Physics">Physics</a>
+                            
+                            <a href="/tags/#Programmers">Programmers</a>
+                            
+                            <a href="/tags/#SRP">SRP</a>
+                            
+                            <a href="/tags/#Unity">Unity</a>
+                            
+                            <a href="/tags/#algorithm">algorithm</a>
+                            
+                            <a href="/tags/#animator">animator</a>
+                            
+                        </div><!-- .tagcloud -->
+                    </section><!-- .widget -->
+                </div><!-- .one-third -->
+
+            </div><!-- .grid -->
+        </div><!-- .inner -->
+    </div><!-- .footer-columns -->
+
+</aside><!-- .footer-widgets -->
+
+    <footer class="site-footer">
+    <div class="inner">
+        <div class="social-links">
+            
+            
+            
+            
+            <a href="https://github.com/bsj2234"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">GitHub</span></a>
+            
+            
+            <a href="https://www.youtube.com/@siko102" ><i class="fa fa-youtube-play" aria-hidden="true"></i><span class="screen-reader-text">Youtube</span></a>
+            
+            
+            
+            
+            
+            
+        </div><!-- .social-links -->
+        <div class="copyright">
+            &copy; 2024 <a href="/">BlogBox</a> <br />BlogBox theme by <a target="_blank" href="https://justgoodthemes.com/">JustGoodThemes</a>
+        </div><!-- .copyright -->
+        <a href="#page" id="top-link" class="top-link"><i class="fa fa-chevron-up" aria-hidden="true"></i><span class="screen-reader-text">Back to the top</span></a>
+    </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+  </div><!-- .site -->
+
+  <script type="text/javascript" src="/js/plugins.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      Prism.highlightAll();
+    });
+  </script>
+
+</body>
+
+</html>

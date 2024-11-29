@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>미분 정리</title>
+  <meta name="description"
+    content="BlogBox is a bold theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net.
+">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic%7COpen+Sans:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="canonical" href="https://bsj2234.github.io/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/">
+  <link rel="alternate" type="application/rss+xml" title="BlogBox Feed"
+    href="https://bsj2234.github.io/feed.xml">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body class="">
+  <div id="page" class="site">
+    <nav class="site-nav" aria-label="Main Menu">
+    <div class="inner">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false"><span class="icon-menu" aria-hidden="true"></span> Menu</button>
+        <div id="nav-menu" class="nav-menu">
+            <ul class="menu">
+            
+                
+                
+                <li class=""><a class="" href="/">홈</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/blog/">블로그</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/about/">소개</a></li>
+            
+            </ul>
+        </div><!-- .nav-menu -->
+        <a id="search-open" class="search-toggle"><i class="fa-search" aria-hidden="true"></i><span class="screen-reader-text">Search</span></a>
+    </div><!-- .inner -->
+</nav><!-- .site-nav -->
+<header class="site-header fade-in-down delay-0_5s">
+    <div class="inner">
+        
+        <h1 class="site-title"><a href="/" rel="home">BlogBox</a></h1>
+        
+        <p class="site-description">Tales of a digital nomad.</p>
+    </div><!-- .inner -->
+</header><!-- .site-header -->
+
+<!-- Add Mermaid support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default'
+    });
+  });
+</script>
+
+<section class="site-search" role="search">
+		<div class="search-scrollable">
+			<div class="search-box">
+				<div class="search-box-inside">
+					<h2 class="screen-reader-text">Search </h2>
+					<form class="search-form">
+						<label class="screen-reader-text">Search for:</label>
+						<input type="text" id="search-field" class="search-field" placeholder="Type your keywords&hellip;" />
+						<input type="submit" class="search-submit screen-reader-text" value="Search" />
+					</form>
+					<ul id="search-results" class="search-results"></ul>
+				</div><!-- .search-box-inside -->
+				<button id="search-close" class="search-toggle"><span class="close-icon" aria-hidden="true"></span><span class="screen-reader-text">Close</span></button>
+			</div><!-- .search-box -->
+		</div><!-- .search-scrollable -->
+</section><!-- .site-search -->
+
+
+    <main class="content fade-in-down delay-0_75s">
+    <div class="inner-wide blog-layout">
+        <aside class="category-sidebar">
+    <h2 class="sidebar-title">Categories</h2>
+    <ul class="category-list">
+        <li class="category-item active">
+            <a href="/blog/">
+                All Posts
+                <span class="count">(32)</span>
+            </a>
+        </li>
+        
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog">
+                    Blog
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog/jekyll">
+                    Blog/Jekyll
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/csharp">
+                    CSharp
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/codingtest">
+                    CodingTest
+                    <span class="count">(11)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/computerscience">
+                    ComputerScience
+                    <span class="count">(3)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/datastructure">
+                    DataStructure
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/graphics">
+                    Graphics
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/network">
+                    Network
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/unity">
+                    Unity
+                    <span class="count">(9)</span>
+                </a>
+            </li>
+        
+    </ul>
+</aside> 
+        <div class="blog-content">
+            <article class="post">
+                
+                <div class="entry-box">
+                    <header class="entry-header">
+                        <h1 class="entry-title">미분 정리</h1>
+                        <div class="entry-meta">
+                            <time class="post-date" datetime="2024-11-28">November 28, 2024</time> by 변석진
+                        </div>
+                    </header>
+                    <div class="entry-content">
+                        <h1 id="미분-학습-대화록">미분 학습 대화록</h1>
+
+<p><strong>Q: 흔한 미분 문제 하나 내줘</strong></p>
+
+<p>A: 다음은 흔한 미분 문제 하나입니다:</p>
+
+<p>문제:
+함수 f(x)=3x²+5x−7의 x에 대한 도함수를 구하고, x=2에서의 접선의 기울기를 구하세요.</p>
+
+<p><strong>Q: 한단계씩 가르쳐줘 푸는법</strong></p>
+
+<p>A: 좋아요! 문제를 한 단계씩 풀어봅시다. 😊</p>
+
+<p>1단계: 함수의 도함수를 구하기
+문제에서 주어진 함수: f(x)=3x²+5x−7</p>
+
+<p>미분 규칙:</p>
+<ul>
+  <li>xⁿ의 도함수는 n⋅xⁿ⁻¹ 입니다.</li>
+  <li>상수항의 도함수는 0입니다.</li>
+</ul>
+
+<p>이 규칙을 적용하면, 각 항목의 도함수를 구할 수 있어요:</p>
+<ul>
+  <li>3x² → 2⋅3x²⁻¹=6x</li>
+  <li>5x → 5</li>
+  <li>-7 → 0 (상수항이므로 도함수는 0)</li>
+</ul>
+
+<p>결과:
+도함수 f’(x)는 다음과 같습니다:
+f’(x)=6x+5</p>
+
+<p>2단계: 도함수를 활용해 특정 점에서의 기울기 구하기
+우리는 x=2에서의 접선의 기울기를 구하고 싶습니다. 이 기울기는 f’(x)에 x=2를 대입한 값이에요.</p>
+
+<p>f’(2)=6(2)+5</p>
+
+<p>이걸 계산해 보세요! f’(2)의 값을 구해보세요. 😊</p>
+
+<p><strong>Q: 17이요!</strong></p>
+
+<p>A: 맞아요! f’(2)=17입니다! 🎉</p>
+
+<p>해석:
+f’(x)는 함수 f(x)의 기울기 함수입니다. x=2에서의 접선의 기울기 17은 곧, 해당 점에서 함수가 얼마나 가파르게 증가(또는 감소)하는지를 나타냅니다.</p>
+
+<p>다음 단계로: 접선의 방정식 구하기
+만약 접선의 방정식도 구하고 싶다면, 접선은 다음과 같은 일반 방정식 형태를 따릅니다:</p>
+
+<p>y−f(2)=f’(2)(x−2)</p>
+
+<p>여기서 f(2)는 x=2에서의 f(x) 값을 말합니다.</p>
+
+<p>f(2)를 계산해보고 접선의 방정식을 구해볼까요? 😊</p>
+
+<p><strong>Q: y = 17x -19 요!</strong></p>
+
+<p>A: 정확해요! y=17x−19이 접선의 방정식입니다! 🎉</p>
+
+<p>풀이 확인
+접선의 방정식:
+y−f(2)=f’(2)(x−2)</p>
+
+<p>여기서:
+f(2): f(x)=3x²+5x−7에 x=2를 대입해 계산:
+f(2)=3(2)²+5(2)−7=12+10−7=15</p>
+
+<p>f’(2)=17 (이미 계산 완료!)</p>
+
+<p>식에 대입하면:
+y−15=17(x−2)</p>
+
+<p>정리:
+y−15=17x−34
+y=17x−19</p>
+
+<p>결론
+접선의 방정식은 <strong>y=17x−19</strong>입니다. 완벽합니다! 🎉</p>
+
+<p>추가로 궁금한 부분이나 연습문제 더 필요하면 말해주세요. 😊</p>
+
+<p><strong>Q: 더 어려운 미분 문제 내주세요!</strong></p>
+
+<p>A: 좋아요! 이번엔 조금 더 어려운 미분 문제를 드릴게요. 🧠</p>
+
+<p>문제:
+함수 f(x)=(x²+3x+2)/(x+1)의 도함수를 구하고, x=1에서의 접선의 방정식을 구하세요.</p>
+
+<p>이 문제는 몫의 미분법을 활용해야 합니다. 풀어보고 싶으면 한 단계씩 도와드릴게요! 😊</p>
+
+<p><strong>Q: 도움!</strong></p>
+
+<p>A: 좋아요! 하나씩 풀어봅시다. 😊</p>
+
+<p>1단계: 함수 분석 및 미분 준비
+주어진 함수는 분수 형태로 되어 있습니다:
+f(x)=(x²+3x+2)/(x+1)</p>
+
+<p>이때 몫의 미분법을 사용합니다.</p>
+
+<p>몫의 미분법 공식:
+(u(x)/v(x))’ = (u’(x)v(x) - u(x)v’(x))/[v(x)]²</p>
+
+<p>여기서:
+u(x)=x²+3x+2 (분자)
+v(x)=x+1 (분모)</p>
+
+<p>2단계: 분자와 분모의 도함수 구하기
+1) u(x)=x²+3x+2
+   u’(x)=2x+3
+2) v(x)=x+1
+   v’(x)=1</p>
+
+<p>3단계: 몫의 미분법 공식에 대입
+f’(x)=(u’(x)v(x) - u(x)v’(x))/[v(x)]²</p>
+
+<p>공식에 값을 넣어봅시다:
+f’(x)=((2x+3)(x+1) - (x²+3x+2)(1))/(x+1)²</p>
+
+<p>4단계: 분자 계산하기
+먼저 분자를 전개합니다.</p>
+
+<p>(2x+3)(x+1):
+(2x+3)(x+1)=2x²+2x+3x+3=2x²+5x+3</p>
+
+<p>(x²+3x+2)(1):
+(x²+3x+2)(1)=x²+3x+2</p>
+
+<p>빼기:
+(2x²+5x+3)-(x²+3x+2)=2x²+5x+3-x²-3x-2=x²+2x+1</p>
+
+<p>그래서 분자는:
+x²+2x+1</p>
+
+<p>5단계: 분모 계산
+분모는:
+(x+1)²</p>
+
+<p>6단계: 최종 결과
+따라서 도함수 f’(x)는:
+f’(x)=(x²+2x+1)/(x+1)²</p>
+
+<p>여기까지 도함수는 구했습니다. x=1에서 접선의 방정식을 구하려면 다음 단계를 이어서 하세요!</p>
+
+<p>다음 단계로 x=1 대입해서 기울기와 f(x) 값을 구해볼까요? 😊</p>
+
+<p><strong>Q: 뭐야 결국 공식외우면 미분은 껌이네!</strong></p>
+
+<p>A: 맞아요! 미분은 기본 공식과 규칙만 익히면 정말 쉽고 강력한 도구가 됩니다. 🎉</p>
+
+<p>왜 공식을 외우면 쉬울까?
+미분은 반복적인 패턴이 많아요. 그래서 공식 몇 개만 외우면 대부분의 문제를 풀 수 있어요.</p>
+
+<ul>
+  <li>곱의 미분법</li>
+  <li>몫의 미분법</li>
+  <li>체인 룰(합성 함수 미분)</li>
+</ul>
+
+<p>한 번 익히고 나면, 문제를 푸는 건 단순히 공식 적용 + 계산의 과정이에요.</p>
+
+<p>x=1에서의 결과도 간단히 마무리하면:
+도함수 f’(x)=(x²+2x+1)/(x+1)²</p>
+
+<p>x=1을 대입하면:
+분자: 1²+2(1)+1=4
+분모: (1+1)²=4
+그래서 f’(1)=4/4=1</p>
+
+<p>기울기 = 1, f(1)=2:
+접선의 방정식:
+y−2=1(x−1)
+즉, y=x+1.</p>
+
+<p>공식과 규칙을 잘 활용하면 복잡해 보이는 문제도 이렇게 금방 풀립니다. 더 어려운 거나 응용 원하면 알려주세요! 😊</p>
+
+<p><strong>Q: 그럼 어떤 함수가 있던간에 도함수를 구할 수 있는거야?</strong></p>
+
+<p>A: 네! 미분을 기반으로 변화율과 추세를 파악하면, 다양한 상황에서 미래를 예측할 수 있습니다. 이게 바로 미적분이 과학, 공학, 경제 등 여러 분야에서 중요한 이유예요. 아래에 몇 가지 주요 응용과 예측 방식을 설명할게요. 😊</p>
+
+<ol>
+  <li>미분으로 무엇을 예측할 수 있을까?
+① 변화율을 기반으로 한 예측
+    <ul>
+      <li>미분은 <strong>순간 변화율(기울기)</strong>를 알려줍니다.</li>
+      <li>이 변화율을 이용해 “지금 이 상태에서 미래에는 어떻게 변할 것인가?”를 예측할 수 있어요.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>예: f’(x)=10이라면, x가 조금 증가할 때 f(x)는 약 10만큼 증가할 겁니다.</p>
+
+<p>② 극대/극소점을 찾아서 최적화</p>
+<ul>
+  <li>미분은 함수가 최대값 또는 최소값을 가지는 지점을 찾아줍니다.</li>
+  <li>이는 “어떻게 하면 효율을 극대화할까?” 같은 문제를 해결하는 데 유용합니다.</li>
+</ul>
+
+<p>예: 기업이 생산량을 조정해서 수익을 최대화하는 수준을 찾는 것.</p>
+
+<p>③ 속도와 가속도 예측
+물리에서 위치 함수 s(t)를 미분하면:</p>
+<ul>
+  <li>1차 도함수 s’(t): 속도를 나타냄.</li>
+  <li>2차 도함수 s’‘(t): 가속도를 나타냄.
+이 정보를 통해 물체의 움직임이나 궤적을 예측할 수 있습니다.</li>
+</ul>
+
+<ol>
+  <li>구체적인 예측 사례
+① 경제: 비용, 수익, 소비량 변화 예측
+    <ul>
+      <li>C(x)=x³−5x²+10x: 생산량 x에 따른 비용.</li>
+      <li>도함수 C’(x)=3x²−10x+10: 생산량이 늘어날 때 비용 증가율.</li>
+      <li>C’(x)=0인 지점을 찾아서 최소 비용 지점을 계산.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>② 생물학: 인구 증가 모델</p>
+<ul>
+  <li>P(t)=P₀eᵏᵗ: 시간 t에 따른 인구 증가.</li>
+  <li>도함수 P’(t)=kP₀eᵏᵗ: 인구의 순간 증가율.</li>
+  <li>이 정보를 통해 미래 인구를 예측하거나, 언제 성장 속도가 둔화될지 계산.</li>
+</ul>
+
+<p>③ 물리학: 궤적 및 충돌 시점 예측</p>
+<ul>
+  <li>공이 던져졌을 때 위치 함수 h(t)=−5t²+20t+50.</li>
+  <li>1차 도함수 h’(t)=−10t+20: 공의 속도.</li>
+  <li>h’(t)=0: 최고점(공이 가장 높이 올라가는 시점).</li>
+  <li>h(t)=0: 땅에 떨어지는 시간.</li>
+</ul>
+
+<ol>
+  <li>한계와 주의점
+    <ul>
+      <li>모델의 정확성: 실제 상황을 잘 반영하는 수식이 필요합니다. 잘못된 모델은 틀린 예측을 낳습니다.</li>
+      <li>비선형 변화: 너무 멀리 내다보는 예측은 오차가 커질 수 있어요. 미분은 국소적인 변화에 적합합니다.</li>
+      <li>임의성: 외부 요인이 크면(예: 경제의 불확실성, 자연재해) 예측이 어려워질 수 있습니다.</li>
+    </ul>
+  </li>
+  <li>결론
+    <ul>
+      <li>미분은 변화의 패턴을 이해하고 최적화하는 데 강력한 도구예요.</li>
+      <li>이를 기반으로 우리가 현재 알고 있는 정보를 활용해 미래를 정확하게 예측하거나 최적의 선택을 할 수 있습니다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>궁금한 실제 사례나 특정 문제를 제시하면, 이를 예측하는 방법도 함께 다룰 수 있어요! 😊</p>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+    <aside class="footer-widgets">
+
+    
+
+    <div id="footer-columns" class="footer-columns">
+        <div class="inner">
+            <div class="grid">
+
+                
+                <div class="one-third">
+                    <section class="widget widget-text">
+                        <h2 class="widget-title">About 변석진</h2>
+                        <p>유니티 클라이언트 지망하는 변석진입니다.</p>
+                    </section><!-- .widget-text -->
+                </div><!-- .one-third -->
+                
+
+                <div class="one-third">
+                    <section class="widget widget-recent-posts">
+                        <h2 class="widget-title">Latest Posts</h2>
+                        <ul class="recent-posts">
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/">버그-평면에서의 튀어오름</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/">미분 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/">마크업 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                        </ul><!-- .recent-posts -->
+                    </section><!-- .widget-recent-posts -->
+                </div><!-- .one-third -->
+
+                <!-- Create a sorted array of tags -->
+                <div class="one-third">
+                    
+                    
+                    <section class="widget widget-tags">
+                        <h2 class="widget-title">Tags</h2>
+                        <div class="tagcloud">
+                            
+                            <a href="/tags/#Animation">Animation</a>
+                            
+                            <a href="/tags/#Animator">Animator</a>
+                            
+                            <a href="/tags/#Bug">Bug</a>
+                            
+                            <a href="/tags/#CodingTest">CodingTest</a>
+                            
+                            <a href="/tags/#Physics">Physics</a>
+                            
+                            <a href="/tags/#Programmers">Programmers</a>
+                            
+                            <a href="/tags/#SRP">SRP</a>
+                            
+                            <a href="/tags/#Unity">Unity</a>
+                            
+                            <a href="/tags/#algorithm">algorithm</a>
+                            
+                            <a href="/tags/#animator">animator</a>
+                            
+                        </div><!-- .tagcloud -->
+                    </section><!-- .widget -->
+                </div><!-- .one-third -->
+
+            </div><!-- .grid -->
+        </div><!-- .inner -->
+    </div><!-- .footer-columns -->
+
+</aside><!-- .footer-widgets -->
+
+    <footer class="site-footer">
+    <div class="inner">
+        <div class="social-links">
+            
+            
+            
+            
+            <a href="https://github.com/bsj2234"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">GitHub</span></a>
+            
+            
+            <a href="https://www.youtube.com/@siko102" ><i class="fa fa-youtube-play" aria-hidden="true"></i><span class="screen-reader-text">Youtube</span></a>
+            
+            
+            
+            
+            
+            
+        </div><!-- .social-links -->
+        <div class="copyright">
+            &copy; 2024 <a href="/">BlogBox</a> <br />BlogBox theme by <a target="_blank" href="https://justgoodthemes.com/">JustGoodThemes</a>
+        </div><!-- .copyright -->
+        <a href="#page" id="top-link" class="top-link"><i class="fa fa-chevron-up" aria-hidden="true"></i><span class="screen-reader-text">Back to the top</span></a>
+    </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+  </div><!-- .site -->
+
+  <script type="text/javascript" src="/js/plugins.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      Prism.highlightAll();
+    });
+  </script>
+
+</body>
+
+</html>

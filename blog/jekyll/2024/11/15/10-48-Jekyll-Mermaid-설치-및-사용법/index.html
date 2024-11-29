@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>Jekyll에서 Mermaid 다이어그램 사용하기</title>
+  <meta name="description"
+    content="BlogBox is a bold theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net.
+">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic%7COpen+Sans:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="canonical" href="https://bsj2234.github.io/blog/jekyll/2024/11/15/10-48-Jekyll-Mermaid-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EB%B2%95/">
+  <link rel="alternate" type="application/rss+xml" title="BlogBox Feed"
+    href="https://bsj2234.github.io/feed.xml">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body class="">
+  <div id="page" class="site">
+    <nav class="site-nav" aria-label="Main Menu">
+    <div class="inner">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false"><span class="icon-menu" aria-hidden="true"></span> Menu</button>
+        <div id="nav-menu" class="nav-menu">
+            <ul class="menu">
+            
+                
+                
+                <li class=""><a class="" href="/">홈</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/blog/">블로그</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/about/">소개</a></li>
+            
+            </ul>
+        </div><!-- .nav-menu -->
+        <a id="search-open" class="search-toggle"><i class="fa-search" aria-hidden="true"></i><span class="screen-reader-text">Search</span></a>
+    </div><!-- .inner -->
+</nav><!-- .site-nav -->
+<header class="site-header fade-in-down delay-0_5s">
+    <div class="inner">
+        
+        <h1 class="site-title"><a href="/" rel="home">BlogBox</a></h1>
+        
+        <p class="site-description">Tales of a digital nomad.</p>
+    </div><!-- .inner -->
+</header><!-- .site-header -->
+
+<!-- Add Mermaid support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default'
+    });
+  });
+</script>
+
+<section class="site-search" role="search">
+		<div class="search-scrollable">
+			<div class="search-box">
+				<div class="search-box-inside">
+					<h2 class="screen-reader-text">Search </h2>
+					<form class="search-form">
+						<label class="screen-reader-text">Search for:</label>
+						<input type="text" id="search-field" class="search-field" placeholder="Type your keywords&hellip;" />
+						<input type="submit" class="search-submit screen-reader-text" value="Search" />
+					</form>
+					<ul id="search-results" class="search-results"></ul>
+				</div><!-- .search-box-inside -->
+				<button id="search-close" class="search-toggle"><span class="close-icon" aria-hidden="true"></span><span class="screen-reader-text">Close</span></button>
+			</div><!-- .search-box -->
+		</div><!-- .search-scrollable -->
+</section><!-- .site-search -->
+
+
+    <main class="content fade-in-down delay-0_75s">
+    <div class="inner-wide blog-layout">
+        <aside class="category-sidebar">
+    <h2 class="sidebar-title">Categories</h2>
+    <ul class="category-list">
+        <li class="category-item active">
+            <a href="/blog/">
+                All Posts
+                <span class="count">(32)</span>
+            </a>
+        </li>
+        
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog">
+                    Blog
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog/jekyll">
+                    Blog/Jekyll
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/csharp">
+                    CSharp
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/codingtest">
+                    CodingTest
+                    <span class="count">(11)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/computerscience">
+                    ComputerScience
+                    <span class="count">(3)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/datastructure">
+                    DataStructure
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/graphics">
+                    Graphics
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/network">
+                    Network
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/unity">
+                    Unity
+                    <span class="count">(9)</span>
+                </a>
+            </li>
+        
+    </ul>
+</aside> 
+        <div class="blog-content">
+            <article class="post">
+                
+                <div class="entry-box">
+                    <header class="entry-header">
+                        <h1 class="entry-title">Jekyll에서 Mermaid 다이어그램 사용하기</h1>
+                        <div class="entry-meta">
+                            <time class="post-date" datetime="2024-11-15">November 15, 2024</time> by 변석진
+                        </div>
+                    </header>
+                    <div class="entry-content">
+                        <h1 id="jekyll에서-mermaid-다이어그램-사용하기">Jekyll에서 Mermaid 다이어그램 사용하기</h1>
+
+<h2 id="1-mermaid-설치하기">1. Mermaid 설치하기</h2>
+
+<h3 id="_configyml-설정">_config.yml 설정</h3>
+<p>먼저 <code>_config.yml</code> 파일에 다음 설정을 추가합니다:</p>
+
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">markdown</span><span class="pi">:</span> <span class="s">kramdown</span>
+<span class="na">kramdown</span><span class="pi">:</span>
+  <span class="na">math_engine</span><span class="pi">:</span> <span class="s">mathjax</span>
+    </code></pre></figure>
+
+</div>
+
+<h3 id="headhtml-수정">head.html 수정</h3>
+<p><code>_includes/head.html</code> 파일에 Mermaid 스크립트를 추가합니다:</p>
+
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Mermaid --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">DOMContentLoaded</span><span class="dl">"</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">mermaid</span><span class="p">.</span><span class="nf">initialize</span><span class="p">({</span>
+      <span class="na">startOnLoad</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">theme</span><span class="p">:</span> <span class="dl">'</span><span class="s1">default</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">securityLevel</span><span class="p">:</span> <span class="dl">'</span><span class="s1">loose</span><span class="dl">'</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+    </code></pre></figure>
+
+</div>
+
+<h2 id="2-mermaid-사용하기">2. Mermaid 사용하기</h2>
+
+<h3 id="기본-사용법">기본 사용법</h3>
+<p>포스트에서 다이어그램을 그릴 때는 <code>&lt;div class="mermaid"&gt;</code> 태그를 사용합니다:</p>
+
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mermaid"</span><span class="nt">&gt;</span>
+graph TD
+    A[시작] --&gt; B[중간]
+    B --&gt; C[끝]
+<span class="nt">&lt;/div&gt;</span>
+    </code></pre></figure>
+
+</div>
+
+<p>실제 렌더링 결과:</p>
+<div class="mermaid">
+graph TD
+    A[시작] --&gt; B[중간]
+    B --&gt; C[끝]
+</div>
+
+<h3 id="화살표에-텍스트-추가">화살표에 텍스트 추가</h3>
+<p>화살표에 텍스트나 순서를 표시할 수 있습니다:</p>
+
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mermaid"</span><span class="nt">&gt;</span>
+graph TD
+    A[시작] --&gt;|1| B[중간]
+    B --&gt;|2| C[끝]
+<span class="nt">&lt;/div&gt;</span>
+    </code></pre></figure>
+
+</div>
+
+<p>실제 렌더링 결과:</p>
+<div class="mermaid">
+graph TD
+    A[시작] --&gt;|1| B[중간]
+    B --&gt;|2| C[끝]
+</div>
+
+<h3 id="다양한-화살표-스타일">다양한 화살표 스타일</h3>
+<p>Mermaid는 여러 종류의 화살표를 지원합니다:</p>
+
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mermaid"</span><span class="nt">&gt;</span>
+graph LR
+    A--&gt;B      %% 기본 화살표
+    B==&gt;C      %% 두꺼운 화살표
+    C-.-&gt;D     %% 점선 화살표
+    D===&gt;E     %% 더 두꺼운 화살표
+<span class="nt">&lt;/div&gt;</span>
+    </code></pre></figure>
+
+</div>
+
+<p>실제 렌더링 결과:</p>
+<div class="mermaid">
+graph LR
+    A--&gt;B
+    B==&gt;C
+    C-.-&gt;D
+    D===&gt;E
+</div>
+
+<h3 id="노드-스타일링">노드 스타일링</h3>
+<p>노드의 스타일을 지정할 수 있습니다:</p>
+
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mermaid"</span><span class="nt">&gt;</span>
+graph TD
+    A[시작] --&gt; B[처리]
+    B --&gt; C[끝]
+    style A fill:#f9f,stroke:#333
+    style C fill:#9f9,stroke:#333
+<span class="nt">&lt;/div&gt;</span>
+    </code></pre></figure>
+
+</div>
+
+<p>실제 렌더링 결과:</p>
+<div class="mermaid">
+graph TD
+    A[시작] --&gt; B[처리]
+    B --&gt; C[끝]
+    style A fill:#f9f,stroke:#333
+    style C fill:#9f9,stroke:#333
+</div>
+
+<h2 id="3-주의사항">3. 주의사항</h2>
+
+<ol>
+  <li><strong>Front Matter 설정</strong>
+    <ul>
+      <li>머메이드를 사용하는 포스트의 Front Matter에 <code>mermaid: true</code>를 추가하면 좋습니다.</li>
+    </ul>
+  </li>
+  <li><strong>렌더링 문제</strong>
+    <ul>
+      <li>코드 블록(```mermaid)보다 <code>&lt;div class="mermaid"&gt;</code> 사용을 권장합니다.</li>
+      <li>Jekyll 테마에 따라 추가 설정이 필요할 수 있습니다.</li>
+    </ul>
+  </li>
+  <li><strong>성능 고려</strong>
+    <ul>
+      <li>너무 복잡한 다이어그램은 렌더링 성능에 영향을 줄 수 있습니다.</li>
+      <li>필요한 페이지에만 Mermaid를 로드하는 것이 좋습니다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="4-유용한-팁">4. 유용한 팁</h2>
+
+<ol>
+  <li><strong>방향 설정</strong>
+    <ul>
+      <li>TD: 위에서 아래로 (Top Down)</li>
+      <li>LR: 왼쪽에서 오른쪽으로 (Left Right)</li>
+      <li>RL: 오른쪽에서 왼쪽으로 (Right Left)</li>
+      <li>BT: 아래에서 위로 (Bottom Top)</li>
+    </ul>
+  </li>
+  <li><strong>주석 추가</strong>
+    <ul>
+      <li><code>%%</code>를 사용하여 다이어그램 코드에 주석을 추가할 수 있습니다.</li>
+    </ul>
+  </li>
+  <li><strong>복잡한 다이어그램</strong>
+    <ul>
+      <li><a href="https://mermaid.live/">Mermaid Live Editor</a>를 사용하여 미리 테스트해볼 수 있습니다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="5-보안-설정-security-level">5. 보안 설정 (Security Level)</h2>
+
+<p>Mermaid 초기화 시 설정하는 <code>securityLevel</code> 옵션은 다이어그램의 기능과 보안을 제어합니다:</p>
+
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">mermaid</span><span class="p">.</span><span class="nf">initialize</span><span class="p">({</span>
+    <span class="na">startOnLoad</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">theme</span><span class="p">:</span> <span class="dl">'</span><span class="s1">default</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">securityLevel</span><span class="p">:</span> <span class="dl">'</span><span class="s1">loose</span><span class="dl">'</span>  <span class="c1">// 'strict', 'loose', 'antiscript' 중 선택</span>
+<span class="p">});</span>
+    </code></pre></figure>
+
+</div>
+
+<h3 id="보안-레벨-종류">보안 레벨 종류</h3>
+
+<ol>
+  <li><strong>strict (기본값)</strong>
+    <ul>
+      <li>가장 엄격한 보안 설정</li>
+      <li>외부 URL 사용 불가</li>
+      <li>클릭 이벤트 비활성화</li>
+      <li>XSS 공격 방지에 중점</li>
+    </ul>
+  </li>
+  <li><strong>loose</strong>
+    <ul>
+      <li>더 유연한 보안 설정</li>
+      <li>다음 기능들이 활성화됨:
+        <ul>
+          <li>외부 이미지 URL 사용</li>
+          <li>클릭 이벤트</li>
+          <li>확장된 CSS 스타일링</li>
+          <li>외부 링크</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>antiscript</strong>
+    <ul>
+      <li>strict와 loose의 중간 수준</li>
+      <li>스크립트 실행은 방지</li>
+      <li>일부 기능적 요소 허용</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="사용-예시">사용 예시</h3>
+
+<ol>
+  <li><strong>strict 모드에서는 작동하지 않는 예:</strong></li>
+</ol>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mermaid"</span><span class="nt">&gt;</span>
+graph TD
+    A[시작] --&gt; B[중간]
+    click B href "https://example.com" _blank    %% strict에서는 작동 안 함
+    style B fill:url(#gradient)                  %% strict에서는 제한됨
+<span class="nt">&lt;/div&gt;</span>
+    </code></pre></figure>
+
+</div>
+
+<ol>
+  <li><strong>loose 모드에서 가능한 고급 기능:</strong></li>
+</ol>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mermaid"</span><span class="nt">&gt;</span>
+graph TD
+    A[시작] --&gt; B[중간]
+    click B href "https://example.com" _blank
+    style B fill:#f9f,stroke:#333,stroke-width:4px
+    linkStyle 0 stroke:#ff3,stroke-width:4px,color:red
+<span class="nt">&lt;/div&gt;</span>
+    </code></pre></figure>
+
+</div>
+
+<p>실제 렌더링 결과:</p>
+<div class="mermaid">
+graph TD
+    A[시작] --&gt; B[중간]
+    click B href "https://example.com" _blank
+    style B fill:#f9f,stroke:#333,stroke-width:4px
+    linkStyle 0 stroke:#ff3,stroke-width:4px,color:red
+</div>
+
+<h3 id="보안-레벨-선택-가이드">보안 레벨 선택 가이드</h3>
+
+<ol>
+  <li><strong>strict 사용 시나리오</strong>
+    <ul>
+      <li>사용자 입력을 받아 다이어그램을 생성하는 경우</li>
+      <li>공개 웹사이트에서 보안이 중요한 경우</li>
+      <li>XSS 취약점 방지가 필요한 경우</li>
+    </ul>
+  </li>
+  <li><strong>loose 사용 시나리오</strong>
+    <ul>
+      <li>개인 블로그나 문서</li>
+      <li>신뢰할 수 있는 콘텐츠만 사용하는 경우</li>
+      <li>고급 스타일링이나 인터랙션이 필요한 경우</li>
+    </ul>
+  </li>
+  <li><strong>antiscript 사용 시나리오</strong>
+    <ul>
+      <li>부분적인 기능 확장이 필요한 경우</li>
+      <li>스크립트 실행은 방지하고 싶은 경우</li>
+      <li>strict와 loose의 중간 수준의 보안이 필요한 경우</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="주의사항">주의사항</h3>
+<ul>
+  <li>보안 레벨 변경 시 기존 다이어그램의 작동 여부를 반드시 확인</li>
+  <li>공개 사이트에서는 가능한 strict 사용을 권장</li>
+  <li>외부 링크 사용 시 보안 위험 고려</li>
+</ul>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+    <aside class="footer-widgets">
+
+    
+
+    <div id="footer-columns" class="footer-columns">
+        <div class="inner">
+            <div class="grid">
+
+                
+                <div class="one-third">
+                    <section class="widget widget-text">
+                        <h2 class="widget-title">About 변석진</h2>
+                        <p>유니티 클라이언트 지망하는 변석진입니다.</p>
+                    </section><!-- .widget-text -->
+                </div><!-- .one-third -->
+                
+
+                <div class="one-third">
+                    <section class="widget widget-recent-posts">
+                        <h2 class="widget-title">Latest Posts</h2>
+                        <ul class="recent-posts">
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/">버그-평면에서의 튀어오름</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/">미분 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/">마크업 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                        </ul><!-- .recent-posts -->
+                    </section><!-- .widget-recent-posts -->
+                </div><!-- .one-third -->
+
+                <!-- Create a sorted array of tags -->
+                <div class="one-third">
+                    
+                    
+                    <section class="widget widget-tags">
+                        <h2 class="widget-title">Tags</h2>
+                        <div class="tagcloud">
+                            
+                            <a href="/tags/#Animation">Animation</a>
+                            
+                            <a href="/tags/#Animator">Animator</a>
+                            
+                            <a href="/tags/#Bug">Bug</a>
+                            
+                            <a href="/tags/#CodingTest">CodingTest</a>
+                            
+                            <a href="/tags/#Physics">Physics</a>
+                            
+                            <a href="/tags/#Programmers">Programmers</a>
+                            
+                            <a href="/tags/#SRP">SRP</a>
+                            
+                            <a href="/tags/#Unity">Unity</a>
+                            
+                            <a href="/tags/#algorithm">algorithm</a>
+                            
+                            <a href="/tags/#animator">animator</a>
+                            
+                        </div><!-- .tagcloud -->
+                    </section><!-- .widget -->
+                </div><!-- .one-third -->
+
+            </div><!-- .grid -->
+        </div><!-- .inner -->
+    </div><!-- .footer-columns -->
+
+</aside><!-- .footer-widgets -->
+
+    <footer class="site-footer">
+    <div class="inner">
+        <div class="social-links">
+            
+            
+            
+            
+            <a href="https://github.com/bsj2234"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">GitHub</span></a>
+            
+            
+            <a href="https://www.youtube.com/@siko102" ><i class="fa fa-youtube-play" aria-hidden="true"></i><span class="screen-reader-text">Youtube</span></a>
+            
+            
+            
+            
+            
+            
+        </div><!-- .social-links -->
+        <div class="copyright">
+            &copy; 2024 <a href="/">BlogBox</a> <br />BlogBox theme by <a target="_blank" href="https://justgoodthemes.com/">JustGoodThemes</a>
+        </div><!-- .copyright -->
+        <a href="#page" id="top-link" class="top-link"><i class="fa fa-chevron-up" aria-hidden="true"></i><span class="screen-reader-text">Back to the top</span></a>
+    </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+  </div><!-- .site -->
+
+  <script type="text/javascript" src="/js/plugins.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      Prism.highlightAll();
+    });
+  </script>
+
+</body>
+
+</html>

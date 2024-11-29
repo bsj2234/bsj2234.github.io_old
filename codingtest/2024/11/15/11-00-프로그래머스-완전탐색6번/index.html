@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>완전 탐색 - 전력망을 둘로 나누기</title>
+  <meta name="description"
+    content="BlogBox is a bold theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net.
+">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic%7COpen+Sans:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="canonical" href="https://bsj2234.github.io/codingtest/2024/11/15/11-00-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%896%EB%B2%88/">
+  <link rel="alternate" type="application/rss+xml" title="BlogBox Feed"
+    href="https://bsj2234.github.io/feed.xml">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body class="">
+  <div id="page" class="site">
+    <nav class="site-nav" aria-label="Main Menu">
+    <div class="inner">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false"><span class="icon-menu" aria-hidden="true"></span> Menu</button>
+        <div id="nav-menu" class="nav-menu">
+            <ul class="menu">
+            
+                
+                
+                <li class=""><a class="" href="/">홈</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/blog/">블로그</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/about/">소개</a></li>
+            
+            </ul>
+        </div><!-- .nav-menu -->
+        <a id="search-open" class="search-toggle"><i class="fa-search" aria-hidden="true"></i><span class="screen-reader-text">Search</span></a>
+    </div><!-- .inner -->
+</nav><!-- .site-nav -->
+<header class="site-header fade-in-down delay-0_5s">
+    <div class="inner">
+        
+        <h1 class="site-title"><a href="/" rel="home">BlogBox</a></h1>
+        
+        <p class="site-description">Tales of a digital nomad.</p>
+    </div><!-- .inner -->
+</header><!-- .site-header -->
+
+<!-- Add Mermaid support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default'
+    });
+  });
+</script>
+
+<section class="site-search" role="search">
+		<div class="search-scrollable">
+			<div class="search-box">
+				<div class="search-box-inside">
+					<h2 class="screen-reader-text">Search </h2>
+					<form class="search-form">
+						<label class="screen-reader-text">Search for:</label>
+						<input type="text" id="search-field" class="search-field" placeholder="Type your keywords&hellip;" />
+						<input type="submit" class="search-submit screen-reader-text" value="Search" />
+					</form>
+					<ul id="search-results" class="search-results"></ul>
+				</div><!-- .search-box-inside -->
+				<button id="search-close" class="search-toggle"><span class="close-icon" aria-hidden="true"></span><span class="screen-reader-text">Close</span></button>
+			</div><!-- .search-box -->
+		</div><!-- .search-scrollable -->
+</section><!-- .site-search -->
+
+
+    <main class="content fade-in-down delay-0_75s">
+    <div class="inner-wide blog-layout">
+        <aside class="category-sidebar">
+    <h2 class="sidebar-title">Categories</h2>
+    <ul class="category-list">
+        <li class="category-item active">
+            <a href="/blog/">
+                All Posts
+                <span class="count">(32)</span>
+            </a>
+        </li>
+        
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog">
+                    Blog
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog/jekyll">
+                    Blog/Jekyll
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/csharp">
+                    CSharp
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/codingtest">
+                    CodingTest
+                    <span class="count">(11)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/computerscience">
+                    ComputerScience
+                    <span class="count">(3)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/datastructure">
+                    DataStructure
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/graphics">
+                    Graphics
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/network">
+                    Network
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/unity">
+                    Unity
+                    <span class="count">(9)</span>
+                </a>
+            </li>
+        
+    </ul>
+</aside> 
+        <div class="blog-content">
+            <article class="post">
+                
+                <div class="entry-box">
+                    <header class="entry-header">
+                        <h1 class="entry-title">완전 탐색 - 전력망을 둘로 나누기</h1>
+                        <div class="entry-meta">
+                            <time class="post-date" datetime="2024-11-15">November 15, 2024</time> by 변석진
+                        </div>
+                    </header>
+                    <div class="entry-content">
+                        <h1 id="전력망을-둘로-나누기-문제-풀이">전력망을 둘로 나누기 문제 풀이</h1>
+
+<h2 id="문제-설명">문제 설명</h2>
+<p>n개의 송전탑이 전선으로 연결된 트리 형태의 전력망이 있습니다. 이 중 하나의 전선을 끊어 전력망을 두 개로 분할할 때, 두 전력망의 송전탑 개수 차이를 최소화하는 문제입니다.</p>
+
+<h3 id="제한사항">제한사항</h3>
+<ul>
+  <li>n: 2 이상 100 이하 자연수</li>
+  <li>wires: 길이가 n-1인 2차원 배열</li>
+  <li>wires[i]: [v1, v2] 형태로 두 송전탑의 연결 정보</li>
+  <li>1 ≤ v1 &lt; v2 ≤ n</li>
+  <li>입력은 항상 트리 형태</li>
+</ul>
+
+<h2 id="문제-해결-접근">문제 해결 접근</h2>
+
+<h3 id="1-트리의-특성-활용">1. 트리의 특성 활용</h3>
+<ul>
+  <li>간선을 하나 제거하면 두 개의 서브트리로 분할됨</li>
+  <li>각 서브트리의 노드 수 차이가 답이 됨</li>
+</ul>
+
+<div class="mermaid">
+graph TD
+    1 --- 3
+    2 --- 3
+    3 --- 4
+    4 --- 5
+    4 --- 6
+    4 --- 7
+    7 --- 8
+    7 --- 9
+    
+    style 4 fill:#f9f,stroke:#333
+    style 7 fill:#f9f,stroke:#333
+</div>
+
+<h3 id="2-구현-방법">2. 구현 방법</h3>
+
+<h3 id="1-인접-리스트-기반-구현">1. 인접 리스트 기반 구현</h3>
+
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;[]</span> <span class="n">graph</span><span class="p">;</span>
+    <span class="k">private</span> <span class="kt">bool</span><span class="p">[]</span> <span class="n">visited</span><span class="p">;</span>
+    
+    <span class="k">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span><span class="p">[,]</span> <span class="n">wires</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">minDiff</span> <span class="p">=</span> <span class="n">n</span><span class="p">;</span>  <span class="c1">// 최대 차이로 초기화</span>
+        
+        <span class="c1">// 각 간선을 하나씩 제거해보며 시도</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">skip</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">skip</span> <span class="p">&lt;</span> <span class="n">wires</span><span class="p">.</span><span class="nf">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">);</span> <span class="n">skip</span><span class="p">++)</span> <span class="p">{</span>
+            <span class="c1">// 그래프 초기화</span>
+            <span class="n">graph</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;[</span><span class="n">n</span> <span class="p">+</span> <span class="m">1</span><span class="p">];</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> 
+                <span class="n">graph</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+            
+            <span class="c1">// 현재 건너뛸 간선을 제외하고 그래프 구성</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">wires</span><span class="p">.</span><span class="nf">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">);</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="p">==</span> <span class="n">skip</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">v1</span> <span class="p">=</span> <span class="n">wires</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">0</span><span class="p">],</span> <span class="n">v2</span> <span class="p">=</span> <span class="n">wires</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">1</span><span class="p">];</span>
+                <span class="n">graph</span><span class="p">[</span><span class="n">v1</span><span class="p">].</span><span class="nf">Add</span><span class="p">(</span><span class="n">v2</span><span class="p">);</span>
+                <span class="n">graph</span><span class="p">[</span><span class="n">v2</span><span class="p">].</span><span class="nf">Add</span><span class="p">(</span><span class="n">v1</span><span class="p">);</span>
+            <span class="p">}</span>
+            
+            <span class="c1">// DFS로 분할된 서브트리의 크기 계산</span>
+            <span class="n">visited</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">bool</span><span class="p">[</span><span class="n">n</span> <span class="p">+</span> <span class="m">1</span><span class="p">];</span>
+            <span class="kt">int</span> <span class="n">count</span> <span class="p">=</span> <span class="nf">CountNodes</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>  <span class="c1">// 임의의 시작점에서 DFS</span>
+            
+            <span class="c1">// 두 서브트리의 크기 차이 계산</span>
+            <span class="kt">int</span> <span class="n">diff</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="n">count</span> <span class="p">-</span> <span class="p">(</span><span class="n">n</span> <span class="p">-</span> <span class="n">count</span><span class="p">));</span>
+            <span class="n">minDiff</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Min</span><span class="p">(</span><span class="n">minDiff</span><span class="p">,</span> <span class="n">diff</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="n">minDiff</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">private</span> <span class="kt">int</span> <span class="nf">CountNodes</span><span class="p">(</span><span class="kt">int</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>  <span class="c1">// 현재 노드 포함</span>
+        
+        <span class="k">foreach</span><span class="p">(</span><span class="kt">int</span> <span class="n">next</span> <span class="k">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">node</span><span class="p">])</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(!</span><span class="n">visited</span><span class="p">[</span><span class="n">next</span><span class="p">])</span> <span class="p">{</span>
+                <span class="n">count</span> <span class="p">+=</span> <span class="nf">CountNodes</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h3 id="2-노드-클래스-기반-구현-수정된-버전">2. 노드 클래스 기반 구현 (수정된 버전)</h3>
+
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">Value</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">TreeNode</span><span class="p">&gt;</span> <span class="n">Children</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    
+    <span class="k">public</span> <span class="nf">TreeNode</span><span class="p">(</span><span class="kt">int</span> <span class="k">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Value</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+        <span class="n">Children</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">TreeNode</span><span class="p">&gt;();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">TreeNode</span><span class="p">&gt;</span> <span class="n">nodes</span><span class="p">;</span>
+    
+    <span class="k">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span><span class="p">[,]</span> <span class="n">wires</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 노드 초기화</span>
+        <span class="n">nodes</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">TreeNode</span><span class="p">&gt;();</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+            <span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TreeNode</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+        <span class="c1">// 트리 구성 (양방향)</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">wires</span><span class="p">.</span><span class="nf">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">);</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">v1</span> <span class="p">=</span> <span class="n">wires</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">0</span><span class="p">],</span> <span class="n">v2</span> <span class="p">=</span> <span class="n">wires</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">1</span><span class="p">];</span>
+            <span class="n">nodes</span><span class="p">[</span><span class="n">v1</span><span class="p">].</span><span class="n">Children</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">v2</span><span class="p">]);</span>
+            <span class="n">nodes</span><span class="p">[</span><span class="n">v2</span><span class="p">].</span><span class="n">Children</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">v1</span><span class="p">]);</span> <span class="c1">// 양방향 연결</span>
+        <span class="p">}</span>
+        
+        <span class="kt">int</span> <span class="n">minDiff</span> <span class="p">=</span> <span class="n">n</span><span class="p">;</span>
+        
+        <span class="c1">// 각 간선을 끊어보며 차이 계산</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">wires</span><span class="p">.</span><span class="nf">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">);</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">v1</span> <span class="p">=</span> <span class="n">wires</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">0</span><span class="p">],</span> <span class="n">v2</span> <span class="p">=</span> <span class="n">wires</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">1</span><span class="p">];</span>
+            
+            <span class="c1">// 간선 제거 (양쪽 모두)</span>
+            <span class="n">nodes</span><span class="p">[</span><span class="n">v1</span><span class="p">].</span><span class="n">Children</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">v2</span><span class="p">]);</span>
+            <span class="n">nodes</span><span class="p">[</span><span class="n">v2</span><span class="p">].</span><span class="n">Children</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">v1</span><span class="p">]);</span>
+            
+            <span class="c1">// 한쪽 서브트리의 크기만 계산하면 됨</span>
+            <span class="kt">bool</span><span class="p">[]</span> <span class="n">visited</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">bool</span><span class="p">[</span><span class="n">n</span> <span class="p">+</span> <span class="m">1</span><span class="p">];</span>
+            <span class="kt">int</span> <span class="n">count</span> <span class="p">=</span> <span class="nf">CountSubTreeNodes</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">v1</span><span class="p">],</span> <span class="n">visited</span><span class="p">);</span>
+            <span class="kt">int</span> <span class="n">diff</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="n">count</span> <span class="p">-</span> <span class="p">(</span><span class="n">n</span> <span class="p">-</span> <span class="n">count</span><span class="p">));</span>
+            <span class="n">minDiff</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Min</span><span class="p">(</span><span class="n">minDiff</span><span class="p">,</span> <span class="n">diff</span><span class="p">);</span>
+            
+            <span class="c1">// 간선 복구 (양쪽 모두)</span>
+            <span class="n">nodes</span><span class="p">[</span><span class="n">v1</span><span class="p">].</span><span class="n">Children</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">v2</span><span class="p">]);</span>
+            <span class="n">nodes</span><span class="p">[</span><span class="n">v2</span><span class="p">].</span><span class="n">Children</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">v1</span><span class="p">]);</span>
+        <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="n">minDiff</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">private</span> <span class="kt">int</span> <span class="nf">CountSubTreeNodes</span><span class="p">(</span><span class="n">TreeNode</span> <span class="n">node</span><span class="p">,</span> <span class="kt">bool</span><span class="p">[]</span> <span class="n">visited</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">visited</span><span class="p">[</span><span class="n">node</span><span class="p">.</span><span class="n">Value</span><span class="p">])</span> <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+        
+        <span class="n">visited</span><span class="p">[</span><span class="n">node</span><span class="p">.</span><span class="n">Value</span><span class="p">]</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+        
+        <span class="k">foreach</span><span class="p">(</span><span class="kt">var</span> <span class="n">child</span> <span class="k">in</span> <span class="n">node</span><span class="p">.</span><span class="n">Children</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">count</span> <span class="p">+=</span> <span class="nf">CountSubTreeNodes</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">visited</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h3 id="주요-수정-사항-및-실수하기-쉬운-부분">주요 수정 사항 및 실수하기 쉬운 부분</h3>
+
+<ol>
+  <li><strong>양방향 연결의 중요성</strong>
+    <pre><code class="language-csharp">// 잘못된 방식 (단방향)
+nodes[v1].Children.Add(nodes[v2]);
+   
+// 올바른 방식 (양방향)
+nodes[v1].Children.Add(nodes[v2]);
+nodes[v2].Children.Add(nodes[v1]);
+</code></pre>
+  </li>
+  <li><strong>순환 방지를 위한 방문 체크</strong>
+    <ul>
+      <li>양방향 연결로 인해 순환이 발생할 수 있음</li>
+      <li>visited 배열로 방문 여부 체크 필요</li>
+    </ul>
+  </li>
+  <li><strong>간선 제거/복구 시 양쪽 모두 처리</strong>
+    <pre><code class="language-csharp">// 잘못된 방식 (한쪽만 제거)
+nodes[v1].Children.Remove(nodes[v2]);
+   
+// 올바른 방식 (양쪽 모두 제거)
+nodes[v1].Children.Remove(nodes[v2]);
+nodes[v2].Children.Remove(nodes[v1]);
+</code></pre>
+  </li>
+</ol>
+
+<div class="mermaid">
+graph TD
+    subgraph "양방향 연결 구조"
+        1 ---|양방향| 3
+        2 ---|양방향| 3
+        3 ---|양방향| 4
+        4 ---|양방향| 5
+        4 ---|양방향| 6
+        4 ---|양방향| 7
+        7 ---|양방향| 8
+        7 ---|양방향| 9
+    end
+</div>
+
+<h3 id="개선된-구현의-장점">개선된 구현의 장점</h3>
+
+<ol>
+  <li><strong>정확성</strong>
+    <ul>
+      <li>양방향 연결로 모든 경로 탐색 가능</li>
+      <li>방문 체크로 순환 방지</li>
+    </ul>
+  </li>
+  <li><strong>효율성</strong>
+    <ul>
+      <li>불필요한 Parent 참조 제거</li>
+      <li>한쪽 서브트리만 계산해도 충분</li>
+    </ul>
+  </li>
+  <li><strong>간단한 구현</strong>
+    <ul>
+      <li>트리 구조를 더 단순하게 표현</li>
+      <li>유지보수가 용이</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="주의사항">주의사항</h3>
+
+<ol>
+  <li><strong>메모리 관리</strong>
+    <ul>
+      <li>양방향 연결로 인한 메모리 사용량 증가</li>
+      <li>간선 제거/복구 시 메모리 누수 방지</li>
+    </ul>
+  </li>
+  <li><strong>방문 배열 초기화</strong>
+    <ul>
+      <li>각 시도마다 새로운 방문 배열 필요</li>
+      <li>이전 시도의 방문 정보가 영향을 주지 않도록 주의</li>
+    </ul>
+  </li>
+  <li><strong>예외 처리</strong>
+    <ul>
+      <li>노드가 존재하지 않는 경우 체크</li>
+      <li>간선 제거/복구 실패 시 처리</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="3-두-구현-방식-비교">3. 두 구현 방식 비교</h3>
+
+<div class="mermaid">
+graph TD
+    subgraph "인접리스트방식"
+        direction TB
+        A1[1] --&gt; A3[3]
+        A2[2] --&gt; A3
+        A3 --&gt; A4[4]
+        A4 --&gt; A5[5]
+        A4 --&gt; A6[6]
+        A4 --&gt; A7[7]
+        A7 --&gt; A8[8]
+        A7 --&gt; A9[9]
+    end
+</div>
+
+<div class="mermaid">
+graph TD
+    subgraph "노드클래스방식"
+        direction TB
+        B1["1 | Children"] --&gt; B3["3 | Children"]
+        B2["2 | Children"] --&gt; B3
+        B3 --&gt; B4["4 | Children"]
+        B4 --&gt; B5["5 | Children"]
+        B4 --&gt; B6["6 | Children"]
+        B4 --&gt; B7["7 | Children"]
+        B7 --&gt; B8["8 | Children"]
+        B7 --&gt; B9["9 | Children"]
+    end
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>특징</th>
+      <th>인접 리스트 방식</th>
+      <th>노드 클래스 방식</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>메모리 사용</td>
+      <td>더 적음 (단순 배열)</td>
+      <td>더 많음 (객체 생성)</td>
+    </tr>
+    <tr>
+      <td>구현 복잡도</td>
+      <td>단순함</td>
+      <td>약간 복잡함</td>
+    </tr>
+    <tr>
+      <td>간선 제거/복구</td>
+      <td>그래프 재구성 필요</td>
+      <td>참조만 변경</td>
+    </tr>
+    <tr>
+      <td>서브트리 탐색</td>
+      <td>방문 배열 필요</td>
+      <td>자연스러운 순회</td>
+    </tr>
+    <tr>
+      <td>확장성</td>
+      <td>제한적</td>
+      <td>높음 (노드에 속성 추가 용이)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="4-선택-기준">4. 선택 기준</h3>
+
+<ol>
+  <li><strong>인접 리스트 방식이 좋은 경우:</strong>
+    <ul>
+      <li>메모리가 제한적인 경우</li>
+      <li>단순한 구현이 필요한 경우</li>
+      <li>빠른 구현이 필요한 경우</li>
+    </ul>
+  </li>
+  <li><strong>노드 클래스 방식이 좋은 경우:</strong>
+    <ul>
+      <li>트리 구조의 확장이 필요한 경우</li>
+      <li>부모-자식 관계 탐색이 빈번한 경우</li>
+      <li>객체 지향적 설계가 중요한 경우</li>
+    </ul>
+  </li>
+</ol>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+    <aside class="footer-widgets">
+
+    
+
+    <div id="footer-columns" class="footer-columns">
+        <div class="inner">
+            <div class="grid">
+
+                
+                <div class="one-third">
+                    <section class="widget widget-text">
+                        <h2 class="widget-title">About 변석진</h2>
+                        <p>유니티 클라이언트 지망하는 변석진입니다.</p>
+                    </section><!-- .widget-text -->
+                </div><!-- .one-third -->
+                
+
+                <div class="one-third">
+                    <section class="widget widget-recent-posts">
+                        <h2 class="widget-title">Latest Posts</h2>
+                        <ul class="recent-posts">
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/">버그-평면에서의 튀어오름</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/">미분 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/">마크업 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                        </ul><!-- .recent-posts -->
+                    </section><!-- .widget-recent-posts -->
+                </div><!-- .one-third -->
+
+                <!-- Create a sorted array of tags -->
+                <div class="one-third">
+                    
+                    
+                    <section class="widget widget-tags">
+                        <h2 class="widget-title">Tags</h2>
+                        <div class="tagcloud">
+                            
+                            <a href="/tags/#Animation">Animation</a>
+                            
+                            <a href="/tags/#Animator">Animator</a>
+                            
+                            <a href="/tags/#Bug">Bug</a>
+                            
+                            <a href="/tags/#CodingTest">CodingTest</a>
+                            
+                            <a href="/tags/#Physics">Physics</a>
+                            
+                            <a href="/tags/#Programmers">Programmers</a>
+                            
+                            <a href="/tags/#SRP">SRP</a>
+                            
+                            <a href="/tags/#Unity">Unity</a>
+                            
+                            <a href="/tags/#algorithm">algorithm</a>
+                            
+                            <a href="/tags/#animator">animator</a>
+                            
+                        </div><!-- .tagcloud -->
+                    </section><!-- .widget -->
+                </div><!-- .one-third -->
+
+            </div><!-- .grid -->
+        </div><!-- .inner -->
+    </div><!-- .footer-columns -->
+
+</aside><!-- .footer-widgets -->
+
+    <footer class="site-footer">
+    <div class="inner">
+        <div class="social-links">
+            
+            
+            
+            
+            <a href="https://github.com/bsj2234"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">GitHub</span></a>
+            
+            
+            <a href="https://www.youtube.com/@siko102" ><i class="fa fa-youtube-play" aria-hidden="true"></i><span class="screen-reader-text">Youtube</span></a>
+            
+            
+            
+            
+            
+            
+        </div><!-- .social-links -->
+        <div class="copyright">
+            &copy; 2024 <a href="/">BlogBox</a> <br />BlogBox theme by <a target="_blank" href="https://justgoodthemes.com/">JustGoodThemes</a>
+        </div><!-- .copyright -->
+        <a href="#page" id="top-link" class="top-link"><i class="fa fa-chevron-up" aria-hidden="true"></i><span class="screen-reader-text">Back to the top</span></a>
+    </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+  </div><!-- .site -->
+
+  <script type="text/javascript" src="/js/plugins.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      Prism.highlightAll();
+    });
+  </script>
+
+</body>
+
+</html>

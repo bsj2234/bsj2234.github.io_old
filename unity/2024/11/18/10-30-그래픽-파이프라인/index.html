@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>Unity 렌더링 파이프라인 이해하기</title>
+  <meta name="description"
+    content="BlogBox is a bold theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net.
+">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic%7COpen+Sans:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="canonical" href="https://bsj2234.github.io/unity/2024/11/18/10-30-%EA%B7%B8%EB%9E%98%ED%94%BD-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8/">
+  <link rel="alternate" type="application/rss+xml" title="BlogBox Feed"
+    href="https://bsj2234.github.io/feed.xml">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body class="">
+  <div id="page" class="site">
+    <nav class="site-nav" aria-label="Main Menu">
+    <div class="inner">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false"><span class="icon-menu" aria-hidden="true"></span> Menu</button>
+        <div id="nav-menu" class="nav-menu">
+            <ul class="menu">
+            
+                
+                
+                <li class=""><a class="" href="/">홈</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/blog/">블로그</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/about/">소개</a></li>
+            
+            </ul>
+        </div><!-- .nav-menu -->
+        <a id="search-open" class="search-toggle"><i class="fa-search" aria-hidden="true"></i><span class="screen-reader-text">Search</span></a>
+    </div><!-- .inner -->
+</nav><!-- .site-nav -->
+<header class="site-header fade-in-down delay-0_5s">
+    <div class="inner">
+        
+        <h1 class="site-title"><a href="/" rel="home">BlogBox</a></h1>
+        
+        <p class="site-description">Tales of a digital nomad.</p>
+    </div><!-- .inner -->
+</header><!-- .site-header -->
+
+<!-- Add Mermaid support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default'
+    });
+  });
+</script>
+
+<section class="site-search" role="search">
+		<div class="search-scrollable">
+			<div class="search-box">
+				<div class="search-box-inside">
+					<h2 class="screen-reader-text">Search </h2>
+					<form class="search-form">
+						<label class="screen-reader-text">Search for:</label>
+						<input type="text" id="search-field" class="search-field" placeholder="Type your keywords&hellip;" />
+						<input type="submit" class="search-submit screen-reader-text" value="Search" />
+					</form>
+					<ul id="search-results" class="search-results"></ul>
+				</div><!-- .search-box-inside -->
+				<button id="search-close" class="search-toggle"><span class="close-icon" aria-hidden="true"></span><span class="screen-reader-text">Close</span></button>
+			</div><!-- .search-box -->
+		</div><!-- .search-scrollable -->
+</section><!-- .site-search -->
+
+
+    <main class="content fade-in-down delay-0_75s">
+    <div class="inner-wide blog-layout">
+        <aside class="category-sidebar">
+    <h2 class="sidebar-title">Categories</h2>
+    <ul class="category-list">
+        <li class="category-item active">
+            <a href="/blog/">
+                All Posts
+                <span class="count">(32)</span>
+            </a>
+        </li>
+        
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog">
+                    Blog
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog/jekyll">
+                    Blog/Jekyll
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/csharp">
+                    CSharp
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/codingtest">
+                    CodingTest
+                    <span class="count">(11)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/computerscience">
+                    ComputerScience
+                    <span class="count">(3)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/datastructure">
+                    DataStructure
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/graphics">
+                    Graphics
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/network">
+                    Network
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/unity">
+                    Unity
+                    <span class="count">(9)</span>
+                </a>
+            </li>
+        
+    </ul>
+</aside> 
+        <div class="blog-content">
+            <article class="post">
+                
+                <div class="entry-box">
+                    <header class="entry-header">
+                        <h1 class="entry-title">Unity 렌더링 파이프라인 이해하기</h1>
+                        <div class="entry-meta">
+                            <time class="post-date" datetime="2024-11-18">November 18, 2024</time> by 변석진
+                        </div>
+                    </header>
+                    <div class="entry-content">
+                        <h1 id="unity-렌더링-파이프라인">Unity 렌더링 파이프라인</h1>
+
+<h2 id="렌더-파이프라인-종류">렌더 파이프라인 종류</h2>
+
+<h3 id="1-built-in-render-pipeline">1. Built-in Render Pipeline</h3>
+<ul>
+  <li>Unity의 기본 렌더링 시스템</li>
+  <li>범용성이 높고 안정적</li>
+  <li>레거시 프로젝트 지원</li>
+</ul>
+
+<h3 id="2-universal-render-pipeline-urp">2. Universal Render Pipeline (URP)</h3>
+<ul>
+  <li>최적화된 성능</li>
+  <li>다양한 플랫폼 지원</li>
+  <li>모바일/콘솔에 적합</li>
+  <li>유니티 6000 에서 기본 파이프라인으로 선정</li>
+</ul>
+
+<h3 id="3-high-definition-render-pipeline-hdrp">3. High Definition Render Pipeline (HDRP)</h3>
+<ul>
+  <li>고품질 그래픽</li>
+  <li>고사양 하드웨어 대상</li>
+  <li>AAA급 그래픽 구현</li>
+</ul>
+
+<h2 id="렌더링-과정">렌더링 과정</h2>
+
+<h3 id="1-컬링-단계">1. 컬링 단계</h3>
+<ul>
+  <li>카메라 컬링</li>
+  <li>오클루전 컬링</li>
+  <li>프러스텀 컬링</li>
+</ul>
+
+<h3 id="2-렌더링-단계">2. 렌더링 단계</h3>
+<ol>
+  <li><strong>배칭 처리</strong>
+    <ul>
+      <li>스태틱 배칭</li>
+      <li>다이나믹 배칭</li>
+      <li>GPU 인스턴싱</li>
+    </ul>
+  </li>
+  <li><strong>셰이더 처리</strong>
+    <ul>
+      <li>버텍스 셰이더</li>
+      <li>픽셀 셰이더</li>
+      <li>컴퓨트 셰이더</li>
+    </ul>
+  </li>
+  <li><strong>포스트 프로세싱</strong>
+    <ul>
+      <li>블룸</li>
+      <li>톤 매핑</li>
+      <li>안티앨리어싱</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="srp-scriptable-render-pipeline">SRP (Scriptable Render Pipeline)</h2>
+
+<h3 id="커스텀-파이프라인-구성">커스텀 파이프라인 구성</h3>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">    <span class="k">public</span> <span class="k">class</span> <span class="nc">CustomRenderPipeline</span> <span class="p">:</span> <span class="n">RenderPipeline</span>
+    <span class="p">{</span>
+        <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Render</span><span class="p">(</span><span class="n">ScriptableRenderContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">Camera</span><span class="p">[]</span> <span class="n">cameras</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// 렌더링 로직</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="n">Camera</span> <span class="n">camera</span> <span class="k">in</span> <span class="n">cameras</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="c1">// 카메라별 렌더링</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h3 id="렌더-패스-설정">렌더 패스 설정</h3>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">    <span class="k">public</span> <span class="k">class</span> <span class="nc">CustomRenderPass</span> <span class="p">:</span> <span class="n">ScriptableRenderPass</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Execute</span><span class="p">(</span><span class="n">ScriptableRenderContext</span> <span class="n">context</span><span class="p">,</span> <span class="k">ref</span> <span class="n">RenderingData</span> <span class="n">renderingData</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// 패스 실행 로직</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h2 id="주요-렌더링-기능">주요 렌더링 기능</h2>
+
+<h3 id="1-라이팅-시스템">1. 라이팅 시스템</h3>
+<ul>
+  <li>포워드 렌더링</li>
+  <li>디퍼드 렌더링</li>
+  <li>라이트매핑</li>
+</ul>
+
+<h3 id="2-섀도우-시스템">2. 섀도우 시스템</h3>
+<ul>
+  <li>섀도우 매핑</li>
+  <li>캐스케이드 섀도우</li>
+  <li>소프트 섀도우</li>
+</ul>
+
+<h3 id="3-포스트-프로세싱-스택">3. 포스트 프로세싱 스택</h3>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">    <span class="p">[</span><span class="nf">RequireComponent</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">PostProcessVolume</span><span class="p">))]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">PostProcessController</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+    <span class="p">{</span>
+        <span class="k">private</span> <span class="n">PostProcessVolume</span> <span class="n">volume</span><span class="p">;</span>
+        
+        <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">volume</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">PostProcessVolume</span><span class="p">&gt;();</span>
+            <span class="c1">// 포스트 프로세스 설정</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h2 id="성능-최적화">성능 최적화</h2>
+
+<h3 id="1-드로우-콜-최적화">1. 드로우 콜 최적화</h3>
+<ul>
+  <li>배칭 활용</li>
+  <li>LOD 시스템 구현</li>
+  <li>오클루전 컬링 설정</li>
+</ul>
+
+<h3 id="2-메모리-관리">2. 메모리 관리</h3>
+<ul>
+  <li>텍스처 압축</li>
+  <li>메시 최적화</li>
+  <li>에셋 번들 사용</li>
+</ul>
+
+<h3 id="3-gpu-인스턴싱">3. GPU 인스턴싱</h3>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">    <span class="k">public</span> <span class="k">class</span> <span class="nc">GPUInstancing</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+    <span class="p">{</span>
+        <span class="k">private</span> <span class="n">MaterialPropertyBlock</span> <span class="n">propertyBlock</span><span class="p">;</span>
+        
+        <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">propertyBlock</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MaterialPropertyBlock</span><span class="p">();</span>
+            <span class="c1">// 인스턴싱 설정</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h2 id="디버깅-도구">디버깅 도구</h2>
+
+<h3 id="1-frame-debugger">1. Frame Debugger</h3>
+<ul>
+  <li>렌더링 단계 분석</li>
+  <li>드로우 콜 확인</li>
+  <li>셰이더 디버깅</li>
+</ul>
+
+<h3 id="2-profiler">2. Profiler</h3>
+<ul>
+  <li>GPU 사용량 모니터링</li>
+  <li>배칭 통계</li>
+  <li>메모리 사용량 추적</li>
+</ul>
+
+<h2 id="참고-자료">참고 자료</h2>
+<ul>
+  <li><a href="https://docs.unity3d.com/Manual/Graphics.html">Unity Manual - Rendering</a></li>
+  <li><a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest">URP Documentation</a></li>
+  <li><a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest">HDRP Documentation</a></li>
+</ul>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+    <aside class="footer-widgets">
+
+    
+
+    <div id="footer-columns" class="footer-columns">
+        <div class="inner">
+            <div class="grid">
+
+                
+                <div class="one-third">
+                    <section class="widget widget-text">
+                        <h2 class="widget-title">About 변석진</h2>
+                        <p>유니티 클라이언트 지망하는 변석진입니다.</p>
+                    </section><!-- .widget-text -->
+                </div><!-- .one-third -->
+                
+
+                <div class="one-third">
+                    <section class="widget widget-recent-posts">
+                        <h2 class="widget-title">Latest Posts</h2>
+                        <ul class="recent-posts">
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/">버그-평면에서의 튀어오름</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/">미분 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/">마크업 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                        </ul><!-- .recent-posts -->
+                    </section><!-- .widget-recent-posts -->
+                </div><!-- .one-third -->
+
+                <!-- Create a sorted array of tags -->
+                <div class="one-third">
+                    
+                    
+                    <section class="widget widget-tags">
+                        <h2 class="widget-title">Tags</h2>
+                        <div class="tagcloud">
+                            
+                            <a href="/tags/#Animation">Animation</a>
+                            
+                            <a href="/tags/#Animator">Animator</a>
+                            
+                            <a href="/tags/#Bug">Bug</a>
+                            
+                            <a href="/tags/#CodingTest">CodingTest</a>
+                            
+                            <a href="/tags/#Physics">Physics</a>
+                            
+                            <a href="/tags/#Programmers">Programmers</a>
+                            
+                            <a href="/tags/#SRP">SRP</a>
+                            
+                            <a href="/tags/#Unity">Unity</a>
+                            
+                            <a href="/tags/#algorithm">algorithm</a>
+                            
+                            <a href="/tags/#animator">animator</a>
+                            
+                        </div><!-- .tagcloud -->
+                    </section><!-- .widget -->
+                </div><!-- .one-third -->
+
+            </div><!-- .grid -->
+        </div><!-- .inner -->
+    </div><!-- .footer-columns -->
+
+</aside><!-- .footer-widgets -->
+
+    <footer class="site-footer">
+    <div class="inner">
+        <div class="social-links">
+            
+            
+            
+            
+            <a href="https://github.com/bsj2234"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">GitHub</span></a>
+            
+            
+            <a href="https://www.youtube.com/@siko102" ><i class="fa fa-youtube-play" aria-hidden="true"></i><span class="screen-reader-text">Youtube</span></a>
+            
+            
+            
+            
+            
+            
+        </div><!-- .social-links -->
+        <div class="copyright">
+            &copy; 2024 <a href="/">BlogBox</a> <br />BlogBox theme by <a target="_blank" href="https://justgoodthemes.com/">JustGoodThemes</a>
+        </div><!-- .copyright -->
+        <a href="#page" id="top-link" class="top-link"><i class="fa fa-chevron-up" aria-hidden="true"></i><span class="screen-reader-text">Back to the top</span></a>
+    </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+  </div><!-- .site -->
+
+  <script type="text/javascript" src="/js/plugins.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      Prism.highlightAll();
+    });
+  </script>
+
+</body>
+
+</html>

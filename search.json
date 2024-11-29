@@ -1,0 +1,259 @@
+[
+  
+    {
+      "title"    : "버그-평면에서의 튀어오름",
+      "category" : "",
+      "tags"     : "Unity, Bug, Physics",
+      "url"      : "/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/",
+      "date"     : "November 28, 2024"
+    } ,
+  
+    {
+      "title"    : "미분 정리",
+      "category" : "",
+      "tags"     : "markup",
+      "url"      : "/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/",
+      "date"     : "November 28, 2024"
+    } ,
+  
+    {
+      "title"    : "마크업 정리",
+      "category" : "",
+      "tags"     : "markup",
+      "url"      : "/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/",
+      "date"     : "November 28, 2024"
+    } ,
+  
+    {
+      "title"    : "병렬처리",
+      "category" : "",
+      "tags"     : "parallelprocessing",
+      "url"      : "/computerscience/2024/11/28/11-15-%EB%B3%91%EB%A0%AC%EC%B2%98%EB%A6%AC/",
+      "date"     : "November 28, 2024"
+    } ,
+  
+    {
+      "title"    : "속도 이펙트",
+      "category" : "",
+      "tags"     : "leveldesign, tool",
+      "url"      : "/unity/2024/11/27/15-25-%EC%86%8D%EB%8F%84-%EC%9D%B4%ED%8E%99%ED%8A%B8/",
+      "date"     : "November 27, 2024"
+    } ,
+  
+    {
+      "title"    : "시뮬레이션 기반 자동 레벨 생성 툴",
+      "category" : "",
+      "tags"     : "leveldesign, tool",
+      "url"      : "/unity/2024/11/27/08-47-%EB%A0%88%EB%B2%A8%EB%94%94%EC%9E%90%EC%9D%B8-%ED%88%B4-%EC%84%A4%EA%B3%84/",
+      "date"     : "November 27, 2024"
+    } ,
+  
+    {
+      "title"    : "Restful Stateless",
+      "category" : "",
+      "tags"     : "restful, stateless",
+      "url"      : "/network/2024/11/25/09-52-Restful-Stateless/",
+      "date"     : "November 25, 2024"
+    } ,
+  
+    {
+      "title"    : "유니티의 FakeNull",
+      "category" : "",
+      "tags"     : "unity, fakeNull",
+      "url"      : "/2024/11/20/11-30-FakeNull/",
+      "date"     : "November 20, 2024"
+    } ,
+  
+    {
+      "title"    : "3D 렌더링 파이프라인의 기본 이해",
+      "category" : "",
+      "tags"     : "graphics, rendering, pipeline",
+      "url"      : "/graphics/2024/11/18/11-05-3D-%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8/",
+      "date"     : "November 18, 2024"
+    } ,
+  
+    {
+      "title"    : "Unity 렌더링 파이프라인 이해하기",
+      "category" : "",
+      "tags"     : "unity, rendering, pipeline, SRP",
+      "url"      : "/unity/2024/11/18/10-30-%EA%B7%B8%EB%9E%98%ED%94%BD-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8/",
+      "date"     : "November 18, 2024"
+    } ,
+  
+    {
+      "title"    : "GroundProjectile 클래스 리팩토링 분석",
+      "category" : "",
+      "tags"     : "unity, csharp, game-development, projectile",
+      "url"      : "/unity/2024/11/16/21-00-%ED%95%A0%EB%A1%9C%EC%9A%B0%EB%82%98%EC%9D%B4%ED%8A%B8%EB%AA%A8%EC%9E%91-%EC%BD%94%EB%93%9C%EA%B0%9C%EC%84%A01-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%83%80%EC%9D%BC-copy/",
+      "date"     : "November 16, 2024"
+    } ,
+  
+    {
+      "title"    : "애니메이터를 활용한 보스 AI 구현",
+      "category" : "",
+      "tags"     : "unity, csharp, game-development, boss-ai, animator",
+      "url"      : "/unity/2024/11/16/21-00-%ED%95%A0%EB%A1%9C%EC%9A%B0%EB%82%98%EC%9D%B4%ED%8A%B8%EB%AA%A8%EC%9E%91-%EB%B3%B4%EC%8A%A4/",
+      "date"     : "November 16, 2024"
+    } ,
+  
+    {
+      "title"    : "완전 탐색 - 모음 사전",
+      "category" : "",
+      "tags"     : "programmers, brute-force, dfs, graph, csharp",
+      "url"      : "/codingtest/2024/11/15/12-00-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%897%EB%B2%88/",
+      "date"     : "November 15, 2024"
+    } ,
+  
+    {
+      "title"    : "완전 탐색 - 모음 사전",
+      "category" : "",
+      "tags"     : "programmers, brute-force, dfs, graph, csharp",
+      "url"      : "/codingtest/2024/11/15/12-00-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%897%EB%B2%88-copy/",
+      "date"     : "November 15, 2024"
+    } ,
+  
+    {
+      "title"    : "완전 탐색 - 전력망을 둘로 나누기",
+      "category" : "",
+      "tags"     : "programmers, brute-force, tree, graph, csharp",
+      "url"      : "/codingtest/2024/11/15/11-00-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%896%EB%B2%88/",
+      "date"     : "November 15, 2024"
+    } ,
+  
+    {
+      "title"    : "Jekyll에서 Mermaid 다이어그램 사용하기",
+      "category" : "",
+      "tags"     : "jekyll, mermaid, diagram, documentation",
+      "url"      : "/blog/jekyll/2024/11/15/10-48-Jekyll-Mermaid-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EB%B2%95/",
+      "date"     : "November 15, 2024"
+    } ,
+  
+    {
+      "title"    : "완전 탐색 - 피로도",
+      "category" : "",
+      "tags"     : "programmers, brute-force, dfs, bfs, csharp",
+      "url"      : "/codingtest/2024/11/15/10-00-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%895%EB%B2%88/",
+      "date"     : "November 15, 2024"
+    } ,
+  
+    {
+      "title"    : "완전 탐색 - 카펫",
+      "category" : "",
+      "tags"     : "programmers, brute-force, csharp",
+      "url"      : "/codingtest/2024/11/15/09-35-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%894%EB%B2%88/",
+      "date"     : "November 15, 2024"
+    } ,
+  
+    {
+      "title"    : "완전 탐색 - 소수 찾기 (두 가지 접근법)",
+      "category" : "",
+      "tags"     : "programmers, brute-force, prime-numbers, recursion, csharp",
+      "url"      : "/codingtest/2024/11/14/18-47-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%893%EB%B2%88/",
+      "date"     : "November 14, 2024"
+    } ,
+  
+    {
+      "title"    : "완전 탐색 - 모의고사 문제",
+      "category" : "",
+      "tags"     : "programmers, brute-force, csharp",
+      "url"      : "/codingtest/2024/11/14/18-21-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%892%EB%B2%88/",
+      "date"     : "November 14, 2024"
+    } ,
+  
+    {
+      "title"    : "해시테이블(Hash Table)",
+      "category" : "",
+      "tags"     : "hash-table, data-structure, algorithm",
+      "url"      : "/datastructure/2024/11/14/17-35-%ED%95%B4%EC%8B%9C%ED%85%8C%EC%9D%B4%EB%B8%94/",
+      "date"     : "November 14, 2024"
+    } ,
+  
+    {
+      "title"    : "C# 딕셔너리(Dictionary)",
+      "category" : "",
+      "tags"     : "csharp, dictionary, collections, data-structure",
+      "url"      : "/csharp/2024/11/14/17-35-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC/",
+      "date"     : "November 14, 2024"
+    } ,
+  
+    {
+      "title"    : "Unity 가비지 컬렉터 이해하기",
+      "category" : "",
+      "tags"     : "unity, optimization, garbage-collector, memory-management",
+      "url"      : "/unity/2024/11/14/17-17-%EA%B0%80%EB%B9%84%EC%A7%80-%EC%BB%AC%EB%A0%89%ED%84%B0/",
+      "date"     : "November 14, 2024"
+    } ,
+  
+    {
+      "title"    : "오브젝트 풀링",
+      "category" : "",
+      "tags"     : "unity, optimization, object_pooling, game_development",
+      "url"      : "/unity/2024/11/14/15-22-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81/",
+      "date"     : "November 14, 2024"
+    } ,
+  
+    {
+      "title"    : "캐시 히트",
+      "category" : "",
+      "tags"     : "computer_struct, hardware, cache, memory",
+      "url"      : "/computerscience/2024/11/13/15-09-%EC%BA%90%EC%8B%9C-%ED%9E%88%ED%8A%B8/",
+      "date"     : "November 13, 2024"
+    } ,
+  
+    {
+      "title"    : "람다 캡처와 클로저",
+      "category" : "",
+      "tags"     : "lambda, closure, delegate",
+      "url"      : "/csharp/2024/11/13/09-36-%EB%9E%8C%EB%8B%A4-%EC%BA%A1%EC%B3%90-%ED%81%B4%EB%A1%9C%EC%A0%80/",
+      "date"     : "November 13, 2024"
+    } ,
+  
+    {
+      "title"    : "완전 탐색 1번 명함 지갑",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/codingtest/2024/11/12/16-43-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%99%84%EC%A0%84%ED%83%90%EC%83%891%EB%B2%88/",
+      "date"     : "November 12, 2024"
+    } ,
+  
+    {
+      "title"    : "CPU 명령어 세트",
+      "category" : "",
+      "tags"     : "assembly",
+      "url"      : "/computerscience/2024/11/12/14-18-CPU-%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%84%B8%ED%8A%B8/",
+      "date"     : "November 12, 2024"
+    } ,
+  
+    {
+      "title"    : "유니티 애니메이터 상태 스크립트에서 확인하기",
+      "category" : "",
+      "tags"     : "Animator, Animation",
+      "url"      : "/unity/2024/11/12/13-15-%EC%9C%A0%EB%8B%88%ED%8B%B0-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%ED%84%B0-%EC%83%81%ED%83%9C-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%97%90%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/",
+      "date"     : "November 12, 2024"
+    } ,
+  
+    {
+      "title"    : "PCCP 동영상 재생기",
+      "category" : "",
+      "tags"     : "Programmers, CodingTest",
+      "url"      : "/codingtest/2024/10/31/10-52-PCCP-%EB%8F%99%EC%98%81%EC%83%81-%EC%9E%AC%EC%83%9D%EA%B8%B0/",
+      "date"     : "October 31, 2024"
+    } ,
+  
+    {
+      "title"    : "가장 많이 받은 선물",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/codingtest/2024/10/30/14-01-%EA%B0%80%EC%9E%A5-%EB%A7%8E%EC%9D%B4-%EB%B0%9B%EC%9D%80-%EC%84%A0%EB%AC%BC/",
+      "date"     : "October 30, 2024"
+    } ,
+  
+    {
+      "title"    : "PCCE 7번 버스",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/codingtest/2024/10/29/20-08-PCCE-7%EB%B2%88-%EB%B2%84%EC%8A%A4/",
+      "date"     : "October 29, 2024"
+    } 
+  
+]

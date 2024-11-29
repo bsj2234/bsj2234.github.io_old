@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>오브젝트 풀링</title>
+  <meta name="description"
+    content="BlogBox is a bold theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net.
+">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic%7COpen+Sans:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="canonical" href="https://bsj2234.github.io/unity/2024/11/14/15-22-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80%EB%A7%81/">
+  <link rel="alternate" type="application/rss+xml" title="BlogBox Feed"
+    href="https://bsj2234.github.io/feed.xml">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body class="">
+  <div id="page" class="site">
+    <nav class="site-nav" aria-label="Main Menu">
+    <div class="inner">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false"><span class="icon-menu" aria-hidden="true"></span> Menu</button>
+        <div id="nav-menu" class="nav-menu">
+            <ul class="menu">
+            
+                
+                
+                <li class=""><a class="" href="/">홈</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/blog/">블로그</a></li>
+            
+                
+                
+                <li class=""><a class="" href="/about/">소개</a></li>
+            
+            </ul>
+        </div><!-- .nav-menu -->
+        <a id="search-open" class="search-toggle"><i class="fa-search" aria-hidden="true"></i><span class="screen-reader-text">Search</span></a>
+    </div><!-- .inner -->
+</nav><!-- .site-nav -->
+<header class="site-header fade-in-down delay-0_5s">
+    <div class="inner">
+        
+        <h1 class="site-title"><a href="/" rel="home">BlogBox</a></h1>
+        
+        <p class="site-description">Tales of a digital nomad.</p>
+    </div><!-- .inner -->
+</header><!-- .site-header -->
+
+<!-- Add Mermaid support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default'
+    });
+  });
+</script>
+
+<section class="site-search" role="search">
+		<div class="search-scrollable">
+			<div class="search-box">
+				<div class="search-box-inside">
+					<h2 class="screen-reader-text">Search </h2>
+					<form class="search-form">
+						<label class="screen-reader-text">Search for:</label>
+						<input type="text" id="search-field" class="search-field" placeholder="Type your keywords&hellip;" />
+						<input type="submit" class="search-submit screen-reader-text" value="Search" />
+					</form>
+					<ul id="search-results" class="search-results"></ul>
+				</div><!-- .search-box-inside -->
+				<button id="search-close" class="search-toggle"><span class="close-icon" aria-hidden="true"></span><span class="screen-reader-text">Close</span></button>
+			</div><!-- .search-box -->
+		</div><!-- .search-scrollable -->
+</section><!-- .site-search -->
+
+
+    <main class="content fade-in-down delay-0_75s">
+    <div class="inner-wide blog-layout">
+        <aside class="category-sidebar">
+    <h2 class="sidebar-title">Categories</h2>
+    <ul class="category-list">
+        <li class="category-item active">
+            <a href="/blog/">
+                All Posts
+                <span class="count">(32)</span>
+            </a>
+        </li>
+        
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog">
+                    Blog
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/blog/jekyll">
+                    Blog/Jekyll
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/csharp">
+                    CSharp
+                    <span class="count">(2)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/codingtest">
+                    CodingTest
+                    <span class="count">(11)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/computerscience">
+                    ComputerScience
+                    <span class="count">(3)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/datastructure">
+                    DataStructure
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/graphics">
+                    Graphics
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/network">
+                    Network
+                    <span class="count">(1)</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="category-item ">
+                <a href="/blog/category/unity">
+                    Unity
+                    <span class="count">(9)</span>
+                </a>
+            </li>
+        
+    </ul>
+</aside> 
+        <div class="blog-content">
+            <article class="post">
+                
+                <div class="entry-box">
+                    <header class="entry-header">
+                        <h1 class="entry-title">오브젝트 풀링</h1>
+                        <div class="entry-meta">
+                            <time class="post-date" datetime="2024-11-14">November 14, 2024</time> by 변석진
+                        </div>
+                    </header>
+                    <div class="entry-content">
+                        <h1 id="오브젝트-풀링object-pooling">오브젝트 풀링(Object Pooling)</h1>
+
+<p>오브젝트 풀링은 게임 개발에서 자주 사용되는 최적화 기법으로, 객체의 생성과 파괴를 최소화하여 성능을 향상시키는 방법입니다.</p>
+
+<h2 id="오브젝트-풀링의-이해">오브젝트 풀링의 이해</h2>
+
+<h3 id="기본-개념">기본 개념</h3>
+
+<ul>
+  <li>미리 객체들을 생성하여 풀(Pool)에 보관</li>
+  <li>필요할 때 풀에서 객체를 가져와 사용</li>
+  <li>사용이 끝나면 파괴하지 않고 풀로 반환</li>
+  <li>가비지 컬렉션 부하 감소</li>
+</ul>
+
+<h3 id="장점과-단점">장점과 단점</h3>
+
+<h4 id="장점">장점</h4>
+
+<ul>
+  <li>실시간 객체 생성/파괴 비용 감소</li>
+  <li>메모리 단편화 방지</li>
+  <li>가비지 컬렉션 최소화</li>
+  <li>성능 안정성 향상</li>
+</ul>
+
+<h4 id="단점">단점</h4>
+
+<ul>
+  <li>초기 메모리 사용량 증가</li>
+  <li>풀 크기 관리 필요</li>
+  <li>구현 복잡도 증가</li>
+</ul>
+
+<h2 id="구현-방법">구현 방법</h2>
+
+<ol>
+  <li><strong>기본 구조</strong>
+    <ul>
+      <li>풀 매니저 클래스 생성</li>
+      <li>객체 리스트/스택 관리</li>
+      <li>활성화/비활성화 메서드 구현</li>
+    </ul>
+  </li>
+  <li><strong>주요 기능</strong>
+    <ul>
+      <li>풀 초기화</li>
+      <li>객체 대여(Spawn)</li>
+      <li>객체 반환(Despawn)</li>
+      <li>풀 크기 동적 조절</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="실제-예시-코드">실제 예시 코드</h2>
+
+<h3 id="풀링-매니저-코드">풀링 매니저 코드</h3>
+
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="p">[</span><span class="n">System</span><span class="p">.</span><span class="n">Serializable</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ObjectPool</span>
+<span class="p">{</span>
+    <span class="c1">// 풀링할 프리팹</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="n">GameObject</span> <span class="n">_prefab</span><span class="p">;</span>
+    <span class="c1">// 풀의 최대 크기</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="n">int_poolSize</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+    <span class="c1">// 비활성화된 오브젝트들을 보관할 스택</span>
+    <span class="k">private</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="n">GameObject</span><span class="p">&gt;</span> <span class="n">_pool</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="n">GameObject</span><span class="p">&gt;();</span>
+    <span class="c1">// 풀링된 오브젝트들의 부모 오브젝트</span>
+    <span class="k">private</span> <span class="n">GameObject_poolParent</span><span class="p">;</span>
+    <span class="c1">// 풀 크기를 초과해서 생성된 오브젝트들의 부모 오브젝트</span>
+    <span class="k">private</span> <span class="n">GameObject</span> <span class="n">_instantiateParent</span><span class="p">;</span>
+
+    <span class="c1">// 현재 풀에 있는 비활성화된 오브젝트 수</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">Count</span> <span class="p">=&gt;</span> <span class="n">_pool</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
+
+    <span class="c1">// 풀 초기화</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Init</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// 가시성을 위해 부모 오브젝트들 생성</span>
+        <span class="n">_poolParent</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GameObject</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">_prefab</span><span class="p">.</span><span class="n">name</span><span class="p">}</span><span class="s">Pool"</span><span class="p">);</span>
+        <span class="n">_instantiateParent</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GameObject</span><span class="p">(</span><span class="s">"IntantiateParent"</span><span class="p">);</span>
+        
+        <span class="c1">// 풀 비우기</span>
+        <span class="n">_pool</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span>
+        
+        <span class="c1">// 초기 풀 크기만큼 오브젝트 생성</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">_poolSize</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+        <span class="p">{</span>
+            <span class="n">GameObject</span> <span class="n">obj</span> <span class="p">=</span> <span class="n">Object</span><span class="p">.</span><span class="nf">Instantiate</span><span class="p">(</span><span class="n">_prefab</span><span class="p">);</span>
+            <span class="n">obj</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="nf">SetParent</span><span class="p">(</span><span class="n">_poolParent</span><span class="p">.</span><span class="n">transform</span><span class="p">);</span>
+            <span class="c1">// 풀링 컴포넌트 추가 및 초기화</span>
+            <span class="kt">var</span> <span class="n">pooledObjectComponent</span> <span class="p">=</span> <span class="n">obj</span><span class="p">.</span><span class="n">AddComponent</span><span class="p">&lt;</span><span class="n">PooledObjectComponent</span><span class="p">&gt;();</span>
+            <span class="n">pooledObjectComponent</span><span class="p">.</span><span class="nf">Init</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+            <span class="n">obj</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Bullet</span><span class="p">&gt;().</span><span class="nf">Init</span><span class="p">(</span><span class="n">pooledObjectComponent</span><span class="p">);</span>
+            <span class="n">obj</span><span class="p">.</span><span class="nf">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+            <span class="n">_pool</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 오브젝트 가져오기</span>
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="nf">GetObject</span><span class="p">(</span><span class="n">GameObject</span> <span class="n">prefab</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">position</span><span class="p">,</span> <span class="n">Quaternion</span> <span class="n">rotation</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// 풀에 사용 가능한 오브젝트가 있으면 재사용</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">_pool</span><span class="p">.</span><span class="n">Count</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">GameObject</span> <span class="n">obj</span> <span class="p">=</span> <span class="n">_pool</span><span class="p">.</span><span class="nf">Pop</span><span class="p">();</span>
+            <span class="n">obj</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">position</span><span class="p">;</span>
+            <span class="n">obj</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span> <span class="p">=</span> <span class="n">rotation</span><span class="p">;</span>
+            <span class="n">obj</span><span class="p">.</span><span class="nf">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">obj</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="c1">// 풀이 비어있으면 새로 생성</span>
+        <span class="n">GameObject</span> <span class="n">cur</span> <span class="p">=</span> <span class="n">Object</span><span class="p">.</span><span class="nf">Instantiate</span><span class="p">(</span><span class="n">prefab</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">rotation</span><span class="p">);</span>
+        <span class="n">cur</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="nf">SetParent</span><span class="p">(</span><span class="n">_instantiateParent</span><span class="p">.</span><span class="n">transform</span><span class="p">);</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">$"Pool is Empty Instantiate </span><span class="p">{</span><span class="n">cur</span><span class="p">.</span><span class="n">name</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">cur</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 오브젝트 반환</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">ReturnObject</span><span class="p">(</span><span class="n">GameObject</span> <span class="n">obj</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// 풀이 최대 크기에 도달하지 않았으면 재사용을 위해 보관</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">_pool</span><span class="p">.</span><span class="n">Count</span> <span class="p">&lt;</span> <span class="n">_poolSize</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">_pool</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+            <span class="n">obj</span><span class="p">.</span><span class="nf">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="c1">// 풀이 가득 찼으면 파괴</span>
+            <span class="n">Object</span><span class="p">.</span><span class="nf">Destroy</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h3 id="오브젝트-풀링-테스트-코드">오브젝트 풀링 테스트 코드</h3>
+
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">TMPro</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ObjectPoolingTest</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="c1">// UI 텍스트 - 현재 풀링 사용 여부 표시</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="n">TMP_Text_isPoolingText</span><span class="p">;</span>
+    <span class="c1">// 생성할 총알 프리팹</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="n">GameObject</span> <span class="n">_bulletPrefab</span><span class="p">;</span>
+    <span class="c1">// 총알이 발사될 위치와 방향</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="n">Transform_firePoint</span><span class="p">;</span>
+    <span class="c1">// 오브젝트 풀 인스턴스</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="n">ObjectPool</span> <span class="n">_pool</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ObjectPool</span><span class="p">();</span>
+    <span class="c1">// 매 프레임마다 스폰되는 총알 수</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="n">int_spawnCount</span> <span class="p">=</span> <span class="m">50</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="kt">bool</span> <span class="n">_isPooling</span><span class="p">;</span>
+    <span class="c1">// 일반 생성된 오브젝트들의 부모 오브젝트</span>
+    <span class="k">private</span> <span class="n">GameObject</span> <span class="n">_instantiateParent</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// 풀 초기화</span>
+        <span class="n">_pool</span><span class="p">.</span><span class="nf">Init</span><span class="p">();</span>
+        <span class="c1">// 일반 생성된 오브젝트들을 관리할 부모 오브젝트 생성</span>
+        <span class="n">_instantiateParent</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GameObject</span><span class="p">(</span><span class="s">"IntantiateParent"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">Update</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// 1키로 풀링 모드 토글</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="nf">GetKeyUp</span><span class="p">(</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">Alpha1</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">_isPooling</span> <span class="p">=</span> <span class="p">!</span><span class="n">_isPooling</span><span class="p">;</span>
+            <span class="n">_isPoolingText</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">_isPooling</span> <span class="p">?</span> <span class="s">"Pooling"</span> <span class="p">:</span> <span class="s">"NotPooling"</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 매 프레임마다 스폰되는 총알 수만큼 오브젝트 생성</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">_spawnCount</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+        <span class="p">{</span>
+            <span class="nf">SpawnObject</span><span class="p">(</span><span class="n">_bulletPrefab</span><span class="p">,</span> <span class="n">_firePoint</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">_firePoint</span><span class="p">.</span><span class="n">rotation</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 오브젝트 생성 메서드 - 풀링 여부에 따라 다르게 처리</span>
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="nf">SpawnObject</span><span class="p">(</span><span class="n">GameObject</span> <span class="n">prefab</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">position</span><span class="p">,</span> <span class="n">Quaternion</span> <span class="n">rotation</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">_isPooling</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">_pool</span><span class="p">.</span><span class="nf">GetObject</span><span class="p">(</span><span class="n">prefab</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">rotation</span><span class="p">);</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">GameObject</span> <span class="n">cur</span> <span class="p">=</span> <span class="n">Object</span><span class="p">.</span><span class="nf">Instantiate</span><span class="p">(</span><span class="n">prefab</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">rotation</span><span class="p">);</span>
+            <span class="n">cur</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="nf">SetParent</span><span class="p">(</span><span class="n">_instantiateParent</span><span class="p">.</span><span class="n">transform</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">cur</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+<h2 id="총알-코드">총알 코드</h2>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Bullet</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="c1">//총알 스폰후 삭제까지의 시간</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="kt">float</span> <span class="n">lifeTime</span> <span class="p">=</span> <span class="m">3f</span><span class="p">;</span>
+    <span class="c1">//총알 풀링 컴포넌트 풀링중인지 그냥 Intantiated인지 구분을 위함</span>
+    <span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span> <span class="k">private</span> <span class="n">PooledObjectComponent</span> <span class="n">_pooledObject</span><span class="p">;</span>
+    <span class="c1">//총알 리지드바디</span>
+    <span class="k">private</span> <span class="n">Rigidbody_rigidbody</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//총알 리지드바디 초기화</span>
+        <span class="n">_rigidbody</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody</span><span class="p">&gt;();</span>
+    <span class="p">}</span>
+    <span class="c1">//총알 풀링 컴포넌트 초기화</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Init</span><span class="p">(</span><span class="n">PooledObjectComponent</span> <span class="n">pooledObject</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_pooledObject</span> <span class="p">=</span> <span class="n">pooledObject</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">_pooledObject</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Debug</span><span class="p">.</span><span class="nf">LogError</span><span class="p">(</span><span class="s">"PooledObjectComponent is not found"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">// 활성화될 때마다 타이머 재시작</span>
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnEnable</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">_rigidbody</span><span class="p">.</span><span class="n">linearVelocity</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">forward</span> <span class="p">*</span> <span class="m">10f</span><span class="p">;</span>
+        <span class="nf">StartCoroutine</span><span class="p">(</span><span class="nf">DestroyAfterDelay</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="c1">// 총알 삭제 타이머</span>
+    <span class="k">private</span> <span class="n">IEnumerator</span> <span class="nf">DestroyAfterDelay</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">yield</span> <span class="k">return</span> <span class="k">new</span> <span class="nf">WaitForSeconds</span><span class="p">(</span><span class="n">lifeTime</span><span class="p">);</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">_pooledObject</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">_pooledObject</span><span class="p">.</span><span class="nf">ReturnToPool</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="nf">Destroy</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">// 비활성화될 때 코루틴 정지</span>
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnDisable</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nf">StopAllCoroutines</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+<h2 id="풀링-컴포넌트-코드">풀링 컴포넌트 코드</h2>
+<div class="code-block-container">
+    <button class="code-toggle">Expand</button>
+    
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">PooledObjectComponent</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="c1">// 나를 소유한 풀</span>
+    <span class="k">private</span> <span class="n">ObjectPool</span> <span class="n">_pool</span><span class="p">;</span>
+
+    <span class="c1">// 나를 소유한 풀 초기화</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Init</span><span class="p">(</span><span class="n">ObjectPool</span> <span class="n">pool</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_pool</span> <span class="p">=</span> <span class="n">pool</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 나를 풀에 반환</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">ReturnToPool</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">_pool</span><span class="p">.</span><span class="nf">ReturnObject</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span>
+        <span class="n">gameObject</span><span class="p">.</span><span class="nf">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+    </code></pre></figure>
+
+</div>
+
+<h3 id="사용-예시">사용 예시</h3>
+
+<ol>
+  <li><strong>총알 시스템</strong>:
+    <ul>
+      <li>다수의 총알 객체를 미리 생성</li>
+      <li>발사 시 풀에서 가져옴</li>
+      <li>화면 밖으로 나가면 풀로 반환</li>
+    </ul>
+  </li>
+  <li><strong>파티클 효과</strong>:
+    <ul>
+      <li>폭발, 히트 이펙트 등을 풀링</li>
+      <li>효과 재생 후 자동 반환</li>
+    </ul>
+  </li>
+  <li><strong>적 캐릭터</strong>:
+    <ul>
+      <li>웨이브 형태의 적 생성에 활용</li>
+      <li>처치된 적을 풀로 반환</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="최적화-팁">최적화 팁</h2>
+
+<ol>
+  <li><strong>적절한 풀 크기 설정</strong>
+    <ul>
+      <li>최대 동시 출현 개수 고려</li>
+      <li>여유분 추가 확보</li>
+      <li>메모리 사용량 모니터링</li>
+    </ul>
+  </li>
+  <li><strong>동적 풀 크기 조절</strong>
+    <ul>
+      <li>필요에 따라 풀 확장</li>
+      <li>사용량 분석 후 크기 최적화</li>
+      <li>최대 크기 제한 설정</li>
+    </ul>
+  </li>
+  <li><strong>컴포넌트 재사용</strong>
+    <ul>
+      <li>위치, 회전 초기화</li>
+      <li>상태 리셋 함수 구현</li>
+      <li>컴포넌트 참조 캐싱</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="배운점">배운점</h2>
+
+<p>-큐와 스택중 아무것이나 사용해도 돼지만 큐는 앞의 인덱스가 밀려 배열로 구현된 경우 빈 공간이 생길 수 있어 추가 연산이 약간 필요하다.
+   -유니티의 가비지 컬렉터 기능 중 점진적 가비지 컬렉터 기능을 사용하면 프레임 간의 딜레이를 최소화 하며 가비지 컬렉팅이 가능하다.</p>
+
+<h2 id="이상했던-점">이상했던 점</h2>
+
+<ul>
+  <li>알 수 없는 이유로 오브젝트 풀링을 이용해도 차이를 알아차리기 어려웠다 가비지컬렉팅을 하는 시간도 프로파일러에 기록되지 않았다 실제 프로젝트에서 어떻게 작동하는 지 추가 테스트가 필요할 것 같다.</li>
+  <li>점진적 가비적 컬렉터를 꺼도 별 차이가 보이지 않았다 뭐지? 버전은 유니티 6000.0.26f1</li>
+  <li>확인해보니 차이가 있긴 했었다. 다시한번 확인 필요</li>
+  <li>점진적 GC 옵션은 프로젝트 세팅- 플레이어 - OtherSettings-Configuration-Use incremental GC 체크박스로 켜고 끌 수 있고 재시작이 필요했다</li>
+  <li>확인해보니 프로파일러엥서 메모리를 프로파일링하며 메모리를 잡아먹었고 이 메모리가 가득 차면 가비지 컬렉팅이 되는 것 같다. 하지만 확인이 필요</li>
+  <li>불렛의 수명을 매우 길게 하고 메모리가 어떻게 관리되는지 확인할 필요가 있어 보인다</li>
+</ul>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+    <aside class="footer-widgets">
+
+    
+
+    <div id="footer-columns" class="footer-columns">
+        <div class="inner">
+            <div class="grid">
+
+                
+                <div class="one-third">
+                    <section class="widget widget-text">
+                        <h2 class="widget-title">About 변석진</h2>
+                        <p>유니티 클라이언트 지망하는 변석진입니다.</p>
+                    </section><!-- .widget-text -->
+                </div><!-- .one-third -->
+                
+
+                <div class="one-third">
+                    <section class="widget widget-recent-posts">
+                        <h2 class="widget-title">Latest Posts</h2>
+                        <ul class="recent-posts">
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/unity/2024/11/28/23-22-%ED%8F%89%EB%A9%B4%EC%97%90%EC%84%9C%EC%9D%98_%ED%8A%80%EC%96%B4%EC%98%A4%EB%A6%84/">버그-평면에서의 튀어오름</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/17-20-%EB%AF%B8%EC%A0%81%EB%B6%84_%EA%B8%B0%EC%B4%88/">미분 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                            <li>
+                                
+                                <div class="post-title"><a href="/blog/2024/11/28/16-57-%EB%A7%88%ED%81%AC%EC%97%85_%EC%A0%95%EB%A6%AC/">마크업 정리</a></div>
+                                <div class="post-date">November 28, 2024</div>
+                            </li>
+                        
+                        </ul><!-- .recent-posts -->
+                    </section><!-- .widget-recent-posts -->
+                </div><!-- .one-third -->
+
+                <!-- Create a sorted array of tags -->
+                <div class="one-third">
+                    
+                    
+                    <section class="widget widget-tags">
+                        <h2 class="widget-title">Tags</h2>
+                        <div class="tagcloud">
+                            
+                            <a href="/tags/#Animation">Animation</a>
+                            
+                            <a href="/tags/#Animator">Animator</a>
+                            
+                            <a href="/tags/#Bug">Bug</a>
+                            
+                            <a href="/tags/#CodingTest">CodingTest</a>
+                            
+                            <a href="/tags/#Physics">Physics</a>
+                            
+                            <a href="/tags/#Programmers">Programmers</a>
+                            
+                            <a href="/tags/#SRP">SRP</a>
+                            
+                            <a href="/tags/#Unity">Unity</a>
+                            
+                            <a href="/tags/#algorithm">algorithm</a>
+                            
+                            <a href="/tags/#animator">animator</a>
+                            
+                        </div><!-- .tagcloud -->
+                    </section><!-- .widget -->
+                </div><!-- .one-third -->
+
+            </div><!-- .grid -->
+        </div><!-- .inner -->
+    </div><!-- .footer-columns -->
+
+</aside><!-- .footer-widgets -->
+
+    <footer class="site-footer">
+    <div class="inner">
+        <div class="social-links">
+            
+            
+            
+            
+            <a href="https://github.com/bsj2234"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">GitHub</span></a>
+            
+            
+            <a href="https://www.youtube.com/@siko102" ><i class="fa fa-youtube-play" aria-hidden="true"></i><span class="screen-reader-text">Youtube</span></a>
+            
+            
+            
+            
+            
+            
+        </div><!-- .social-links -->
+        <div class="copyright">
+            &copy; 2024 <a href="/">BlogBox</a> <br />BlogBox theme by <a target="_blank" href="https://justgoodthemes.com/">JustGoodThemes</a>
+        </div><!-- .copyright -->
+        <a href="#page" id="top-link" class="top-link"><i class="fa fa-chevron-up" aria-hidden="true"></i><span class="screen-reader-text">Back to the top</span></a>
+    </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+  </div><!-- .site -->
+
+  <script type="text/javascript" src="/js/plugins.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      Prism.highlightAll();
+    });
+  </script>
+
+</body>
+
+</html>
